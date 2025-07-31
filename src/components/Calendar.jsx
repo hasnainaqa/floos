@@ -25,22 +25,21 @@ function Calendarr() {
       <div className="flex gap-4 items-start">
         {/* Calendar */}
         <div className="w-[85%]">
-        <Calendar
-  onChange={setDate}
-  value={date}
-  showNeighboringMonth={false}
-  next2Label={null}
-  prev2Label={null}
-  tileClassName={({ date: d, view }) => {
-    if (view !== "month") return "";
-    if (d.toDateString() === date.toDateString()) {
-      return "bg-[#54F439] text-white rounded-full font-semibold";
-    } else {
-      return "bg-[#54F439] text-black rounded-full";
-    }
-  }}
-  
-  className="
+          <Calendar
+            onChange={setDate}
+            value={date}
+            showNeighboringMonth={false}
+            next2Label={null}
+            prev2Label={null}
+            tileClassName={({ date: d, view }) => {
+              if (view !== "month") return "";
+              if (d.toDateString() === date.toDateString()) {
+                return "bg-[#54F439] text-white rounded-full font-semibold";
+              } else {
+                return "bg-[#54F439] text-black rounded-full";
+              }
+            }}
+            className="
     !border-none !shadow-none !outline-none text-center w-full
     [&_button]:text-sm
     [&_.react-calendar__navigation]:hidden 
@@ -50,12 +49,12 @@ function Calendarr() {
     [&_.react-calendar__tile]:p-2
     [&_.react-calendar__tile]:hover:bg-green-100
   "
-/>
+          />
         </div>
 
         {/* Vertical Month Sidebar */}
         <div className="w-[15%] flex flex-col items-start overflow-y-auto max-h-72 scrollbar-hide w-auto">
-        <style>{`
+          <style>{`
             div::-webkit-scrollbar {
               display: none;
             }
@@ -73,7 +72,8 @@ function Calendarr() {
                 i === date.getMonth()
                   ? "text-[#000000] font-semibold text-base"
                   : "text-[#5A5A5A]"
-              }`}>
+              }`}
+            >
               {m}
             </button>
           ))}
@@ -84,6 +84,3 @@ function Calendarr() {
 }
 
 export default Calendarr;
-
-
-
