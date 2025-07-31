@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import Employees from "./pages/Employees";
+import Payroll from "./pages/Payroll";
+import Transactions from "./pages/Transactions";
+import AddToTransaction from "./pages/AddToTransaction";
+import CreateTransaction from "./pages/CreateTransaction";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div
+        className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
+        style={{ borderColor: "#EAECF0" }}
+      >
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="/payroll" element={<Payroll />} />
+          <Route path="/addtransaction" element={<AddToTransaction />} />
+          <Route path="/createtransaction" element={<CreateTransaction />} />
+          <Route path="/transactions" element={<Transactions />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
