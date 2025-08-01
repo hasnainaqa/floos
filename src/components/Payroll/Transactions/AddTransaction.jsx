@@ -183,7 +183,6 @@ function AddTransaction() {
             </Link>
           </div>
         </div>
-
         <div className="w-full overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead>
@@ -191,22 +190,26 @@ function AddTransaction() {
                 <th className="p-6 pt-0 capitalize font-normal space-x-2 whitespace-nowrap inline-flex items-center">
                   <input
                     type="checkbox"
-                    className="w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] checked:bg-[#54F439]"
+                    className="
+    w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] 
+    checked:bg-[#54F439]
+    relative
+    checked:after:content-['✔']
+    checked:after:absolute
+    checked:after:text-white
+    checked:after:top-[0px]
+    checked:after:left-[4px]
+    checked:after:text-[14px]
+    checked:after:font-bold"
                     checked={selectAll}
                     onChange={handleSelectAll}
                   />
 
                   <span className="">Name</span>
                 </th>
-                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                  Designation
-                </th>
-                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                  Phone Number
-                </th>
-                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                  Email
-                </th>
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap"> Designation</th>
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Phone Number</th>
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Email</th>
               </tr>
             </thead>
 
@@ -220,7 +223,18 @@ function AddTransaction() {
                   <td className="flex items-center space-x-3 py-3 px-6 ">
                     <input
                       type="checkbox"
-                      className="w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] checked:bg-[#54F439]"
+                      className="
+                      w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] 
+                      checked:bg-[#54F439]
+                      relative
+                      checked:after:content-['✔']
+                      checked:after:absolute
+                      checked:after:text-black
+                      checked:after:top-[0px]
+                      checked:after:left-[4px]
+                      checked:after:text-[14px]
+                      checked:after:font-bold
+                    "
                       checked={selectedEmployees.some(
                         (e) => e.id === employee.id,
                       )}

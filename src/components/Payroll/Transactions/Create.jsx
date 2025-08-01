@@ -47,7 +47,10 @@ function Create() {
 
     setPopupData({ ...data, users: updatedUsers });
   };
-
+  const onError = (errors) => {
+    // Show a custom alert if any required fields are missing
+    alert("Please Enter Template Name and Amount before submitting!");
+  };
   useEffect(() => {
     if (currentPayType === "bulk" && allUsers.length > 1) {
       const { amount, description } = allUsers[0];
@@ -63,7 +66,7 @@ function Create() {
   return (
     <div className="flex flex-col lg:flex-row w-full gap-4">
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onError)}
         className="flex flex-col lg:flex-row w-full gap-4"
       >
         <div className="bg-white p-6 rounded-xl w-full">
@@ -143,7 +146,7 @@ function Create() {
             </div>
           ))}
 
-          <div className="flex justify-end mt-6">
+          <div className="flex justify-end mt-6 gap-2">
             <button
               type="button"
               onClick={() =>
@@ -155,9 +158,12 @@ function Create() {
                   description: "",
                 })
               }
-              className="flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-200 hover:bg-gray-300"
+              className="flex items-center px-4 py-2  text-xs font-medium"
             >
-              <Plus className="mr-1" size={16} /> Add User
+              <div className="mr-1 bg-[#54F439] hover:bg-[#89fb75] rounded-full h-5 w-5 flex items-center justify-center">
+                <Plus className="text-white h-4 w-4" size={16} />
+              </div>
+              Add User
             </button>
           </div>
         </div>
