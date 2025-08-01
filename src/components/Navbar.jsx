@@ -29,6 +29,7 @@ export default function Navbar() {
               key={item.path}
               to={item.path}
               className={`px-4 py-2 text-base rounded-full transition-all w-[85] h-[24] ${
+                (item.path === "/payroll" && current.startsWith("/payroll")) ||
                 current === item.path
                   ? "bg-[#020500] text-white"
                   : "text-black hover:bg-gray-100"
@@ -56,6 +57,7 @@ export default function Navbar() {
               to={item.path}
               onClick={() => setIsOpen(false)}
               className={`block px-4 py-2 text-sm rounded-md ${
+                (item.path === "/payroll" && current.startsWith("/payroll")) ||
                 current === item.path
                   ? "bg-black text-white"
                   : "text-black hover:bg-gray-100"

@@ -53,7 +53,7 @@ function Calendarr() {
         </div>
 
         {/* Vertical Month Sidebar */}
-        <div className="w-[15%] flex flex-col items-start overflow-y-auto max-h-72 scrollbar-hide w-auto">
+        <div className="flex flex-col items-start overflow-y-auto max-h-72 scrollbar-hide w-auto">
           <style>{`
             div::-webkit-scrollbar {
               display: none;

@@ -20,8 +20,14 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/payroll" element={<Payroll />} />
-          <Route path="/addtransaction" element={<AddToTransaction />} />
-          <Route path="/createtransaction" element={<CreateTransaction />} />
+          <Route
+            path="/payroll/addtransaction"
+            element={<AddToTransaction />}
+          />
+          <Route
+            path="/payroll/createtransaction"
+            element={<CreateTransaction />}
+          />
           <Route path="/transactions" element={<Transactions />} />
         </Routes>
       </div>

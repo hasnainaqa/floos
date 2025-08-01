@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PayrollCard from "./PayrollCard";
 import { Link } from "react-router-dom";
 
 function PayrollList() {
-  const [cardPayment, setCardPayment] = useState(null);
-
   const payments = [
-    {
-      templateName: "Salaries",
-      scheduledDate: "Mar 20, 2019 23:14",
-      usersAdded: 100,
-      type: "Batch Payment",
-      totalAmount: "$328.85",
-    },
     {
       templateName: "Bonus",
       scheduledDate: "Dec 7, 2019 23:26",
@@ -83,21 +74,29 @@ function PayrollList() {
       type: "Batch Payment",
       totalAmount: "$475.22",
     },
+    {
+      templateName: "Salaries",
+      scheduledDate: "Dec 4, 2019 21:42",
+      usersAdded: 91,
+      type: "Batch Payment",
+      totalAmount: "$475.22",
+    },
   ];
+  const [cardPayment, setCardPayment] = useState(payments[0]);
 
   function onClick(payment) {
     setCardPayment(payment);
   }
 
-  useEffect(() => {
-    setCardPayment(payments[0]);
-  }, []);
+  // useEffect(() => {
+  //   setCardPayment(payments[0]);
+  // }, []);
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
       <div className="w-full lg:w-[75%] bg-white rounded-3xl font-inter">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
           <h3 className="font-semibold text-lg">Payroll Template</h3>
-          <Link to="/addtransaction">
+          <Link to="/payroll/addtransaction">
             <button className="bg-[#54F439] text-black px-4 py-2 rounded-full hover:bg-[#52ff34] text-sm sm:text-base">
               Create Transaction
             </button>
@@ -133,7 +132,9 @@ function PayrollList() {
                 <tr
                   key={i}
                   onClick={() => onClick(payment)}
-                  className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full"
+                  className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
+                    i !== payments.length - 1 ? "border-b border-[#D9D9D9]" : ""
+                  }`}
                 >
                   <td className="flex items-center space-x-3 py-3 px-6 ">
                     {payment.templateName}{" "}
@@ -158,7 +159,7 @@ function PayrollList() {
       </div>
 
       <div className="w-full lg:w-[25%]">
-        {cardPayment && <PayrollCard payment={cardPayment} />}
+        <PayrollCard payment={cardPayment} />
       </div>
     </div>
   );

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import EmployeeCard from "./EmployeeCard";
 
 function EmployeesList() {
-  const [cardEmployee, setCardEmployee] = useState(null);
-
   const employees = [
     {
       name: "Ralph Edwards",
@@ -116,14 +114,15 @@ function EmployeesList() {
       TransactionID: "thuhang.nute@gmail.com",
     },
   ];
+  const [cardEmployee, setCardEmployee] = useState(employees[0]);
 
   function onClick(employee) {
     setCardEmployee(employee);
   }
 
-  useEffect(() => {
-    setCardEmployee(employees[0]);
-  }, []);
+  // useEffect(() => {
+  //   setCardEmployee(employees[0]);
+  // }, []);
 
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
@@ -167,7 +166,11 @@ function EmployeesList() {
                 <tr
                   key={i}
                   onClick={() => onClick(employee)}
-                  className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full"
+                  className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
+                    i !== employees.length - 1
+                      ? "border-b border-[#D9D9D9]"
+                      : ""
+                  }`}
                 >
                   <td className="flex items-center space-x-3 py-3 px-6 ">
                     <img

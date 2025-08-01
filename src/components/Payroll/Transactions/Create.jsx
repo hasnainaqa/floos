@@ -1,141 +1,220 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useForm, useFieldArray } from "react-hook-form";
+import { Plus, Minus } from "lucide-react";
 import Calendarr from "../../Calendar";
 import Clock from "../../Clock";
-import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
 
 function Create() {
-  const [users, setUsers] = useState([
-    {
-      id: 2,
-      name: "Arlene McCoy",
-      amount: "",
-      description: "",
-      img: "https://randomuser.me/api/portraits/women/44.jpg",
-    },
-    {
-      id: 1,
-      name: "Arlene McCoy",
-      amount: "",
-      description: "",
-      img: "https://randomuser.me/api/portraits/women/47.jpg",
-    },
-    {
-      id: 3,
-      name: "Arlene McCoy",
-      amount: "",
-      description: "",
-      img: "https://randomuser.me/api/portraits/women/46.jpg",
-    },
-    {
-      id: 4,
-      name: "Arlene McCoy",
-      amount: "",
-      description: "",
-      img: "https://randomuser.me/api/portraits/women/45.jpg",
-    },
-  ]);
-  const [templateName, setTemplateName] = useState("");
-  const [payType, setPayType] = useState("bulk");
+  const location = useLocation();
+  const selectedEmployees = location.state?.selectedEmployees || [];
+  const [popupData, setPopupData] = useState(null);
 
+  const {
+    register,
+    control,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      templateName: "",
+      payType: "bulk",
+      users: selectedEmployees.map((u) => ({
+        id: u.id,
+        name: u.name,
+        img: u.img,
+        amount: "",
+        description: "",
+      })),
+    },
+  });
 
-  const handleRemoveUser = (id) => {
-    setUsers(users.filter((u) => u.id !== id));
+  const { fields, remove, append } = useFieldArray({ control, name: "users" });
+  const allUsers = watch("users");
+  const currentPayType = watch("payType");
+
+  const onSubmit = (data) => {
+    const updatedUsers =
+      data.payType === "bulk"
+        ? data.users.map((user) => ({
+            ...user,
+            amount: data.users[0].amount,
+            description: data.users[0].description,
+          }))
+        : data.users;
+
+    setPopupData({ ...data, users: updatedUsers });
   };
 
+  useEffect(() => {
+    if (currentPayType === "bulk" && allUsers.length > 1) {
+      const { amount, description } = allUsers[0];
+      allUsers.forEach((_, index) => {
+        if (index !== 0) {
+          setValue(`users.${index}.amount`, amount);
+          setValue(`users.${index}.description`, description);
+        }
+      });
+    }
+  }, [allUsers[0]?.amount, allUsers[0]?.description, currentPayType]);
+
   return (
-    <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
-      <div className="flex flex-col lg:flex-row w-full max-w-full mx-auto gap-4">
-        <div className="bg-[#FFFFFF] p-6 rounded-xl w-full">
+    <div className="flex flex-col lg:flex-row w-full gap-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col lg:flex-row w-full gap-4"
+      >
+        <div className="bg-white p-6 rounded-xl w-full">
           <h2 className="text-xl font-semibold mb-6">Create Transaction</h2>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center mb-12 gap-6">
-            <div className="flex items-center ">
-              <input
-                type="text"
-                placeholder="Template Name"
-                className="bg-[#eef2ed] px-4 py-2 rounded-lg w-80 h-14 sm:w-[300px] outline-none"
-                value={templateName}
-                onChange={(e) => setTemplateName(e.target.value)}
-              />
-            </div>
-
-            <div className="flex items-center space-x-6 pl-1 gap-4">
-              <label className="flex items-center space-x-2 cursor-pointer ">
-                <input
-                  type="radio"
-                  name="payType"
-                  checked={payType === "bulk"}
-                  onChange={() => setPayType("bulk")}
-                  className="accent-[#21A90A] h-5 w-5"
-                />
-                <span>Bulk Pay</span>
-              </label>
-
-              <label className="flex items-center space-x-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="payType"
-                  checked={payType === "individual"}
-                  onChange={() => setPayType("individual")}
-                  className="accent-[#21A90A] h-5 w-5"
-                />
-                <span>Individual Pay</span>
-              </label>
+            <input
+              type="text"
+              placeholder="Template Name"
+              {...register("templateName", { required: true })}
+              className="bg-[#eef2ed] px-4 py-2 rounded-lg w-80 h-14 sm:w-[300px] outline-none"
+            />
+            <div className="flex items-center gap-4">
+              {[
+                { label: "Bulk Pay", value: "bulk" },
+                { label: "Individual Pay", value: "individual" },
+              ].map((option) => (
+                <label key={option.value} className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    value={option.value}
+                    {...register("payType")}
+                    className="accent-[#21A90A] h-5 w-5"
+                  />
+                  <span>{option.label}</span>
+                </label>
+              ))}
             </div>
           </div>
 
-          {/* User Input Rows */}
-          {users.map((user) => (
-            <div
-              key={user.id}
-              className="flex space-x-3 ">
-              <img src={user.img} alt="User" className="w-7 h-7 rounded-full" />
+          {fields.map((field, index) => (
+            <div key={field.id} className="flex space-x-3 mb-4">
+              <img
+                src={field.img}
+                alt="User"
+                className="w-7 h-7 rounded-full"
+              />
               <div className="flex-1">
                 <div className="flex justify-between">
-                <p className="font-normal mb-5">{user.name}</p>
-                <div className="h-5 w-5 rounded-full bg-[#D30606] ">
-              <button
-                onClick={() => handleRemoveUser(user.id)}
-                className="text-white hover:text-red-800">
-                <Minus size={20} />
-              </button>
-                  </div>
-              </div>
+                  <p className="font-normal mb-5">{field.name}</p>
+                  <button
+                    type="button"
+                    onClick={() => remove(index)}
+                    className="h-5 w-5 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700"
+                  >
+                    <Minus size={16} />
+                  </button>
+                </div>
                 <div className="flex space-x-3">
                   <input
                     type="number"
                     placeholder="Amount"
-                    className="bg-[#eef2ed] px-4 py-2 rounded-lg w-48 h-14 mb-4"
+                    {...register(`users.${index}.amount`, {
+                      required: "Amount is required",
+                      min: {
+                        value: 1,
+                        message: "Amount must be greater than 0",
+                      },
+                    })}
+                    {...register(`users.${index}.amount`, { required: true })}
+                    className="bg-[#eef2ed] px-4 py-2 rounded-lg w-48 h-14 mb-4 outline-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
+                  {errors?.users?.[index]?.amount && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.users[index].amount.message}
+                    </p>
+                  )}
+
                   <input
                     type="text"
                     placeholder="Short Description"
-                    className="bg-[#eef2ed] px-4 py-2 rounded-lg flex-1 outline-none mb-4"
+                    {...register(`users.${index}.description`)}
+                    className="bg-[#eef2ed] px-4 py-2 rounded-lg flex-1 mb-4 outline-none"
                   />
                 </div>
               </div>
             </div>
           ))}
 
-          {/* Add User Button */}
           <div className="flex justify-end mt-6">
             <button
-              className="flex items-center px-4 py-2 rounded-full text-sm font-medium">
-              <Plus className="mr-1 bg-green-500 text-white hover:bg-green-600 rounded-full" size={16} />
-              Add User
+              type="button"
+              onClick={() =>
+                append({
+                  id: Date.now(),
+                  name: "New User",
+                  img: "https://randomuser.me/api/portraits/lego/1.jpg",
+                  amount: "",
+                  description: "",
+                })
+              }
+              className="flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-200 hover:bg-gray-300"
+            >
+              <Plus className="mr-1" size={16} /> Add User
             </button>
           </div>
         </div>
 
-        <div className="w-full lg:w-[35%] bg-white rounded-3xl p-6">
-          <h2 className="text-lg font-semibold mb-4">Schedule Date & Time</h2>
-          {/* Calendar */}
-          <Calendarr />
-          {/* Time Display */}
-          <Clock />
+        <div className="w-full lg:w-[35%]">
+          <div className="bg-white rounded-3xl p-6">
+            <h2 className="text-lg font-semibold mb-4">Schedule Date & Time</h2>
+            <Calendarr />
+            <Clock />
+          </div>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="flex items-center justify-center px-4 py-2 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
+            >
+              Create Transaction
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
+
+      {popupData && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-lg">
+            <h3 className="text-lg font-semibold mb-4">Transaction Details</h3>
+            <p>
+              <strong>Template Name:</strong> {popupData.templateName}
+            </p>
+            <p>
+              <strong>Pay Type:</strong> {popupData.payType}
+            </p>
+            <div className="mt-4 space-y-3 max-h-60 overflow-y-auto">
+              {popupData.users.map((user, i) => (
+                <div key={i} className="border-b pb-2">
+                  <p>
+                    <strong>Name:</strong> {user.name}
+                  </p>
+                  <p>
+                    <strong>Amount:</strong> {user.amount}
+                  </p>
+                  <p>
+                    <strong>Description:</strong> {user.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={() => setPopupData(null)}
+                className="px-4 py-2 rounded-lg bg-[#54F439] text-black font-semibold hover:bg-[#89fb75]"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

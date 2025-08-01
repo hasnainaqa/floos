@@ -13,7 +13,9 @@ const DasbboardHero = () => {
         {heroCards.map((card, i) => (
           <div key={i} className="bg-[#FFFFFF] p-6 rounded-3xl">
             <p className="text-[#A6A6A6] text-sm">{card.tital}</p>
-            <h2 className="text-base text-[#15120F] font-medium mt-4">{card.value}</h2>
+            <h2 className="text-base text-[#15120F] font-medium mt-4">
+              {card.value}
+            </h2>
           </div>
         ))}
       </div>
