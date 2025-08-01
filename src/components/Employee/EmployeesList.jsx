@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EmployeeCard from "./EmployeeCard";
 
-function EmployeesList() {
+function EmployeesList({ limit }) {
   const employees = [
     {
       name: "Ralph Edwards",
@@ -114,15 +114,18 @@ function EmployeesList() {
       TransactionID: "thuhang.nute@gmail.com",
     },
   ];
-  const [cardEmployee, setCardEmployee] = useState(employees[0]);
+
+  // ✅ Only apply limit if provided and greater than 0
+  const displayedEmployees =
+    typeof limit === "number" && limit > 0
+      ? employees.slice(0, limit)
+      : employees;
+
+  const [cardEmployee, setCardEmployee] = useState(displayedEmployees[0]);
 
   function onClick(employee) {
     setCardEmployee(employee);
   }
-
-  // useEffect(() => {
-  //   setCardEmployee(employees[0]);
-  // }, []);
 
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
@@ -138,36 +141,20 @@ function EmployeesList() {
           <table className="min-w-full text-left text-sm">
             <thead>
               <tr className="text-gray-500 border-b">
-                {Object.keys(employees[0]).map((key, index) => {
-                  if (key === "img") return null;
-                  if (key === "amount") return null;
-                  if (key === "DateTime") return null;
-                  if (key === "TransactionID") return null;
-                  const labels = {
-                    name: "Name",
-                    designation: "Designation",
-                    phone: "Phone Number",
-                    email: "Email",
-                  };
-                  return (
-                    <th
-                      key={index}
-                      className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
-                    >
-                      {labels[key] || key}
-                    </th>
-                  );
-                })}
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Name</th>
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Designation</th>
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Phone Number</th>
+                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Email</th>
               </tr>
             </thead>
 
             <tbody>
-              {employees.map((employee, i) => (
+              {displayedEmployees.map((employee, i) => (
                 <tr
                   key={i}
                   onClick={() => onClick(employee)}
                   className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
-                    i !== employees.length - 1
+                    i !== displayedEmployees.length - 1
                       ? "border-b border-[#D9D9D9]"
                       : ""
                   }`}

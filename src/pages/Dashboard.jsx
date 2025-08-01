@@ -7,7 +7,7 @@ export default function Dashboard() {
   return (
     <div>
       <DasbboardHero />
-      <EmployeesList />
+      <EmployeesList limit={5} />
     </div>
   );
 }
