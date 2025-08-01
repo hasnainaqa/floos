@@ -132,9 +132,10 @@ function AddTransaction() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
           <h3 className="font-semibold text-lg">Select Employees</h3>
           <div className="flex gap-2">
-            <div className="h-10 w-10 bg-[#020500] rounded-full flex items-center justify-center flex-row">
+
+            <button className="h-10 w-10 bg-[#020500] rounded-full flex items-center justify-center flex-row">
               <FileDown className="text-white h-6 w-6" />
-            </div>
+            </button>
             <Link to="/createtransaction">
               <button className="bg-[#54F439] text-black px-4 py-2 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
                 Add To Transaction

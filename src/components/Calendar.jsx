@@ -21,7 +21,7 @@ function Calendarr() {
   ];
 
   return (
-    <div className="bg-white rounded-3xl p-6 w-full max-w-xl mx-auto">
+    <div className="bg-white rounded-3xl w-full max-w-xl mx-auto">
       <div className="flex gap-4 items-start">
         {/* Calendar */}
         <div className="w-[85%]">

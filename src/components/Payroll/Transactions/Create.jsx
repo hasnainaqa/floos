@@ -121,8 +121,8 @@ function Create() {
           {/* Add User Button */}
           <div className="flex justify-end mt-6">
             <button
-              className="flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-              <Plus className="mr-1" size={16} />
+              className="flex items-center px-4 py-2 rounded-full text-sm font-medium">
+              <Plus className="mr-1 bg-green-500 text-white hover:bg-green-600 rounded-full" size={16} />
               Add User
             </button>
           </div>
