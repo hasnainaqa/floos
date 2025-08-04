@@ -53,31 +53,44 @@ function Calendarr() {
         </div>
 
         {/* Vertical Month Sidebar */}
-        <div className="flex flex-col items-start overflow-y-auto max-h-72 scrollbar-hide w-auto">
-          <style>{`
-            div::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-          {months.map((m, i) => (
-            <button
-              key={m}
-              onClick={() => {
-                const newDate = new Date(date);
-                newDate.setDate(1); // Prevent overflow (e.g., Feb 30)
-                newDate.setMonth(i);
-                setDate(newDate);
-              }}
-              className={`py-1 px-2 w-full text-left text-sm transition ${
-                i === date.getMonth()
-                  ? "text-[#000000] font-semibold text-base"
-                  : "text-[#5A5A5A]"
-              }`}
-            >
-              {m}
-            </button>
-          ))}
-        </div>
+        <div className="relative flex flex-col items-center max-h-72 overflow-y-scroll w-16 py-6 mx-auto scrollbar-hide">
+  {/* Top Gradient */}
+  <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
+  
+  {/* Bottom Gradient */}
+  <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
+
+  {/* Scrollable Month List */}
+  <style>{`
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  `}</style>
+
+  {months.map((m, i) => (
+    <button
+      key={m}
+      onClick={() => {
+        const newDate = new Date(date);
+        newDate.setDate(1); // Prevent overflow (e.g., Feb 30)
+        newDate.setMonth(i);
+        setDate(newDate);
+      }}
+      className={`py-2 w-full text-center text-sm transition relative ${
+        i === date.getMonth()
+          ? "text-black font-bold text-base border-y border-gray-300"
+          : "text-[#B0B0B0]"
+      }`}
+    >
+      {m}
+    </button>
+  ))}
+</div>
+
       </div>
     </div>
   );

@@ -86,7 +86,7 @@ function Create() {
                   placeholder="Template Name"
                   // {...register("templateName", { required: true })}
                   {...register("templateName", {
-                    required: "Tempolate Name is required",
+                    required: "Template Name is required",
                   })}
                   className="bg-[#eef2ed] px-4 py-2 rounded-lg w-80 h-14 sm:w-[300px] outline-none"
                 />
@@ -201,7 +201,7 @@ function Create() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="flex items-center justify-center px-4 py-2 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
+            className="flex items-center justify-center px-3 py-3 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
           >
             Create Transaction
           </button>
