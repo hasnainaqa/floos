@@ -111,7 +111,7 @@ function PayrollList() {
       ? payments
       : payments.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
 
   const handleItemsPerPageChange = (value) => {
@@ -141,7 +141,7 @@ function PayrollList() {
               <thead>
                 <tr className="text-gray-500 border-b">
                   {Object.keys(payments[0])
-                    .filter((key) => key !== "id") 
+                    .filter((key) => key !== "id")
                     .map((key, index) => {
                       const labels = {
                         templateName: "Template Name",
@@ -153,7 +153,8 @@ function PayrollList() {
                       return (
                         <th
                           key={index}
-                          className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                          className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
+                        >
                           {labels[key] || key}
                         </th>
                       );
@@ -176,7 +177,8 @@ function PayrollList() {
                            ? "bg-[#F1F4F1]"
                            : "hover:bg-[#F1F4F1]"
                        }
-`}>
+`}
+                  >
                     <td className="flex items-center space-x-3 py-3 px-6 ">
                       {payment.templateName}{" "}
                     </td>

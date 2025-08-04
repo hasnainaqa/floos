@@ -174,7 +174,7 @@ function AddTransaction() {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
 
   const handleItemsPerPageChange = (value) => {
@@ -194,10 +194,12 @@ function AddTransaction() {
               </button>
               <Link
                 to="/payroll/createtransaction"
-                state={{ selectedEmployees }}>
+                state={{ selectedEmployees }}
+              >
                 <button
                   className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base"
-                  disabled={selectedEmployees.length === 0}>
+                  disabled={selectedEmployees.length === 0}
+                >
                   Add To Transaction
                 </button>
               </Link>
@@ -250,7 +252,9 @@ function AddTransaction() {
                     onClick={() => {
                       onClick(employee); // For card highlight
                       handleCheckboxChange(employee); // For checkbox selection
-                    }}                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full">
+                    }}
+                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full"
+                  >
                     <td className="flex items-center space-x-3 py-3 px-6 ">
                       <input
                         type="checkbox"
@@ -267,7 +271,7 @@ function AddTransaction() {
                       checked:after:font-bold
                     "
                         checked={selectedEmployees.some(
-                          (e) => e.id === employee.id
+                          (e) => e.id === employee.id,
                         )}
                         onChange={(e) => {
                           handleCheckboxChange(employee);

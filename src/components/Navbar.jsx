@@ -18,10 +18,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter">
       <div className="w-full flex items-center justify-between  mx-auto">
         <div class="relative flex ">
-          <Link to ="/">
-          <span class="text-[#54F439] font-semibold text-lg">
-            Floos
-          </span>
+          <Link to="/">
+            <span class="text-[#54F439] font-semibold text-lg">Floos</span>
           </Link>
         </div>
 

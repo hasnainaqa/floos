@@ -164,7 +164,7 @@ function EmployeesList({ limit }) {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
   if (limit) {
     displayedEmployees =
@@ -230,7 +230,8 @@ function EmployeesList({ limit }) {
                         cardEmployee?.id === employee.id
                           ? "bg-[#F1F4F1]"
                           : "hover:bg-[#F1F4F1]"
-                      }`}>
+                      }`}
+                    >
                       <td className="flex items-center space-x-3 py-3 px-6">
                         <img
                           src={employee.img}

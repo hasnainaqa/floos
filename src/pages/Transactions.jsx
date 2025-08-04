@@ -130,7 +130,7 @@ function Transactions() {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
 
   const handleItemsPerPageChange = (value) => {
@@ -162,7 +162,8 @@ function Transactions() {
                   return (
                     <th
                       key={index}
-                      className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                      className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
+                    >
                       {labels[key] || key}
                     </th>
                   );
@@ -175,7 +176,8 @@ function Transactions() {
                 <tr
                   key={i}
                   className="border-b hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal
-                  ">
+                  "
+                >
                   <td className="flex items-center space-x-3 py-3 px-6 ">
                     <img
                       src={employee.img}

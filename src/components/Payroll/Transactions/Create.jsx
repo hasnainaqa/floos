@@ -49,16 +49,16 @@ function Create() {
     setTransactionData({ ...data, users: updatedUsers });
     alert(
       `Transaction Created:\nTemplate: ${data.templateName}\n
-      Users:\n${updatedUsers.map((u) => `• ${u.name}: ${u.amount} (${u.description})`).join("\n")
-        }`
+      Users:\n${updatedUsers
+        .map((u) => `• ${u.name}: ${u.amount} (${u.description})`)
+        .join("\n")}`,
     );
     reset({
-    templateName: "",
-    payType: "bulk",
-    users: [],
-  });  
+      templateName: "",
+      payType: "bulk",
+      users: [],
+    });
   };
-  
 
   useEffect(() => {
     if (currentPayType === "bulk" && allUsers.length > 1) {
@@ -81,21 +81,21 @@ function Create() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-12 gap-6">
               <div className="flex flex-col">
-              <input
-                type="text"
-                placeholder="Template Name"
-                // {...register("templateName", { required: true })}
-                {...register("templateName", {
-                  required: "Tempolate Name is required",
-                })}
-                className="bg-[#eef2ed] px-4 py-2 rounded-lg w-80 h-14 sm:w-[300px] outline-none"
-              />
+                <input
+                  type="text"
+                  placeholder="Template Name"
+                  // {...register("templateName", { required: true })}
+                  {...register("templateName", {
+                    required: "Tempolate Name is required",
+                  })}
+                  className="bg-[#eef2ed] px-4 py-2 rounded-lg w-80 h-14 sm:w-[300px] outline-none"
+                />
                 {errors?.templateName && (
                   <p className="text-red-500 text-xs absolute">
                     {errors.templateName.message}
                   </p>
                 )}
-                </div>
+              </div>
               <div className="flex items-center gap-4">
                 {[
                   { label: "Bulk Pay", value: "bulk" },
@@ -106,7 +106,6 @@ function Create() {
                       type="radio"
                       value={option.value}
                       {...register("payType")}
-                      
                       className="accent-[#21A90A] h-5 w-5"
                     />
                     <span>{option.label}</span>
@@ -130,7 +129,8 @@ function Create() {
                     <button
                       type="button"
                       onClick={() => remove(index)}
-                      className="h-5 w-5 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700">
+                      className="h-5 w-5 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700"
+                    >
                       <Minus size={16} />
                     </button>
                   </div>
@@ -178,7 +178,8 @@ function Create() {
                     description: "",
                   })
                 }
-                className="flex items-center px-4 py-2  text-xs font-medium">
+                className="flex items-center px-4 py-2  text-xs font-medium"
+              >
                 <div className="mr-1 bg-[#54F439] hover:bg-[#89fb75] rounded-full p-1 font-thin flex items-center justify-center">
                   <Plus className="text-[#020500] h-4 w-4" size={14} />
                 </div>
@@ -200,7 +201,8 @@ function Create() {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="flex items-center justify-center px-4 py-2 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6">
+            className="flex items-center justify-center px-4 py-2 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
+          >
             Create Transaction
           </button>
         </div>
