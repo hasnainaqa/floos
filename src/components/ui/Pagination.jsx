@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Dropdown from "./Dropdown";
 
 const Pagination = ({
   currentPage,
@@ -23,19 +24,11 @@ const Pagination = ({
   return (
     <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-[14px] font-medium leading-[20px] gap-4 ">
       {/* Dropdown */}
-      <div className="bg-[#E8EDE8] text-[#A6A6A6] text-[14px] font-[400] leading-[100%] rounded-md p-4 ']">
-        <select
-          className="focus:outline-none bg-[#E8EDE8]"
-          value={itemsPerPage}
-          onChange={(e) => onItemsPerPageChange(e.target.value)}
-        >
-          {[5, 10, 15, 20, 30, 50, 100, "All"].map((opt) => (
-            <option key={opt} value={opt} className="w-[181px]">
-              {opt} Items Per Page
-            </option>
-          ))}
-        </select>
-      </div>
+      <Dropdown
+        options={[5, 10, 15, 20, 30, 50, 100, "All"]}
+        value={itemsPerPage}
+        onChange={(val) => onItemsPerPageChange(val)}
+      />
 
       {/* Previous Button  */}
       <div className="flex gap-2">
@@ -46,8 +39,7 @@ const Pagination = ({
               : "bg-white text-black hover:bg-[#E8EDE8]"
           }`}
           onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
+          disabled={currentPage === 1}>
           <ChevronLeft size={16} />
         </button>
 
@@ -60,8 +52,7 @@ const Pagination = ({
               currentPage === page
                 ? "bg-[#54F439] text-black"
                 : "bg-white text-black hover:bg-[#E8EDE8]"
-            }`}
-          >
+            }`}>
             {page}
           </button>
         ))}
@@ -74,8 +65,7 @@ const Pagination = ({
               : "bg-[#54F439] text-black hover:bg-[#52ff34]"
           }`}
           onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
+          disabled={currentPage === totalPages}>
           <ChevronRight size={16} />
         </button>
       </div>
