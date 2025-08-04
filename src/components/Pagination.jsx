@@ -21,16 +21,16 @@ const Pagination = ({
   }
 
   return (
-    <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-[14px] font-medium leading-[20px] gap-4">
+    <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-[14px] font-medium leading-[20px] gap-4 ">
       {/* Dropdown */}
       
       <select
-  className="w-[181px] h-10 bg-[#E8EDE8] text-[#A6A6A6] text-[14px] font-[400] leading-[100%] rounded-md px-4 focus:outline-none font-['Plus Jakarta Sans']"
+  className="bg-[#E8EDE8] text-[#A6A6A6] text-[14px] font-[400] leading-[100%] rounded-md p-4 focus:outline-none ']"
   value={itemsPerPage}
         onChange={(e) => onItemsPerPageChange(e.target.value)}
       >
         {[5,10, 15, 20, 30, 50, 100, "All"].map((opt) => (
-          <option key={opt} value={opt}>
+          <option key={opt} value={opt} className="w-[181px]">
             {opt} Items Per Page
           </option>
         ))}

@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link
               key={item.path}
               to={item.path}
-              className={`px-4 py-2 text-base rounded-full transition-all w-[85] h-[24] ${
+              className={`px-7 py-3 text-base rounded-full transition-all ${
                 (item.path === "/payroll" && current.startsWith("/payroll")) ||
                 current === item.path
                   ? "bg-[#020500] text-white"
