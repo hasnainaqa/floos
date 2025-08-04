@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EmployeeCard from "../../Employee/EmployeeCard";
 import { FileDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import Pagination from "../../ui/Pagination";
 
 function AddTransaction() {
   const employees = [
@@ -160,37 +161,56 @@ function AddTransaction() {
     setCardEmployee(employee);
   }
 
-  // useEffect(() => {
-  //   setCardEmployee(employees[0]);
-  // }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState("10");
+
+  const totalPages =
+    itemsPerPage === "All"
+      ? 1
+      : Math.ceil(employees.length / parseInt(itemsPerPage));
+
+  const displayedEmployees =
+    itemsPerPage === "All"
+      ? employees
+      : employees.slice(
+          (currentPage - 1) * parseInt(itemsPerPage),
+          currentPage * parseInt(itemsPerPage)
+        );
+
+  const handleItemsPerPageChange = (value) => {
+    setItemsPerPage(value);
+    setCurrentPage(1);
+  };
 
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
-      <div className="w-full lg:w-[75%] bg-white rounded-3xl font-inter">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
-          <h3 className="font-semibold text-lg">Select Employees</h3>
-          <div className="flex gap-2">
-            <button className="h-10 w-10 bg-[#020500] rounded-full flex items-center justify-center flex-row">
-              <FileDown className="text-white h-6 w-6" />
-            </button>
-            <Link to="/payroll/createtransaction" state={{ selectedEmployees }}>
-              <button
-                className="bg-[#54F439] text-black px-4 py-2 rounded-full hover:bg-[#52ff34] text-base sm:text-base"
-                disabled={selectedEmployees.length === 0}
-              >
-                Add To Transaction
+      <div className="w-full lg:w-[75%] font-inter">
+        <div className="bg-white rounded-3xl">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
+            <h3 className="font-semibold text-lg">Select Employees</h3>
+            <div className="flex gap-2">
+              <button className="h-10 w-10 bg-[#020500] rounded-full flex items-center justify-center flex-row">
+                <FileDown className="text-white h-6 w-6" />
               </button>
-            </Link>
+              <Link
+                to="/payroll/createtransaction"
+                state={{ selectedEmployees }}>
+                <button
+                  className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base"
+                  disabled={selectedEmployees.length === 0}>
+                  Add To Transaction
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="w-full overflow-x-auto">
-          <table className="min-w-full text-left text-sm">
-            <thead>
-              <tr className="text-gray-500 border-b ">
-                <th className="p-6 pt-0 capitalize font-normal space-x-2 whitespace-nowrap inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    className="
+          <div className="w-full overflow-x-auto">
+            <table className="min-w-full text-left text-sm">
+              <thead>
+                <tr className="text-[#575757] border-b ">
+                  <th className="p-6 pt-0 capitalize font-normal space-x-2 whitespace-nowrap inline-flex items-center">
+                    <input
+                      type="checkbox"
+                      className="
     w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] 
     checked:bg-[#54F439]
     relative
@@ -201,29 +221,40 @@ function AddTransaction() {
     checked:after:left-[4px]
     checked:after:text-[14px]
     checked:after:font-bold"
-                    checked={selectAll}
-                    onChange={handleSelectAll}
-                  />
+                      checked={selectAll}
+                      onChange={handleSelectAll}
+                    />
 
-                  <span className="">Name</span>
-                </th>
-                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap"> Designation</th>
-                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Phone Number</th>
-                <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">Email</th>
-              </tr>
-            </thead>
+                    <span className="">Name</span>
+                  </th>
+                  <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    {" "}
+                    Designation
+                  </th>
+                  <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    Phone Number
+                  </th>
+                  <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    Email
+                  </th>
+                  <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    Salary
+                  </th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {employees.map((employee, i) => (
-                <tr
-                  key={i}
-                  onClick={() => onClick(employee)}
-                  className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full"
-                >
-                  <td className="flex items-center space-x-3 py-3 px-6 ">
-                    <input
-                      type="checkbox"
-                      className="
+              <tbody>
+                {displayedEmployees.map((employee, i) => (
+                  <tr
+                    key={i}
+                    onClick={() => {
+                      onClick(employee); // For card highlight
+                      handleCheckboxChange(employee); // For checkbox selection
+                    }}                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full">
+                    <td className="flex items-center space-x-3 py-3 px-6 ">
+                      <input
+                        type="checkbox"
+                        className="
                       w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] 
                       checked:bg-[#54F439]
                       relative
@@ -235,34 +266,47 @@ function AddTransaction() {
                       checked:after:text-[14px]
                       checked:after:font-bold
                     "
-                      checked={selectedEmployees.some(
-                        (e) => e.id === employee.id,
-                      )}
-                      onChange={(e) => {
-                        handleCheckboxChange(employee);
-                      }}
-                    />
+                        checked={selectedEmployees.some(
+                          (e) => e.id === employee.id
+                        )}
+                        onChange={(e) => {
+                          handleCheckboxChange(employee);
+                        }}
+                      />
 
-                    <img
-                      src={employee.img}
-                      alt="avatar"
-                      className="w-8 h-8 rounded-full"
-                    />
-                    <span>{employee.name}</span>
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {employee.designation}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {employee.phone}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {employee.email}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      <img
+                        src={employee.img}
+                        alt="avatar"
+                        className="w-8 h-8 rounded-full"
+                      />
+                      <span>{employee.name}</span>
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {employee.designation}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {employee.phone}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {employee.email}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {employee.amount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="flex justify-end items-center">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+            itemsPerPage={itemsPerPage}
+            onItemsPerPageChange={handleItemsPerPageChange}
+          />
         </div>
       </div>
 

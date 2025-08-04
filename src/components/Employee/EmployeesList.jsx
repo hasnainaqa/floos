@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import EmployeeCard from "./EmployeeCard";
-import Pagination from "../Pagination";
+import Pagination from "../ui/Pagination";
 
 function EmployeesList({ limit }) {
   const employees = [
     {
+      id: 1,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -12,9 +13,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/41.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T001",
     },
     {
+      id: 2,
       name: "Cody Fisher",
       designation: "Backend Developer",
       phone: "(213) 555-1234",
@@ -22,6 +24,7 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/23.jpg",
     },
     {
+      id: 3,
       name: "Jane Cooper",
       designation: "Frontend Engineer",
       phone: "(415) 789-4567",
@@ -29,6 +32,7 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/women/43.jpg",
     },
     {
+      id: 4,
       name: "Kristin Watson",
       designation: "UI/UX Designer",
       phone: "(503) 867-5309",
@@ -36,6 +40,7 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/women/22.jpg",
     },
     {
+      id: 5,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -43,19 +48,21 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/31.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T002",
     },
     {
+      id: 6,
       name: "Ralph Edwards",
-      designation: " Officer",
+      designation: "Officer",
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/32.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T003",
     },
     {
+      id: 7,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -63,9 +70,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/33.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T004",
     },
     {
+      id: 8,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -73,9 +81,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/34.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T005",
     },
     {
+      id: 9,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -83,9 +92,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/35.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T006",
     },
     {
+      id: 10,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -93,9 +103,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/36.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T007",
     },
     {
+      id: 11,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -103,9 +114,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/37.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T008",
     },
     {
+      id: 12,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -113,9 +125,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/38.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T009",
     },
     {
+      id: 13,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -123,9 +136,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/39.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T010",
     },
     {
+      id: 14,
       name: "Ralph Edwards",
       designation: "Mortgage Loan Officer",
       phone: "(805) 123-5243",
@@ -133,9 +147,10 @@ function EmployeesList({ limit }) {
       img: "https://randomuser.me/api/portraits/men/40.jpg",
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
-      TransactionID: "thuhang.nute@gmail.com",
+      TransactionID: "T011",
     },
   ];
+
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState("10");
 
@@ -176,7 +191,7 @@ function EmployeesList({ limit }) {
           <div className=" bg-white rounded-3xl">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
               <h3 className="font-semibold text-lg">Employees</h3>
-              <button className="bg-[#54F439] text-black px-4 py-2 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
+              <button className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
                 Add Employee
               </button>
             </div>
@@ -205,10 +220,16 @@ function EmployeesList({ limit }) {
                     <tr
                       key={i}
                       onClick={() => onClick(employee)}
-                      className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal ${
+                      className={`cursor-pointer text-[14px] font-normal
+                      ${
                         i !== displayedEmployees.length - 1
                           ? "border-b border-[#D9D9D9]"
                           : ""
+                      }
+                      ${
+                        cardEmployee?.id === employee.id
+                          ? "bg-[#F1F4F1]"
+                          : "hover:bg-[#F1F4F1]"
                       }`}>
                       <td className="flex items-center space-x-3 py-3 px-6">
                         <img

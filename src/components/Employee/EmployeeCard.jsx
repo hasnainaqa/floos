@@ -38,7 +38,7 @@ const EmployeeCard = ({ employee }) => {
 
       <Link
         to="/employee"
-        className="bg-[#54F439] w-full text-center text-black py-2 mt-4 rounded-full hover:bg-[#52ff34] "
+        className="bg-[#54F439] w-full text-center text-black py-3 mt-4 rounded-full hover:bg-[#52ff34] "
       >
         <button>Pay Now</button>
       </Link>

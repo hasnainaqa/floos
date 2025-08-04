@@ -15,12 +15,14 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter">
       <div className="w-full flex items-center justify-between  mx-auto">
         <div class="relative flex ">
-          <span class="text-[#54F439] w-12 h-[26px] font-medium text-lg">
+          <Link to ="/">
+          <span class="text-[#54F439] font-semibold text-lg">
             Floos
           </span>
+          </Link>
         </div>
 
         <div className="hidden md:flex bg-white rounded-full shadow-sm gap-2 p-1">

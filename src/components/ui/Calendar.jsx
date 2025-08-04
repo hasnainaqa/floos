@@ -42,7 +42,7 @@ function Calendarr() {
             className="
     !border-none !shadow-none !outline-none text-center w-full
     [&_button]:text-sm
-    [&_.react-calendar__navigation]:hidden 
+    [&_.react-calendar__navigation]:!hidden 
     [&_.react-calendar__month-view__weekdays]:border-none 
     [&_.react-calendar__month-view__weekdays]:mb-2 
     [&_.react-calendar__tile]:aspect-square 

@@ -23,9 +23,9 @@ const Pagination = ({
   return (
     <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-[14px] font-medium leading-[20px] gap-4 ">
       {/* Dropdown */}
-      
+      <div className="bg-[#E8EDE8] text-[#A6A6A6] text-[14px] font-[400] leading-[100%] rounded-md p-4 ']">
       <select
-  className="bg-[#E8EDE8] text-[#A6A6A6] text-[14px] font-[400] leading-[100%] rounded-md p-4 focus:outline-none ']"
+  className="focus:outline-none bg-[#E8EDE8]"
   value={itemsPerPage}
         onChange={(e) => onItemsPerPageChange(e.target.value)}
       >
@@ -35,6 +35,7 @@ const Pagination = ({
           </option>
         ))}
       </select>
+      </div>
 
       {/* Previous Button */}
       <div className="flex gap-2">

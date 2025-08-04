@@ -1,160 +1,211 @@
 import React, { useState } from "react";
 import PayrollCard from "./PayrollCard";
 import { Link } from "react-router-dom";
+import Pagination from "../ui/Pagination";
 
 function PayrollList() {
   const payments = [
     {
-      templateName: "Bonus",
-      scheduledDate: "Dec 7, 2019 23:26",
+      id: 1,
+      templateName: "Bonus Q1",
+      scheduledDate: "Jan 7, 2020 10:15",
+      usersAdded: 5,
+      type: "Individual",
+      totalAmount: "$879.10",
+    },
+    {
+      id: 2,
+      templateName: "Vacation Leave Batch 1",
+      scheduledDate: "Feb 15, 2020 14:20",
+      usersAdded: 12,
+      type: "Batch Payment",
+      totalAmount: "$1250.75",
+    },
+    {
+      id: 3,
+      templateName: "Salary March",
+      scheduledDate: "Mar 1, 2020 09:00",
+      usersAdded: 38,
+      type: "Batch Payment",
+      totalAmount: "$3423.50",
+    },
+    {
+      id: 4,
+      templateName: "Quarterly Bonus",
+      scheduledDate: "Apr 10, 2020 11:45",
+      usersAdded: 8,
+      type: "Batch Payment",
+      totalAmount: "$1120.20",
+    },
+    {
+      id: 5,
+      templateName: "Annual Leave",
+      scheduledDate: "May 22, 2020 16:10",
       usersAdded: 1,
       type: "Individual",
-      totalAmount: "$779.58",
+      totalAmount: "$620.00",
     },
     {
-      templateName: "Vacation",
-      scheduledDate: "Dec 30, 2019 05:18",
-      usersAdded: 96,
+      id: 6,
+      templateName: "Bonus Q2",
+      scheduledDate: "Jun 30, 2020 17:50",
+      usersAdded: 20,
       type: "Batch Payment",
-      totalAmount: "$948.55",
+      totalAmount: "$2450.00",
     },
     {
-      templateName: "Salaries",
-      scheduledDate: "Feb 2, 2019 19:28",
-      usersAdded: 40,
+      id: 7,
+      templateName: "Holiday Pay",
+      scheduledDate: "Jul 4, 2020 13:15",
+      usersAdded: 18,
       type: "Batch Payment",
-      totalAmount: "$943.65",
+      totalAmount: "$980.75",
     },
     {
-      templateName: "Salaries",
-      scheduledDate: "Dec 7, 2019 23:26",
-      usersAdded: 34,
+      id: 8,
+      templateName: "Salary July",
+      scheduledDate: "Jul 31, 2020 08:30",
+      usersAdded: 60,
       type: "Batch Payment",
-      totalAmount: "$106.58",
+      totalAmount: "$5230.60",
     },
     {
-      templateName: "Vacation",
-      scheduledDate: "Dec 30, 2019 05:18",
-      usersAdded: 1,
-      type: "Individual",
-      totalAmount: "$589.99",
-    },
-    {
-      templateName: "Bonus",
-      scheduledDate: "Dec 30, 2019 07:52",
-      usersAdded: 16,
+      id: 9,
+      templateName: "Performance Bonus",
+      scheduledDate: "Aug 20, 2020 12:05",
+      usersAdded: 27,
       type: "Batch Payment",
-      totalAmount: "$169.43",
+      totalAmount: "$1675.25",
     },
     {
-      templateName: "Bonus",
-      scheduledDate: "Feb 2, 2019 19:28",
-      usersAdded: 50,
+      id: 10,
+      templateName: "Salary August",
+      scheduledDate: "Aug 31, 2020 10:00",
+      usersAdded: 55,
       type: "Batch Payment",
-      totalAmount: "$630.44",
+      totalAmount: "$5099.90",
     },
     {
-      templateName: "Salaries",
-      scheduledDate: "Dec 30, 2019 05:18",
-      usersAdded: 87,
+      id: 11,
+      templateName: "Salary September",
+      scheduledDate: "Sep 30, 2020 10:00",
+      usersAdded: 60,
       type: "Batch Payment",
-      totalAmount: "$202.87",
-    },
-    {
-      templateName: "Salaries",
-      scheduledDate: "Feb 2, 2019 19:28",
-      usersAdded: 92,
-      type: "Batch Payment",
-      totalAmount: "$351.02",
-    },
-    {
-      templateName: "Salaries",
-      scheduledDate: "Dec 4, 2019 21:42",
-      usersAdded: 91,
-      type: "Batch Payment",
-      totalAmount: "$475.22",
-    },
-    {
-      templateName: "Salaries",
-      scheduledDate: "Dec 4, 2019 21:42",
-      usersAdded: 91,
-      type: "Batch Payment",
-      totalAmount: "$475.22",
+      totalAmount: "$5400.25",
     },
   ];
+
   const [cardPayment, setCardPayment] = useState(payments[0]);
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState("10");
+
+  const totalPages =
+    itemsPerPage === "All"
+      ? 1
+      : Math.ceil(payments.length / parseInt(itemsPerPage));
+
+  const displayedPayments =
+    itemsPerPage === "All"
+      ? payments
+      : payments.slice(
+          (currentPage - 1) * parseInt(itemsPerPage),
+          currentPage * parseInt(itemsPerPage)
+        );
+
+  const handleItemsPerPageChange = (value) => {
+    setItemsPerPage(value);
+    setCurrentPage(1);
+  };
 
   function onClick(payment) {
     setCardPayment(payment);
   }
 
-  // useEffect(() => {
-  //   setCardPayment(payments[0]);
-  // }, []);
   return (
     <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
-      <div className="w-full lg:w-[75%] bg-white rounded-3xl font-inter">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
-          <h3 className="font-semibold text-lg">Payroll Template</h3>
-          <Link to="/payroll/addtransaction">
-            <button className="bg-[#54F439] text-black px-4 py-2 rounded-full hover:bg-[#52ff34] text-sm sm:text-base">
-              Create Transaction
-            </button>
-          </Link>
-        </div>
+      <div className="w-full lg:w-[75%]">
+        <div className=" bg-white rounded-3xl font-inter">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
+            <h3 className="font-semibold text-lg">Payroll Template</h3>
+            <Link to="/payroll/addtransaction">
+              <button className="bg-[#54F439] text-black px-3 py-3 rounded-full hover:bg-[#52ff34] text-sm sm:text-base">
+                Create Transaction
+              </button>
+            </Link>
+          </div>
 
-        <div className="w-full overflow-x-auto">
-          <table className="min-w-full text-left text-sm">
-            <thead>
-              <tr className="text-gray-500 border-b">
-                {Object.keys(payments[0]).map((key, index) => {
-                  const labels = {
-                    templateName: "Template Name",
-                    scheduledDate: "Scheduled Date",
-                    usersAdded: "Users Added",
-                    type: "Type",
-                    totalAmount: "Total Amount",
-                  };
-                  return (
-                    <th
-                      key={index}
-                      className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
-                    >
-                      {labels[key] || key}
-                    </th>
-                  );
-                })}
-              </tr>
-            </thead>
-
-            <tbody>
-              {payments.map((payment, i) => (
-                <tr
-                  key={i}
-                  onClick={() => onClick(payment)}
-                  className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
-                    i !== payments.length - 1 ? "border-b border-[#D9D9D9]" : ""
-                  }`}
-                >
-                  <td className="flex items-center space-x-3 py-3 px-6 ">
-                    {payment.templateName}{" "}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {payment.scheduledDate}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {payment.usersAdded}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {payment.type}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {payment.totalAmount}
-                  </td>
+          <div className="w-full overflow-x-auto">
+            <table className="min-w-full text-left text-sm">
+              <thead>
+                <tr className="text-gray-500 border-b">
+                  {Object.keys(payments[0])
+                    .filter((key) => key !== "id") 
+                    .map((key, index) => {
+                      const labels = {
+                        templateName: "Template Name",
+                        scheduledDate: "Scheduled Date",
+                        usersAdded: "Users Added",
+                        type: "Type",
+                        totalAmount: "Total Amount",
+                      };
+                      return (
+                        <th
+                          key={index}
+                          className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                          {labels[key] || key}
+                        </th>
+                      );
+                    })}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody>
+                {displayedPayments.map((payment, i) => (
+                  <tr
+                    key={i}
+                    onClick={() => onClick(payment)}
+                    className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
+                      i !== payments.length - 1
+                        ? "border-b border-[#D9D9D9]"
+                        : ""
+                    }
+                       ${
+                         cardPayment?.id === payment.id
+                           ? "bg-[#F1F4F1]"
+                           : "hover:bg-[#F1F4F1]"
+                       }
+`}>
+                    <td className="flex items-center space-x-3 py-3 px-6 ">
+                      {payment.templateName}{" "}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {payment.scheduledDate}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {payment.usersAdded}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {payment.type}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {payment.totalAmount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="flex justify-end items-center">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+            itemsPerPage={itemsPerPage}
+            onItemsPerPageChange={handleItemsPerPageChange}
+          />
         </div>
       </div>
 
