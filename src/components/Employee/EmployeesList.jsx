@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import EmployeeCard from "./EmployeeCard";
 import Pagination from "../ui/Pagination";
+import { useTranslation } from "react-i18next";
 
 function EmployeesList({ limit }) {
+  const { t } = useTranslation();
+
   const employees = [
     {
       id: 1,
@@ -190,9 +193,9 @@ function EmployeesList({ limit }) {
         <div className="w-full lg:w-[75%]">
           <div className=" bg-white rounded-3xl">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
-              <h3 className="font-semibold text-lg">Employees</h3>
+              <h3 className="font-semibold text-lg">{t("Employees")}</h3>
               <button className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
-                Add Employee
+                {t("Add Employee")}
               </button>
             </div>
 
@@ -201,13 +204,13 @@ function EmployeesList({ limit }) {
                 <thead>
                   <tr className="text-gray-500 border-b">
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                      Name
+                      {t("Name")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                      Designation
+                      {t("Designation")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                      Phone Number
+                      {t("Phone Number")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
                       Email

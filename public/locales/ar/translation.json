@@ -1,0 +1,19 @@
+{
+  "Floos": "فلوس",
+  "dashboard": "لوحة القيادة",
+  "employees": "الموظفون",
+  "payroll": "الرواتب",
+  "transactions": "المعاملات",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "Total Employees": "إجمالي الموظفين",
+  "New Employees Added To Payroll": "الموظفون الجدد المضافون إلى الرواتب",
+  "Added To Payroll": "أضيفوا إلى الرواتب",
+  "Last Payroll Amount": "مبلغ الراتب الأخير",
+  "Salaries Dispersed": "توزيع الرواتب",
+  "Employees": "الموظفون",
+  "Name": "الاسم",
+  "Designation": "المسمى الوظيفي",
+  "Phone Number": "رقم الهاتف",
+  "Add Employee": "إضافة موظف"
+}
