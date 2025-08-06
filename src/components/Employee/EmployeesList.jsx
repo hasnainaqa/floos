@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import EmployeeCard from "./EmployeeCard";
 import Pagination from "../ui/Pagination";
 import { useTranslation } from "react-i18next";
+import AddEmployee from "./AddEmployee";
 
 function EmployeesList({ limit }) {
   const { t } = useTranslation();
+  const [isAddEmployeeOpen, setIsAddEmployeeOpen] = useState(false);
 
   const employees = [
     {
@@ -167,7 +169,7 @@ function EmployeesList({ limit }) {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage),
+          currentPage * parseInt(itemsPerPage)
         );
   if (limit) {
     displayedEmployees =
@@ -194,7 +196,9 @@ function EmployeesList({ limit }) {
           <div className=" bg-white rounded-3xl">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
               <h3 className="font-semibold text-lg">{t("Employees")}</h3>
-              <button className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
+              <button
+                onClick={() => setIsAddEmployeeOpen(true)}
+                className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
                 {t("Add Employee")}
               </button>
             </div>
@@ -202,7 +206,7 @@ function EmployeesList({ limit }) {
             <div className="w-full overflow-x-auto">
               <table className="min-w-full text-left text-sm">
                 <thead>
-                  <tr className="text-gray-500 border-b">
+                  <tr className="text-gray-500 border-b ">
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
                       {t("Name")}
                     </th>
@@ -212,7 +216,7 @@ function EmployeesList({ limit }) {
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
                       {t("Phone Number")}
                     </th>
-                    <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    <th className="p-6 pt-0  capitalize font-normal whitespace-nowrap">
                       Email
                     </th>
                   </tr>
@@ -233,8 +237,7 @@ function EmployeesList({ limit }) {
                         cardEmployee?.id === employee.id
                           ? "bg-[#F1F4F1]"
                           : "hover:bg-[#F1F4F1]"
-                      }`}
-                    >
+                      }`}>
                       <td className="flex items-center space-x-3 py-3 px-6">
                         <img
                           src={employee.img}
@@ -276,6 +279,7 @@ function EmployeesList({ limit }) {
           <EmployeeCard employee={cardEmployee} />
         </div>
       </div>
+      {isAddEmployeeOpen &&  <AddEmployee setIsAddEmployeeOpen= {setIsAddEmployeeOpen}/> }
     </div>
   );
 }
