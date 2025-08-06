@@ -1,7 +1,10 @@
 import React from "react";
 import { Calendar, Users, DollarSign, Pencil, Clipboard } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const PayrollCard = ({ payment }) => {
+  const { t } = useTranslation();
   if (!payment) return null;
 
   const addedUsers = payment.addedUsers || [
@@ -48,7 +51,7 @@ const PayrollCard = ({ payment }) => {
       </h3>
 
       <div className="mt-9 space-y-4">
-        <h4 className="text-sm text-[#020500] font-medium">Information</h4>
+        <h4 className="text-sm text-[#020500] font-medium">{t("Information")}</h4>
         <div className="flex items-center gap-3 text-sm text-[#020500]">
           <Calendar size={16} />
           <span>{payment.scheduledDate}</span>
@@ -66,12 +69,12 @@ const PayrollCard = ({ payment }) => {
       {/* Added Users */}
       <div className="mt-6">
         <div className="flex justify-between items-center">
-          <h4 className="text-sm text-[#020500] font-medium">Added Users</h4>
+          <h4 className="text-sm text-[#020500] font-medium">{t("Added Users")}</h4>
           <Link
             to="#"
             className="text-[#21A90A] text-sm font-medium hover:underline"
           >
-            View All
+            {t("View All")}
           </Link>
         </div>
 

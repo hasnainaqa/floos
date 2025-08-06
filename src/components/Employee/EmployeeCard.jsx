@@ -1,10 +1,12 @@
 import React from "react";
 import { Phone, Mail, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const EmployeeCard = ({ employee }) => {
+  const { t } = useTranslation();
   if (!employee) return null;
-
+  
   return (
     <div className="bg-white rounded-3xl ml-2 p-6 w-full  text-left flex flex-col items-center space-y-4">
       <img
@@ -20,7 +22,7 @@ const EmployeeCard = ({ employee }) => {
 
       <div className="w-full space-y-3 text-sm text-gray-700">
         <div className="gap-2 text-black">
-          <span>Information</span>
+          <span>{t("Information")}</span>
         </div>
         <div className="flex items-center gap-2 p-2 pt-0">
           <Phone size={16} />
@@ -40,7 +42,7 @@ const EmployeeCard = ({ employee }) => {
         to="/employee"
         className="bg-[#54F439] w-full text-center text-black py-3 mt-4 rounded-full hover:bg-[#52ff34] "
       >
-        <button>Pay Now</button>
+        <button>{t("Pay Now")}</button>
       </Link>
     </div>
   );

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import PayrollCard from "./PayrollCard";
 import { Link } from "react-router-dom";
 import Pagination from "../ui/Pagination";
+import { useTranslation } from "react-i18next";
 
 function PayrollList() {
+  const { t } = useTranslation();
   const payments = [
     {
       id: 1,
@@ -128,10 +130,10 @@ function PayrollList() {
       <div className="w-full lg:w-[75%]">
         <div className=" bg-white rounded-3xl font-inter">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
-            <h3 className="font-semibold text-lg">Payroll Template</h3>
+            <h3 className="font-semibold text-lg">{t("Payroll Template")}</h3>
             <Link to="/payroll/addtransaction">
               <button className="bg-[#54F439] text-black px-3 py-3 rounded-full hover:bg-[#52ff34] text-sm sm:text-base">
-                Create Transaction
+                {t("Create Transaction")}
               </button>
             </Link>
           </div>
@@ -155,7 +157,7 @@ function PayrollList() {
                           key={index}
                           className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
                         >
-                          {labels[key] || key}
+                          {t(labels[key] || key)}
                         </th>
                       );
                     })}

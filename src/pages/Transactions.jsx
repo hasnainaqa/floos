@@ -1,8 +1,10 @@
 import React from "react";
 import Pagination from "../components/ui/Pagination";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function Transactions() {
+  const { t } = useTranslation();
   const employees = [
     {
       name: "Ralph Edwards",
@@ -13,6 +15,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Jane Doe",
@@ -23,6 +26,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Ralph Edwards",
@@ -33,6 +37,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Jane Doe",
@@ -43,6 +48,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Ralph Edwards",
@@ -53,6 +59,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Ralph Edwards",
@@ -63,6 +70,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Jane Doe",
@@ -73,6 +81,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Ralph Edwards",
@@ -83,6 +92,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Jane Doe",
@@ -93,6 +103,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Ralph Edwards",
@@ -103,6 +114,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
     {
       name: "Ralph Edwards",
@@ -113,6 +125,7 @@ function Transactions() {
       amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
+      paidamount: "$763"
     },
   ];
 
@@ -142,7 +155,7 @@ function Transactions() {
     <div className="  font-inter ">
       <div className=" bg-white rounded-3xl">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6  ">
-          <h3 className="font-semibold text-lg">Transactions</h3>
+          <h3 className="font-semibold text-lg">{t("Transactions")}</h3>
         </div>
         <div className="w-full overflow-x-auto">
           <table className="min-w-full text-left text-sm">
@@ -158,13 +171,15 @@ function Transactions() {
                     amount: "Amount",
                     DateTime: "Date & Time",
                     TransactionID: "Transaction ID",
+                    paidamount: "Paid Amount",
                   };
                   return (
                     <th
                       key={index}
                       className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
                     >
-                      {labels[key] || key}
+                      {t(labels[key])}
+
                     </th>
                   );
                 })}
@@ -203,6 +218,9 @@ function Transactions() {
                   </td>
                   <td className="py-5 px-6 whitespace-nowrap">
                     {employee.email}
+                  </td>
+                  <td className="py-5 px-6 whitespace-nowrap">
+                    {employee.paidamount}
                   </td>
                 </tr>
               ))}

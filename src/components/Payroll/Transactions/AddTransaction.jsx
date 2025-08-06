@@ -3,8 +3,10 @@ import EmployeeCard from "../../Employee/EmployeeCard";
 import { FileDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import Pagination from "../../ui/Pagination";
+import { useTranslation } from "react-i18next";
 
 function AddTransaction() {
+  const { t } = useTranslation();
   const employees = [
     {
       id: 1,
@@ -174,7 +176,7 @@ function AddTransaction() {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage),
+          currentPage * parseInt(itemsPerPage)
         );
 
   const handleItemsPerPageChange = (value) => {
@@ -187,20 +189,18 @@ function AddTransaction() {
       <div className="w-full lg:w-[75%] font-inter">
         <div className="bg-white rounded-3xl">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
-            <h3 className="font-semibold text-lg">Select Employees</h3>
+            <h3 className="font-semibold text-lg">{t("Select Employees")}</h3>
             <div className="flex gap-2">
               <button className="h-10 w-10 bg-[#020500] rounded-full flex items-center justify-center flex-row">
                 <FileDown className="text-white h-6 w-6" />
               </button>
               <Link
                 to="/payroll/createtransaction"
-                state={{ selectedEmployees }}
-              >
+                state={{ selectedEmployees }}>
                 <button
                   className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base"
-                  disabled={selectedEmployees.length === 0}
-                >
-                  Add To Transaction
+                  disabled={selectedEmployees.length === 0}>
+                  {t("Add To Transaction")}
                 </button>
               </Link>
             </div>
@@ -227,20 +227,20 @@ function AddTransaction() {
                       onChange={handleSelectAll}
                     />
 
-                    <span className="">Name</span>
+                    <span className="">{t("Name")}</span>
                   </th>
                   <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
                     {" "}
-                    Designation
+                    {t("Designation")}
                   </th>
                   <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                    Phone Number
+                    {t("Phone Number")}
                   </th>
                   <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                    Email
+                    {t("Email")}
                   </th>
                   <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
-                    Salary
+                    {t("Salary")}
                   </th>
                 </tr>
               </thead>
@@ -253,8 +253,7 @@ function AddTransaction() {
                       onClick(employee); // For card highlight
                       handleCheckboxChange(employee); // For checkbox selection
                     }}
-                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full"
-                  >
+                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full">
                     <td className="flex items-center space-x-3 py-3 px-6 ">
                       <input
                         type="checkbox"
@@ -271,7 +270,7 @@ function AddTransaction() {
                       checked:after:font-bold
                     "
                         checked={selectedEmployees.some(
-                          (e) => e.id === employee.id,
+                          (e) => e.id === employee.id
                         )}
                         onChange={(e) => {
                           handleCheckboxChange(employee);

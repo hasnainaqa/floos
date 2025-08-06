@@ -4,8 +4,10 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { Plus, Minus } from "lucide-react";
 import Calendarr from "../../ui/Calendar";
 import Clock from "../../ui/Clock";
+import { useTranslation } from "react-i18next";
 
 function Create() {
+  const { t } = useTranslation();
   const location = useLocation();
   const selectedEmployees = location.state?.selectedEmployees || [];
   const [transactionData, setTransactionData] = useState(null);
@@ -77,13 +79,13 @@ function Create() {
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <div className="flex flex-col lg:flex-row w-full gap-4">
           <div className="bg-white p-6 rounded-3xl w-full">
-            <h2 className="text-xl font-semibold mb-6">Create Transaction</h2>
+            <h2 className="text-xl font-semibold mb-6">{t("Create Transaction")}</h2>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-12 gap-6">
               <div className="flex flex-col">
                 <input
                   type="text"
-                  placeholder="Template Name"
+                  placeholder={t("Template Name")}
                   // {...register("templateName", { required: true })}
                   {...register("templateName", {
                     required: "Template Name is required",
@@ -108,7 +110,7 @@ function Create() {
                       {...register("payType")}
                       className="accent-[#21A90A] h-5 w-5"
                     />
-                    <span>{option.label}</span>
+                    <span>{t(option.label)}</span>
                   </label>
                 ))}
               </div>
@@ -138,7 +140,7 @@ function Create() {
                     <div>
                       <input
                         type="number"
-                        placeholder="Amount"
+                        placeholder={t("Amount")}
                         {...register(`users.${index}.amount`, {
                           required: "Amount is required",
                           min: {
@@ -157,7 +159,7 @@ function Create() {
                     </div>
                     <input
                       type="text"
-                      placeholder="Short Description"
+                      placeholder={t("Short Description")}
                       {...register(`users.${index}.description`)}
                       className="bg-[#eef2ed] p-4 rounded-lg flex-1 mb-4 outline-none"
                     />
@@ -183,7 +185,7 @@ function Create() {
                 <div className="mr-1 bg-[#54F439] hover:bg-[#89fb75] rounded-full p-1 font-thin flex items-center justify-center">
                   <Plus className="text-[#020500] h-4 w-4" size={14} />
                 </div>
-                Add User
+                {t("Add User")}
               </button>
             </div>
           </div>
@@ -191,7 +193,7 @@ function Create() {
           <div className="w-full lg:w-[35%]">
             <div className="bg-white rounded-3xl p-6">
               <h2 className="text-lg font-semibold mb-4">
-                Schedule Date & Time
+                {t("Schedule Date & Time")}
               </h2>
               <Calendarr />
               <Clock />
@@ -203,7 +205,7 @@ function Create() {
             type="submit"
             className="flex items-center justify-center px-3 py-3 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
           >
-            Create Transaction
+            {t("Create Transaction")}
           </button>
         </div>
       </form>

@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
@@ -25,6 +26,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 const DashboardChart = () => {
+  const { t } = useTranslation();
   const [activeView, setActiveView] = useState("M");
 
   const chartData = {
@@ -68,7 +70,7 @@ const DashboardChart = () => {
     <div className="bg-[#FFFFFF] p-4 rounded-3xl lg:col-span-3">
       <div className="flex justify-between mb-4">
         <div>
-          <p className="text-[#A6A6A6] text-sm">Salaries Dispersed</p>
+          <p className="text-[#A6A6A6] text-sm">{t("Salaries Dispersed")}</p>
           <h2 className="text-2xl text-[#020500] font-normal">
             {maxValue} SYP{" "}
             <span className="text-green-500 text-sm">
@@ -86,7 +88,7 @@ const DashboardChart = () => {
                 activeView === v ? "bg-[#54F439] " : "hover:bg-gray-200"
               }`}
             >
-              {v}
+              {t(v)}
             </button>
           ))}
         </div>
