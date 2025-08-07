@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-
+import { useTranslation } from "react-i18next";
 const Dropdown = ({ options, value, onChange }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef();
 
@@ -28,7 +29,7 @@ const Dropdown = ({ options, value, onChange }) => {
         onClick={() => setIsOpen(!isOpen)}
         className="bg-[#E8EDE8] text-[#A6A6A6] text-sm font-normal leading-[100%] rounded-lg px-6 py-4 flex justify-between items-center cursor-pointer select-none"
       >
-        {value} Items Per Page
+        {t(`ItemsPerPage.${value}`)} {t("Items Per Page")}
         <ChevronDown size={16} />
       </div>
 
@@ -41,7 +42,7 @@ const Dropdown = ({ options, value, onChange }) => {
               onClick={() => handleSelect(opt)}
               className="text-[#020500] px-4 py-3 hover:bg-[#F1F4F1] cursor-pointer text-sm"
             >
-              {opt} Items Per Page
+              {t(`ItemsPerPage.${opt}`)} {t("Items Per Page")}
             </div>
           ))}
         </div>

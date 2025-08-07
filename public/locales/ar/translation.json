@@ -57,7 +57,18 @@
   "Short Description": "وصف مختصر",
   "First name": "الاسم الأول",
   "Email": "البريد الإلكتروني",
-  "Phone number": "رقم الهاتف"
+  "Phone number": "رقم الهاتف",
+  "Transaction Detail": "تفاصيل المعاملة",
+  "Items Per Page": "عدد العناصر لكل صفحة",
+  "ItemsPerPage.1": "١",
+  "ItemsPerPage.5": "٥",
+  "ItemsPerPage.10": "١٠",
+  "ItemsPerPage.15": "١٥",
+  "ItemsPerPage.20": "٢٠",
+  "ItemsPerPage.30": "٣٠",
+  "ItemsPerPage.50": "٥٠",
+  "ItemsPerPage.100": "١٠٠",
+  "ItemsPerPage.All": "الكل"
 
 
 }

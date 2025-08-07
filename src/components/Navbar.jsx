@@ -53,7 +53,7 @@ export default function Navbar() {
                 ? "bg-[#020500] text-white"
                 : "bg-transparent text-black hover:bg-gray-100"
             }`}>
-            EN
+            {t("EN")}
           </button>
           <button
             onClick={() => changeLanguage("ar")}
@@ -62,7 +62,7 @@ export default function Navbar() {
                 ? "bg-[#020500] text-white"
                 : "bg-transparent text-black hover:bg-gray-100"
             }`}>
-            AR
+            {t("AR")}
           </button>
         </div>
 
