@@ -91,13 +91,13 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
         <div className="flex gap-1">
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
             <label
-              htmlFor="firstname"
+              htmlFor="name"
               className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
               {t("Name")}
             </label>
             <input
               type="text"
-              id="firstname"
+              id="name"
               placeholder="Andre"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -134,7 +134,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
               type="text"
               id="designation"
               placeholder="Mortgage Loan Officer"
-              value={email}
+              value={designation}
               onChange={(e) => setDesignation(e.target.value)}
               required
               className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
