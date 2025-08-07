@@ -95,10 +95,10 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
 
         <form className="" onSubmit={handleSubmit}>
           <div className="flex gap-1">
-            <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
+            <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
               <label
                 htmlFor="name"
-                className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+                className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
                 {t("Name")}
               </label>
               <input
@@ -108,13 +108,13 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
+                className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none placeholder:text-[#020500]"
               />
             </div>
-            <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
+            <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
               <label
                 htmlFor="Salary"
-                className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+                className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
                 {t("Salary")}
               </label>
               <input
@@ -125,15 +125,15 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
                 value={salary}
                 onChange={(e) => setSalary(e.target.value)}
                 required
-                className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
+                className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none placeholder:text-[#020500]"
               />
             </div>
           </div>
 
-          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
+          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
             <label
               htmlFor="designation"
-              className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+              className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
               {t("Designation")}
             </label>
             <input
@@ -143,14 +143,14 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
               value={designation}
               onChange={(e) => setDesignation(e.target.value)}
               required
-              className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
+              className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none placeholder:text-[#020500]"
             />
           </div>
 
-          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
+          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
             <label
               htmlFor="email"
-              className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+              className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
               {t("Email")}
             </label>
             <input
@@ -160,7 +160,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
+              className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none placeholder:text-[#020500]"
             />
           </div>
 
