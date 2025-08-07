@@ -54,6 +54,10 @@
   "Bulk Pay": "دفع جماعي",
   "Individual Pay": "دفع فردي",
   "Add User": "إضافة مستخدم",
-  "Short Description": "وصف مختصر"
+  "Short Description": "وصف مختصر",
+  "First name": "الاسم الأول",
+  "Email": "البريد الإلكتروني",
+  "Phone number": "رقم الهاتف"
+
 
 }

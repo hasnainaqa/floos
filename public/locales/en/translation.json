@@ -54,5 +54,8 @@
   "Bulk Pay": "Bulk Pay",
   "Individual Pay": "Individual Pay",
   "Add User": "Add User",
-  "Short Description": "Short Description"
+  "Short Description": "Short Description",
+  "First name": "First name",
+  "Email": "Email",
+  "Phone number": "Phone number"
 }

@@ -217,7 +217,7 @@ function EmployeesList({ limit }) {
                       {t("Phone Number")}
                     </th>
                     <th className="p-6 pt-0  capitalize font-normal whitespace-nowrap">
-                      Email
+                      {t("Email")}
                     </th>
                   </tr>
                 </thead>

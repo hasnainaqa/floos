@@ -9,6 +9,9 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  const handlePhoneChange = (phoneNumber) => {
+    setPhone(phoneNumber); 
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -115,7 +118,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
 
 
           <div>
-<PhoneInputComponent/>
+<PhoneInputComponent onChange={handlePhoneChange}/>
             </div>
 
           <button
