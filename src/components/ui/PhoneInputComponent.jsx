@@ -63,7 +63,7 @@ export default function PhoneInputComponent({ onChange }) {
         placeholder="Phone number"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
-        className="h-14 px-4 rounded-full bg-[#F1F4F1] text-[#020500] focus:outline-none text-base font-normal w-full"
+        className="h-14 px-4 rounded-full bg-[#F1F4F1] text-[#020500] focus:outline-none text-base font-normal w-full placeholder:text-[#575757]"
       />
     </div>
   );
