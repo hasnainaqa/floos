@@ -10,7 +10,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
   const [phone, setPhone] = useState("");
 
   const handlePhoneChange = (phoneNumber) => {
-    setPhone(phoneNumber); 
+    setPhone(phoneNumber);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,8 +81,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
           <h2 className="text-[28px] font-semibold">{t("Add Employee")}</h2>
         </div>
 
-        <form className="space-y-4 " onSubmit={handleSubmit}>
-          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2">
+        <form className="" onSubmit={handleSubmit}>
+          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
             <label
               htmlFor="firstname"
               className="absolute left-4 top-1 text-xs font-normal text-[#575757]">
@@ -91,7 +91,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             <input
               type="text"
               id="firstname"
-              placeholder={t("Andre")}
+              placeholder="Andre"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
@@ -99,7 +99,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             />
           </div>
 
-          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2">
+          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
             <label
               htmlFor="firstname"
               className="absolute left-4 top-1 text-xs font-normal text-[#575757]">
@@ -108,7 +108,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             <input
               type="email"
               id="email"
-              placeholder={t("andregomen@gmail.com")}
+              placeholder="andregomen@gmail.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -116,10 +116,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             />
           </div>
 
-
-          <div>
-<PhoneInputComponent onChange={handlePhoneChange}/>
-            </div>
+          <PhoneInputComponent onChange={handlePhoneChange} />
 
           <button
             type="submit"

@@ -12,27 +12,41 @@ function Create() {
   const selectedEmployees = location.state?.selectedEmployees || [];
   const [transactionData, setTransactionData] = useState(null);
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      templateName: "",
-      payType: "bulk",
-      users: selectedEmployees.map((u) => ({
-        id: u.id,
-        name: u.name,
-        img: u.img,
+
+  const users = Array.isArray(selectedEmployees)
+  ? selectedEmployees.map((u) => ({
+      id: u.id,
+      name: u.name,
+      img: u.img,
+      amount: "",
+      description: "",
+    }))
+  : [
+      {
+        id: selectedEmployees.id,
+        name: selectedEmployees.name,
+        img: selectedEmployees.img,
         amount: "",
         description: "",
-      })),
-    },
-  });
+      },
+    ];
+
+    const {
+      register,
+      control,
+      handleSubmit,
+      setValue,
+      watch,
+      reset,
+      formState: { errors },
+    } = useForm({
+      defaultValues: {
+        templateName: "",
+        payType: "bulk",
+        users: users,
+      },
+    });
+    
 
   const { fields, remove, append } = useFieldArray({ control, name: "users" });
   const allUsers = watch("users");

@@ -71,7 +71,7 @@ const PayrollCard = ({ payment }) => {
         <div className="flex justify-between items-center">
           <h4 className="text-sm text-[#020500] font-medium">{t("Added Users")}</h4>
           <Link
-            to="#"
+            to="/employees"
             className="text-[#21A90A] text-sm font-medium hover:underline"
           >
             {t("View All")}

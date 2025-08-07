@@ -211,10 +211,10 @@ function Transactions() {
                     {employee.email}
                   </td>
                   <td className="py-5 px-6 whitespace-nowrap">
-                    {employee.designation}
+                    {employee.amount}
                   </td>
                   <td className="py-5 px-6 whitespace-nowrap">
-                    {employee.phone}
+                    {employee.DateTime}
                   </td>
                   <td className="py-5 px-6 whitespace-nowrap">
                     {employee.email}

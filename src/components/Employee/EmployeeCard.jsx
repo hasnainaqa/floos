@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Phone, Mail, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const EmployeeCard = ({ employee }) => {
+  const [selectedEmployees, setSelectedEmployees] = useState([]);
+
+  useEffect(()=>{
+    setSelectedEmployees(employee)
+  },[employee])
   const { t } = useTranslation();
   if (!employee) return null;
-  
+
   return (
     <div className="bg-white rounded-3xl ml-2 p-6 w-full  text-left flex flex-col items-center space-y-4">
       <img
@@ -38,11 +43,9 @@ const EmployeeCard = ({ employee }) => {
         </div>
       </div>
 
-      <Link
-        to="/employee"
-        className="bg-[#54F439] w-full text-center text-black py-3 mt-4 rounded-full hover:bg-[#52ff34] "
-      >
-        <button>{t("Pay Now")}</button>
+      <Link to="/payroll/createtransaction" state={{ selectedEmployees }}
+        className="bg-[#54F439] w-full text-center text-black py-3 mt-4
+        rounded-full hover:bg-[#52ff34] " ><button>{t("Pay Now")}</button>
       </Link>
     </div>
   );
