@@ -10,7 +10,7 @@ const TransactionDetails = ({ popupData, onClose }) => {
         onClick={onClose}
         className="fixed inset-0 bg-black bg-opacity-40 z-40"></div>
 
-      <div className="fixed top-1/2 left-1/2 lg:w-[449px] md:w-[449px] w-[90%] -translate-x-1/2 -translate-y-1/2 text-[#020500] bg-white rounded-2xl z-50 p-[60px] text-center font-inter">
+      <div className="fixed top-1/2 left-1/2 lg:w-[449px] md:w-[449px] w-[90%] -translate-x-1/2 -translate-y-1/2 text-[#020500] bg-white rounded-2xl z-50 p-[60px] pt-10 text-center font-inter">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-black text-xl font-bold">
