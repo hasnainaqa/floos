@@ -5,7 +5,9 @@ import PhoneInputComponent from "../ui/PhoneInputComponent";
 const AddEmployee = ({ setIsAddEmployeeOpen }) => {
   const { t } = useTranslation();
 
-  const [firstName, setFirstName] = useState("");
+  const [name, setName] = useState("");
+  const [salary, setSalary] = useState("");
+  const [designation, setDesignation] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -16,14 +18,18 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
     e.preventDefault();
 
     const newEmployee = {
-      firstName,
+      name,
+      salary,
+      designation,
       email,
       phone: `+90 ${phone}`,
     };
 
     console.log("New Employee:", newEmployee);
-
-    setFirstName("");
+    
+    setName("");
+    setSalary("");
+    setDesignation("")
     setEmail("");
     setPhone("");
     setIsAddEmployeeOpen(false);
@@ -35,7 +41,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
         className="fixed inset-0 bg-black bg-opacity-40 z-40"
         onClick={() => setIsAddEmployeeOpen(false)}></div>
 
-      <div className="fixed top-1/2 left-1/2 lg:w-[508px] sm-w-[90%] -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl z-50 p-[60px] text-center font-inter">
+      <div className="fixed top-1/2 left-1/2 lg:w-[508px] md:w-[508px] w-[90%] -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl z-50 p-[60px] text-center font-inter">
         <div className="flex justify-start mb-4">
           <svg
             width="86"
@@ -82,27 +88,46 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
         </div>
 
         <form className="" onSubmit={handleSubmit}>
+        <div className="flex gap-1">
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
             <label
               htmlFor="firstname"
-              className="absolute left-4 top-1 text-xs font-normal text-[#575757]">
-              {t("First name")}
+              className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+              {t("Name")}
             </label>
             <input
               type="text"
               id="firstname"
               placeholder="Andre"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
               className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
             />
+          </div>
+          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
+            <label
+              htmlFor="Salary"
+              className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+              {t("Salary")}
+            </label>
+            <input
+              type="number"
+              id="salary"
+              min= {1}
+              placeholder="$500"
+              value={salary}
+              onChange={(e) => setSalary(e.target.value)}
+              required
+              className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
+            />
+          </div>
           </div>
 
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
             <label
               htmlFor="firstname"
-              className="absolute left-4 top-1 text-xs font-normal text-[#575757]">
+              className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
               {t("Email")}
             </label>
             <input
@@ -115,6 +140,23 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
               className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
             />
           </div>
+
+          <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
+              <label
+                htmlFor="firstname"
+                className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
+                {t("Email")}
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="andregomen@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
+              />
+            </div>
 
           <PhoneInputComponent onChange={handlePhoneChange} />
 
