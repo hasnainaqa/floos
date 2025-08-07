@@ -9,10 +9,11 @@ const PayrollCard = ({ payment }) => {
   if (!payment) return null;
 
   const addedUsers = payment.usersAdded;
-  const selectedEmployees = addedUsers
+  const selectedEmployees = payment.usersAdded;
+  const date = payment.scheduledDate
   return (
     <div className="bg-[#FFFFFF] rounded-[32px] p-6 relative">
-      <Link to="/payroll/createtransaction" state={{ selectedEmployees }}>
+      <Link to="/payroll/createtransaction" state={{ selectedEmployees,date }}>
         <button className="absolute top-6 right-6 bg-[#54F439] p-3 rounded-full hover:bg-[#52ff34] transition w-10 h-10">
           <Pencil size={16} className="text-[#020500] " />
         </button>

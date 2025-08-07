@@ -10,6 +10,8 @@ function Create() {
   const { t } = useTranslation();
   const location = useLocation();
   const selectedEmployees = location.state?.selectedEmployees || [];
+  const selectedDate = location.state?.date || [];
+  
   const [transactionData, setTransactionData] = useState(null);
 
 
@@ -209,7 +211,7 @@ function Create() {
               <h2 className="text-lg font-semibold mb-4">
                 {t("Schedule Date & Time")}
               </h2>
-              <Calendarr />
+              <Calendarr selectedDate={selectedDate} />
               <Clock />
             </div>
           </div>

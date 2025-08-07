@@ -10,7 +10,7 @@ function PayrollList() {
     {
       id: 1,
       templateName: "Bonus Q1",
-      scheduledDate: "Jan 7, 2020 10:15",
+      scheduledDate: "15 May 2020 8:00 am",
       usersAdded: [
         {
           id: 1,
@@ -111,7 +111,7 @@ function PayrollList() {
     {
       id: 2,
       templateName: "Vacation Leave Batch 1",
-      scheduledDate: "Feb 15, 2020 14:20",
+      scheduledDate: "15 Feb 2020 14:20 am",
 
       usersAdded: [
         {
@@ -528,10 +528,6 @@ function PayrollList() {
 
               <tbody>
                 {displayedPayments.map((payment, i) => {
-                  console.log(
-                    "{payment.usersAdded.length",
-                    payment.usersAdded.length
-                  );
                   return (
                     <>
                       <tr
@@ -545,9 +541,7 @@ function PayrollList() {
                        ${
                          cardPayment?.id === payment.id
                            ? "bg-[#F1F4F1]"
-                           : "hover:bg-[#F1F4F1]"
-                       }
-`}>
+                           : "hover:bg-[#F1F4F1]"}`}>
                         <td className="flex items-center space-x-3 py-3 px-6 ">
                           {payment.templateName}{" "}
                         </td>
