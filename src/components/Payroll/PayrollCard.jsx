@@ -4,35 +4,11 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const PayrollCard = ({ payment }) => {
+  console.log(payment);
   const { t } = useTranslation();
   if (!payment) return null;
 
-  const addedUsers = payment.addedUsers || [
-    {
-      name: "Eleanor Pena",
-      img: "https://randomuser.me/api/portraits/men/31.jpg",
-    },
-    {
-      name: "Ralph Edwards",
-      img: "https://randomuser.me/api/portraits/men/32.jpg",
-    },
-    {
-      name: "Savannah Nguyen",
-      img: "https://randomuser.me/api/portraits/men/33.jpg",
-    },
-    {
-      name: "Marvin McKinney",
-      img: "https://randomuser.me/api/portraits/men/34.jpg",
-    },
-    {
-      name: "Cody Fisher",
-      img: "https://randomuser.me/api/portraits/men/35.jpg",
-    },
-    {
-      name: "Robert Fox",
-      img: "https://randomuser.me/api/portraits/men/36.jpg",
-    },
-  ];
+  const addedUsers = payment.usersAdded 
 
   return (
     <div className="bg-[#FFFFFF] rounded-[32px] p-6 relative">
@@ -51,14 +27,16 @@ const PayrollCard = ({ payment }) => {
       </h3>
 
       <div className="mt-9 space-y-4">
-        <h4 className="text-sm text-[#020500] font-medium">{t("Information")}</h4>
+        <h4 className="text-sm text-[#020500] font-medium">
+          {t("Information")}
+        </h4>
         <div className="flex items-center gap-3 text-sm text-[#020500]">
           <Calendar size={16} />
           <span>{payment.scheduledDate}</span>
         </div>
         <div className="flex items-center gap-3  text-sm text-[#020500]">
           <Users size={16} />
-          <span>{payment.usersAdded}</span>
+          <span>{payment.usersAdded.length}</span>
         </div>
         <div className="flex items-center gap-3 text-sm text-[#020500]">
           <DollarSign size={16} />
@@ -69,21 +47,23 @@ const PayrollCard = ({ payment }) => {
       {/* Added Users */}
       <div className="mt-6">
         <div className="flex justify-between items-center">
-          <h4 className="text-sm text-[#020500] font-medium">{t("Added Users")}</h4>
-          <Link
-            to="/employees"
-            className="text-[#21A90A] text-sm font-medium hover:underline"
-          >
-            {t("View All")}
-          </Link>
+          <h4 className="text-sm text-[#020500] font-medium">
+            {t("Added Users")}
+          </h4>
+          {addedUsers.length>6 &&
+              <Link
+                to="/payroll/users"
+                className="text-[#21A90A] text-sm font-medium hover:underline">
+                {t("View All")}
+              </Link>
+          }
         </div>
 
         <div className="mt-4 overflow-hidden">
-          {addedUsers.map((user, index) => (
+          {addedUsers.map((user, index) => index < 6 && (
             <div
               key={index}
-              className="flex items-center gap-3 p-3 h-15 border-b border-[#EAECF0]  hover:bg-gray-100"
-            >
+              className="flex items-center gap-3 p-3 h-15 border-b border-[#EAECF0]  hover:bg-gray-100">
               <img
                 src={user.img}
                 alt={user.name}

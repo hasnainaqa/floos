@@ -7,6 +7,7 @@ import Payroll from "./pages/Payroll";
 import Transactions from "./pages/Transactions";
 import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
+import PayrollUsers from "./components/Payroll/PayrollUsers";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
           <Route
             path="/payroll/createtransaction"
             element={<CreateTransaction />}
+          />
+          <Route
+            path="/payroll/users"
+            element={<PayrollUsers />}
           />
           <Route path="/transactions" element={<Transactions />} />
         </Routes>

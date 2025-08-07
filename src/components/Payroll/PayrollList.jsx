@@ -11,7 +11,100 @@ function PayrollList() {
       id: 1,
       templateName: "Bonus Q1",
       scheduledDate: "Jan 7, 2020 10:15",
-      usersAdded: 5,
+      usersAdded: [
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 2,
+          name: "Cody Fisher",
+          designation: "Backend Developer",
+          phone: "(213) 555-1234",
+          email: "cody@example.com",
+          img: "https://randomuser.me/api/portraits/men/23.jpg",
+        },
+        {
+          id: 3,
+          name: "Jane Cooper",
+          designation: "Frontend Engineer",
+          phone: "(415) 789-4567",
+          email: "jane@example.com",
+          img: "https://randomuser.me/api/portraits/women/43.jpg",
+        },
+        {
+          id: 4,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 2,
+          name: "Cody Fisher",
+          designation: "Backend Developer",
+          phone: "(213) 555-1234",
+          email: "cody@example.com",
+          img: "https://randomuser.me/api/portraits/men/23.jpg",
+        },
+        {
+          id: 3,
+          name: "Jane Cooper",
+          designation: "Frontend Engineer",
+          phone: "(415) 789-4567",
+          email: "jane@example.com",
+          img: "https://randomuser.me/api/portraits/women/43.jpg",
+        },
+        {
+          id: 4,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Individual",
       totalAmount: "$879.10",
     },
@@ -19,7 +112,28 @@ function PayrollList() {
       id: 2,
       templateName: "Vacation Leave Batch 1",
       scheduledDate: "Feb 15, 2020 14:20",
-      usersAdded: 12,
+
+      usersAdded: [
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 2,
+          name: "Cody Fisher",
+          designation: "Backend Developer",
+          phone: "(213) 555-1234",
+          email: "cody@example.com",
+          img: "https://randomuser.me/api/portraits/men/23.jpg",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$1250.75",
     },
@@ -27,7 +141,36 @@ function PayrollList() {
       id: 3,
       templateName: "Salary March",
       scheduledDate: "Mar 1, 2020 09:00",
-      usersAdded: 38,
+
+      usersAdded: [
+        {
+          id: 3,
+          name: "Jane Cooper",
+          designation: "Frontend Engineer",
+          phone: "(415) 789-4567",
+          email: "jane@example.com",
+          img: "https://randomuser.me/api/portraits/women/43.jpg",
+        },
+        {
+          id: 4,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$3423.50",
     },
@@ -35,7 +178,28 @@ function PayrollList() {
       id: 4,
       templateName: "Quarterly Bonus",
       scheduledDate: "Apr 10, 2020 11:45",
-      usersAdded: 8,
+
+      usersAdded: [
+        {
+          id: 4,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$1120.20",
     },
@@ -43,7 +207,39 @@ function PayrollList() {
       id: 5,
       templateName: "Annual Leave",
       scheduledDate: "May 22, 2020 16:10",
-      usersAdded: 1,
+
+      usersAdded: [
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 2,
+          name: "Cody Fisher",
+          designation: "Backend Developer",
+          phone: "(213) 555-1234",
+          email: "cody@example.com",
+          img: "https://randomuser.me/api/portraits/men/23.jpg",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Individual",
       totalAmount: "$620.00",
     },
@@ -51,7 +247,20 @@ function PayrollList() {
       id: 6,
       templateName: "Bonus Q2",
       scheduledDate: "Jun 30, 2020 17:50",
-      usersAdded: 20,
+
+      usersAdded: [
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$2450.00",
     },
@@ -59,7 +268,31 @@ function PayrollList() {
       id: 7,
       templateName: "Holiday Pay",
       scheduledDate: "Jul 4, 2020 13:15",
-      usersAdded: 18,
+
+      usersAdded: [
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$980.75",
     },
@@ -67,7 +300,28 @@ function PayrollList() {
       id: 8,
       templateName: "Salary July",
       scheduledDate: "Jul 31, 2020 08:30",
-      usersAdded: 60,
+
+      usersAdded: [
+        {
+          id: 1,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 2,
+          name: "Cody Fisher",
+          designation: "Backend Developer",
+          phone: "(213) 555-1234",
+          email: "cody@example.com",
+          img: "https://randomuser.me/api/portraits/men/23.jpg",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$5230.60",
     },
@@ -75,7 +329,20 @@ function PayrollList() {
       id: 9,
       templateName: "Performance Bonus",
       scheduledDate: "Aug 20, 2020 12:05",
-      usersAdded: 27,
+
+      usersAdded: [
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$1675.25",
     },
@@ -83,7 +350,17 @@ function PayrollList() {
       id: 10,
       templateName: "Salary August",
       scheduledDate: "Aug 31, 2020 10:00",
-      usersAdded: 55,
+
+      usersAdded: [
+        {
+          id: 3,
+          name: "Jane Cooper",
+          designation: "Frontend Engineer",
+          phone: "(415) 789-4567",
+          email: "jane@example.com",
+          img: "https://randomuser.me/api/portraits/women/43.jpg",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$5099.90",
     },
@@ -91,7 +368,28 @@ function PayrollList() {
       id: 11,
       templateName: "Salary September",
       scheduledDate: "Sep 30, 2020 10:00",
-      usersAdded: 60,
+
+      usersAdded: [
+        {
+          id: 4,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 5,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+      ],
       type: "Batch Payment",
       totalAmount: "$5400.25",
     },
@@ -113,7 +411,7 @@ function PayrollList() {
       ? payments
       : payments.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage),
+          currentPage * parseInt(itemsPerPage)
         );
 
   const handleItemsPerPageChange = (value) => {
@@ -155,8 +453,7 @@ function PayrollList() {
                       return (
                         <th
                           key={index}
-                          className="p-6 pt-0 capitalize font-normal whitespace-nowrap"
-                        >
+                          className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
                           {t(labels[key] || key)}
                         </th>
                       );
@@ -165,39 +462,46 @@ function PayrollList() {
               </thead>
 
               <tbody>
-                {displayedPayments.map((payment, i) => (
-                  <tr
-                    key={i}
-                    onClick={() => onClick(payment)}
-                    className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
-                      i !== payments.length - 1
-                        ? "border-b border-[#D9D9D9]"
-                        : ""
-                    }
+                {displayedPayments.map((payment, i) => {
+                  console.log(
+                    "{payment.usersAdded.length",
+                    payment.usersAdded.length
+                  );
+                  return (
+                    <>
+                      <tr
+                        key={i}
+                        onClick={() => onClick(payment)}
+                        className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
+                          i !== payments.length - 1
+                            ? "border-b border-[#D9D9D9]"
+                            : ""
+                        }
                        ${
                          cardPayment?.id === payment.id
                            ? "bg-[#F1F4F1]"
                            : "hover:bg-[#F1F4F1]"
                        }
-`}
-                  >
-                    <td className="flex items-center space-x-3 py-3 px-6 ">
-                      {payment.templateName}{" "}
-                    </td>
-                    <td className="py-5 px-6 whitespace-nowrap">
-                      {payment.scheduledDate}
-                    </td>
-                    <td className="py-5 px-6 whitespace-nowrap">
-                      {payment.usersAdded}
-                    </td>
-                    <td className="py-5 px-6 whitespace-nowrap">
-                      {payment.type}
-                    </td>
-                    <td className="py-5 px-6 whitespace-nowrap">
-                      {payment.totalAmount}
-                    </td>
-                  </tr>
-                ))}
+`}>
+                        <td className="flex items-center space-x-3 py-3 px-6 ">
+                          {payment.templateName}{" "}
+                        </td>
+                        <td className="py-5 px-6 whitespace-nowrap">
+                          {payment.scheduledDate}
+                        </td>
+                        <td className="py-5 px-6 whitespace-nowrap">
+                          {payment.usersAdded.length}
+                        </td>
+                        <td className="py-5 px-6 whitespace-nowrap">
+                          {payment.type}
+                        </td>
+                        <td className="py-5 px-6 whitespace-nowrap">
+                          {payment.totalAmount}
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
               </tbody>
             </table>
           </div>
