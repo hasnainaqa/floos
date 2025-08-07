@@ -190,7 +190,7 @@ function Transactions() {
               {displayedEmployees.map((employee, i) => (
                 <tr
                   key={i}
-                  className="border-b hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal
+                  className="border-b hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal
                   "
                 >
                   <td className="flex items-center space-x-3 py-3 px-6 ">

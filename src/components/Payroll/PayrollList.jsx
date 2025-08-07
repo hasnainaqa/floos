@@ -59,7 +59,7 @@ function PayrollList() {
           TransactionID: "T002",
         },
         {
-          id: 1,
+          id: 6,
           name: "Ralph Edwards",
           designation: "Mortgage Loan Officer",
           phone: "(805) 123-5243",
@@ -70,7 +70,7 @@ function PayrollList() {
           TransactionID: "T001",
         },
         {
-          id: 2,
+          id: 7,
           name: "Cody Fisher",
           designation: "Backend Developer",
           phone: "(213) 555-1234",
@@ -78,7 +78,7 @@ function PayrollList() {
           img: "https://randomuser.me/api/portraits/men/23.jpg",
         },
         {
-          id: 3,
+          id: 8,
           name: "Jane Cooper",
           designation: "Frontend Engineer",
           phone: "(415) 789-4567",
@@ -86,7 +86,7 @@ function PayrollList() {
           img: "https://randomuser.me/api/portraits/women/43.jpg",
         },
         {
-          id: 4,
+          id: 9,
           name: "Kristin Watson",
           designation: "UI/UX Designer",
           phone: "(503) 867-5309",
@@ -94,7 +94,7 @@ function PayrollList() {
           img: "https://randomuser.me/api/portraits/women/22.jpg",
         },
         {
-          id: 5,
+          id: 10,
           name: "Ralph Edwards",
           designation: "Mortgage Loan Officer",
           phone: "(805) 123-5243",
@@ -259,6 +259,71 @@ function PayrollList() {
           amount: "$1234",
           DateTime: "15 May 2020 8:00 am",
           TransactionID: "T001",
+        },
+        {
+          id: 6,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/41.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T001",
+        },
+        {
+          id: 7,
+          name: "Cody Fisher",
+          designation: "Backend Developer",
+          phone: "(213) 555-1234",
+          email: "cody@example.com",
+          img: "https://randomuser.me/api/portraits/men/23.jpg",
+        },
+        {
+          id: 8,
+          name: "Jane Cooper",
+          designation: "Frontend Engineer",
+          phone: "(415) 789-4567",
+          email: "jane@example.com",
+          img: "https://randomuser.me/api/portraits/women/43.jpg",
+        },
+        {
+          id: 9,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 10,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
+        },
+        {
+          id: 9,
+          name: "Kristin Watson",
+          designation: "UI/UX Designer",
+          phone: "(503) 867-5309",
+          email: "kristin@example.com",
+          img: "https://randomuser.me/api/portraits/women/22.jpg",
+        },
+        {
+          id: 10,
+          name: "Ralph Edwards",
+          designation: "Mortgage Loan Officer",
+          phone: "(805) 123-5243",
+          email: "thuhang.nute@gmail.com",
+          img: "https://randomuser.me/api/portraits/men/31.jpg",
+          amount: "$1234",
+          DateTime: "15 May 2020 8:00 am",
+          TransactionID: "T002",
         },
       ],
       type: "Batch Payment",
@@ -472,7 +537,7 @@ function PayrollList() {
                       <tr
                         key={i}
                         onClick={() => onClick(payment)}
-                        className={`hover:bg-[#F1F4F1] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full ${
+                        className={`hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full ${
                           i !== payments.length - 1
                             ? "border-b border-[#D9D9D9]"
                             : ""

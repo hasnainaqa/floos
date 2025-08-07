@@ -22,7 +22,7 @@ const Pagination = ({
   }
 
   return (
-    <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-[14px] font-medium leading-[20px] gap-4 ">
+    <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-sm font-medium leading-[20px] gap-4 ">
       {/* Dropdown */}
       <Dropdown
         options={[5, 10, 15, 20, 30, 50, 100, "All"]}
@@ -33,7 +33,7 @@ const Pagination = ({
       {/* Previous Button  */}
       <div className="flex gap-2">
         <button
-          className={`w-[42px] h-[42px] flex items-center justify-center rounded-[26px] text-[14px] font-medium leading-[20px] ${
+          className={`w-[42px] h-[42px] flex items-center justify-center rounded-[26px] text-sm font-medium leading-[20px] ${
             currentPage === 1
               ? "text-[#A6A6A6] bg-[#E8EDE8] cursor-not-allowed"
               : "bg-white text-black hover:bg-[#E8EDE8]"
@@ -48,7 +48,7 @@ const Pagination = ({
           <button
             key={idx}
             onClick={() => onPageChange(page)}
-            className={`w-[42px] h-[42px] flex items-center justify-center rounded-[26px] text-[14px] font-medium leading-[20px] ${
+            className={`w-[42px] h-[42px] flex items-center justify-center rounded-[26px] text-sm font-medium leading-[20px] ${
               currentPage === page
                 ? "bg-[#54F439] text-black"
                 : "bg-white text-black hover:bg-[#E8EDE8]"
@@ -59,7 +59,7 @@ const Pagination = ({
 
         {/* Next Button */}
         <button
-          className={`w-[42px] h-[42px] flex items-center justify-center rounded-[26px] text-[14px] font-medium leading-[20px] ${
+          className={`w-[42px] h-[42px] flex items-center justify-center rounded-[26px] text-sm font-medium leading-[20px] ${
             currentPage === totalPages
               ? "text-[#A6A6A6] bg-[#E8EDE8] cursor-not-allowed"
               : "bg-[#54F439] text-black hover:bg-[#52ff34]"

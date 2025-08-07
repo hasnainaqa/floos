@@ -227,7 +227,7 @@ function EmployeesList({ limit }) {
                     <tr
                       key={i}
                       onClick={() => onClick(employee)}
-                      className={`cursor-pointer text-[14px] font-normal
+                      className={`cursor-pointer text-sm font-normal
                       ${
                         i !== displayedEmployees.length - 1
                           ? "border-b border-[#D9D9D9]"

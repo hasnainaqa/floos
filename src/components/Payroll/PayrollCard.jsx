@@ -53,6 +53,7 @@ const PayrollCard = ({ payment }) => {
           {addedUsers.length>6 &&
               <Link
                 to="/payroll/users"
+                state={{ addedUsers }}
                 className="text-[#21A90A] text-sm font-medium hover:underline">
                 {t("View All")}
               </Link>

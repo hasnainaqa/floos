@@ -220,8 +220,8 @@ function AddTransaction() {
     checked:after:absolute
     checked:after:text-white
     checked:after:top-[0px]
-    checked:after:left-[4px]
-    checked:after:text-[14px]
+    checked:after:left-1
+    checked:after:text-sm
     checked:after:font-bold"
                       checked={selectAll}
                       onChange={handleSelectAll}
@@ -253,7 +253,7 @@ function AddTransaction() {
                       onClick(employee); // For card highlight
                       handleCheckboxChange(employee); // For checkbox selection
                     }}
-                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-[14px] font-normal w-[984px] h-[60px] max-w-full">
+                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full">
                     <td className="flex items-center space-x-3 py-3 px-6 ">
                       <input
                         type="checkbox"
@@ -266,7 +266,7 @@ function AddTransaction() {
                       checked:after:text-black
                       checked:after:top-[0px]
                       checked:after:left-[4px]
-                      checked:after:text-[14px]
+                      checked:after:text-sm
                       checked:after:font-bold
                     "
                         checked={selectedEmployees.some(

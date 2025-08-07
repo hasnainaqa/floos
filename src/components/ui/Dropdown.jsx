@@ -26,7 +26,7 @@ const Dropdown = ({ options, value, onChange }) => {
       {/* Trigger */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#E8EDE8] text-[#A6A6A6] text-[14px] font-normal leading-[100%] rounded-lg px-6 py-4 flex justify-between items-center cursor-pointer select-none"
+        className="bg-[#E8EDE8] text-[#A6A6A6] text-sm font-normal leading-[100%] rounded-lg px-6 py-4 flex justify-between items-center cursor-pointer select-none"
       >
         {value} Items Per Page
         <ChevronDown size={16} />
@@ -39,7 +39,7 @@ const Dropdown = ({ options, value, onChange }) => {
             <div
               key={opt}
               onClick={() => handleSelect(opt)}
-              className="text-[#020500] px-4 py-3 hover:bg-[#F1F4F1] cursor-pointer text-[14px]"
+              className="text-[#020500] px-4 py-3 hover:bg-[#F1F4F1] cursor-pointer text-sm"
             >
               {opt} Items Per Page
             </div>
