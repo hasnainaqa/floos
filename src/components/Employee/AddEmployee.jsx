@@ -126,16 +126,16 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
 
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
             <label
-              htmlFor="firstname"
+              htmlFor="designation"
               className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
-              {t("Email")}
+              {t("Designation")}
             </label>
             <input
-              type="email"
-              id="email"
-              placeholder="andregomen@gmail.com"
+              type="text"
+              id="designation"
+              placeholder="Mortgage Loan Officer"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setDesignation(e.target.value)}
               required
               className="w-full h-full font-normal text-sm text-[#020500] pt-4 pb-2 outline-none"
             />
@@ -143,7 +143,7 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
 
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-4 pt-2 mb-4">
               <label
-                htmlFor="firstname"
+                htmlFor="email"
                 className="absolute left-5 top-1 text-xs font-normal text-[#575757]">
                 {t("Email")}
               </label>
