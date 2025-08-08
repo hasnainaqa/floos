@@ -5,9 +5,9 @@ import DasbboardHero from "../components/Dashboard/DasbboardHero";
 
 export default function Dashboard() {
   return (
-    <div>
+    <>
       <DasbboardHero />
       <EmployeesList limit={5} />
-    </div>
+    </>
   );
 }

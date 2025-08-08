@@ -3,7 +3,6 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 function Calendarr({ selectedDate }) {
-  // Parse incoming date safely
   const [date, setDate] = useState(() => {
     const parsed = new Date(selectedDate);
     return isNaN(parsed.getTime()) ? new Date() : parsed;
@@ -46,14 +45,10 @@ function Calendarr({ selectedDate }) {
           />
         </div>
 
-        {/* Vertical Month Sidebar */}
         <div className="relative flex flex-col items-center max-h-72 overflow-y-scroll w-16 py-6 mx-auto scrollbar-hide">
-          {/* Top Gradient */}
           <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
-          {/* Bottom Gradient */}
           <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
 
-          {/* Hide Scrollbar */}
           <style>{`
             .scrollbar-hide::-webkit-scrollbar {
               display: none;

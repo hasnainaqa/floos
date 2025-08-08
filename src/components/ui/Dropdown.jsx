@@ -11,7 +11,6 @@ const Dropdown = ({ options, value, onChange }) => {
     setIsOpen(false);
   };
 
-  // Optional: Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -24,7 +23,6 @@ const Dropdown = ({ options, value, onChange }) => {
 
   return (
     <div ref={dropdownRef} className="relative inline-block text-left w-[200px]">
-      {/* Trigger */}
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="bg-[#E8EDE8] text-[#A6A6A6] text-sm font-normal leading-[100%] rounded-lg px-6 py-4 flex justify-between items-center cursor-pointer select-none"
@@ -33,7 +31,6 @@ const Dropdown = ({ options, value, onChange }) => {
         <ChevronDown size={16} />
       </div>
 
-      {/* Dropdown Menu (opens upwards) */}
       {isOpen && (
         <div className="absolute bottom-full mb-1 w-full bg-white rounded-md shadow z-10 max-h-[200px] overflow-y-auto">
           {options.map((opt) => (
