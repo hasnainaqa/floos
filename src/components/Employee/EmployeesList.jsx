@@ -255,7 +255,7 @@ function EmployeesList({ limit }) {
                       <td className="py-5 px-6 whitespace-nowrap">
                         {employee.phone}
                       </td>
-                      <td className="py-5 px-6 whitespace-nowrap">
+                      <td className="py-5 px-6 whitespace-nowrap ">
                         {employee.email}
                       </td>
                     </tr>

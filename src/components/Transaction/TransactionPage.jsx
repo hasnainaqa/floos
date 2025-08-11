@@ -201,7 +201,7 @@ function TransactionPage() {
                 <tr
                   key={i}
                   onClick={() => onClick(employee)}
-                  className="border-b hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal">
+                  className="border-b last:border-b-0 hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal">
                   <td className="flex items-center space-x-3 py-3 px-6 ">
                     <img
                       src={employee.img}
@@ -228,7 +228,7 @@ function TransactionPage() {
                   <td className="py-5 px-6 whitespace-nowrap">
                     {employee.email}
                   </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
+                  <td className="py-5 px-6 whitespace-nowrap ">
                     {employee.paidamount}
                   </td>
                 </tr>

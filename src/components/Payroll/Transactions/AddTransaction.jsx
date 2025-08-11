@@ -253,7 +253,7 @@ function AddTransaction() {
                       onClick(employee); // For card highlight
                       handleCheckboxChange(employee); // For checkbox selection
                     }}
-                    className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full">
+                    className="border-b last:border-b-0 border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full">
                     <td
                       className="flex items-center space-x-3 rtl:space-x-reverse py-3 px-6"
                       dir={i18n === "ar" ? "rtl" : "ltr"} // Or detect from your i18n

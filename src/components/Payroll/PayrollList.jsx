@@ -533,7 +533,7 @@ function PayrollList() {
                       <tr
                         key={i}
                         onClick={() => onClick(payment)}
-                        className={`hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full ${
+                        className={`hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full last:border-b-0 ${
                           i !== payments.length - 1
                             ? "border-b border-[#D9D9D9]"
                             : ""

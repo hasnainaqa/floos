@@ -22,7 +22,7 @@ const Pagination = ({
   }
 
   return (
-    <div className="flex items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-sm font-medium leading-[20px] gap-4 ">
+    <div className="flex flex-col lg:flex-row md:flex-row items-center space-x-2 p-4 bg-[#F1F4F1] font-['Public Sans'] text-sm font-medium leading-[20px] gap-4 ">
       {/* Dropdown */}
       <Dropdown
         options={[5, 10, 15, 20, 30, 50, 100, "All"]}
