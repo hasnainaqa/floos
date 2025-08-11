@@ -212,7 +212,7 @@ function Create() {
                 {t("Schedule Date & Time")}
               </h2>
               <Calendarr selectedDate={selectedDate} />
-              <Clock />
+              <Clock selectedDate={selectedDate} />
             </div>
           </div>
         </div>
