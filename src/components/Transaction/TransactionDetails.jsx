@@ -51,7 +51,7 @@ const TransactionDetails = ({ popupData, onClose }) => {
           <span className="flex justify-start text-[#A6A6A6] w-32 ">
           {t("Amount")}
             </span>
-            <p className="">{popupData.amount}</p>
+            <p className="">{popupData.paidamount}</p>
           </div>
           <hr className="mt-4 border-[#A6A6A6]"/>
           <div className="flex  mt-4">

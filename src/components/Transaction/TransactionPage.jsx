@@ -20,7 +20,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/32.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -31,7 +30,6 @@ function TransactionPage() {
       phone: "(805) 555-1234",
       email: "jane.doe@example.com",
       img: "https://randomuser.me/api/portraits/women/44.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -42,7 +40,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/33.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -53,7 +50,6 @@ function TransactionPage() {
       phone: "(805) 555-1234",
       email: "jane.doe@example.com",
       img: "https://randomuser.me/api/portraits/women/43.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -64,7 +60,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/34.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -75,7 +70,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/35.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -86,7 +80,6 @@ function TransactionPage() {
       phone: "(805) 555-1234",
       email: "jane.doe@example.com",
       img: "https://randomuser.me/api/portraits/women/45.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -97,7 +90,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/36.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -108,7 +100,6 @@ function TransactionPage() {
       phone: "(805) 555-1234",
       email: "jane.doe@example.com",
       img: "https://randomuser.me/api/portraits/women/46.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -119,7 +110,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/men/37.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -130,7 +120,6 @@ function TransactionPage() {
       phone: "(805) 123-5243",
       email: "thuhang.nute@gmail.com",
       img: "https://randomuser.me/api/portraits/women/38.jpg",
-      amount: "$1234",
       DateTime: "15 May 2020 8:00 am",
       TransactionID: "thuhang.nute@gmail.com",
       paidamount: "$763",
@@ -176,7 +165,6 @@ function TransactionPage() {
                     designation: "Designation",
                     phone: "Phone Number",
                     email: "Email",
-                    amount: "Amount",
                     DateTime: "Date & Time",
                     TransactionID: "Transaction ID",
                     paidamount: "Paid Amount",
@@ -218,9 +206,6 @@ function TransactionPage() {
                   </td>
                   <td className="py-5 px-6 whitespace-nowrap">
                     {employee.email}
-                  </td>
-                  <td className="py-5 px-6 whitespace-nowrap">
-                    {employee.amount}
                   </td>
                   <td className="py-5 px-6 whitespace-nowrap">
                     {employee.DateTime}

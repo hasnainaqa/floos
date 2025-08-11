@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import EmployeeCard from "../../Employee/EmployeeCard";
-import { FileDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import Pagination from "../../ui/Pagination";
 import { useTranslation } from "react-i18next";
+import UploadButton from "./UploadFile";
 
 function AddTransaction() {
   const { t, i18n } = useTranslation();
@@ -191,9 +191,7 @@ function AddTransaction() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
             <h3 className="font-semibold text-lg">{t("Select Employees")}</h3>
             <div className="flex gap-2">
-              <button className="h-10 w-10 bg-[#020500] rounded-full flex items-center justify-center flex-row">
-                <FileDown className="text-white h-6 w-6" />
-              </button>
+              <UploadButton/>
               <Link
                 to="/payroll/createtransaction"
                 state={{ selectedEmployees }}>
