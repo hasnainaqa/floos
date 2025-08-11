@@ -3,7 +3,7 @@ import EmployeeCard from "../../Employee/EmployeeCard";
 import { Link } from "react-router-dom";
 import Pagination from "../../ui/Pagination";
 import { useTranslation } from "react-i18next";
-import UploadButton from "./UploadFile";
+import UploadFile from "./UploadFile";
 
 function AddTransaction() {
   const { t, i18n } = useTranslation();
@@ -191,7 +191,7 @@ function AddTransaction() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
             <h3 className="font-semibold text-lg">{t("Select Employees")}</h3>
             <div className="flex gap-2">
-              <UploadButton/>
+              <UploadFile/>
               <Link
                 to="/payroll/createtransaction"
                 state={{ selectedEmployees }}>
