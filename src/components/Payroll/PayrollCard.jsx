@@ -10,10 +10,10 @@ const PayrollCard = ({ payment }) => {
 
   const addedUsers = payment.usersAdded;
   const selectedEmployees = payment.usersAdded;
-  const date = payment.scheduledDate
+  const date = payment.scheduledDate;
   return (
     <div className="bg-[#FFFFFF] rounded-[32px] p-6 relative">
-      <Link to="/payroll/createtransaction" state={{ selectedEmployees,date }}>
+      <Link to="/payroll/createtransaction" state={{ selectedEmployees, date }}>
         <button className="absolute top-6 right-6 bg-[#54F439] p-3 rounded-full hover:bg-[#52ff34] transition w-10 h-10">
           <Pencil size={16} className="text-[#020500] " />
         </button>
@@ -56,7 +56,8 @@ const PayrollCard = ({ payment }) => {
             <Link
               to="/payroll/users"
               state={{ addedUsers }}
-              className="text-[#21A90A] text-sm font-medium hover:underline">
+              className="text-[#21A90A] text-sm font-medium hover:underline"
+            >
               {t("View All")}
             </Link>
           )}
@@ -68,7 +69,8 @@ const PayrollCard = ({ payment }) => {
               index < 6 && (
                 <div
                   key={index}
-                  className="flex items-center gap-3 p-3 h-15 border-b border-[#EAECF0]  hover:bg-gray-100">
+                  className="flex items-center gap-3 p-3 h-15 border-b border-[#EAECF0]  hover:bg-gray-100"
+                >
                   <img
                     src={user.img}
                     alt={user.name}
@@ -76,7 +78,7 @@ const PayrollCard = ({ payment }) => {
                   />
                   <span className="text-sm text-[#020500]">{user.name}</span>
                 </div>
-              )
+              ),
           )}
         </div>
       </div>

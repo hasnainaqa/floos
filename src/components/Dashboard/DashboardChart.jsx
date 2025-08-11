@@ -94,9 +94,6 @@ const DashboardChart = () => {
         </div>
       </div>
 
-      {/* Chart */
-      /* Chart */}
-
       <div className="w-full h-40">
         <ResponsiveContainer>
           <BarChart data={data}>

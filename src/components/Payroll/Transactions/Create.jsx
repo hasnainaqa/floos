@@ -11,44 +11,42 @@ function Create() {
   const location = useLocation();
   const selectedEmployees = location.state?.selectedEmployees || [];
   const selectedDate = location.state?.date || [];
-  
+
   const [transactionData, setTransactionData] = useState(null);
 
-
   const users = Array.isArray(selectedEmployees)
-  ? selectedEmployees.map((u) => ({
-      id: u.id,
-      name: u.name,
-      img: u.img,
-      amount: "",
-      description: "",
-    }))
-  : [
-      {
-        id: selectedEmployees.id,
-        name: selectedEmployees.name,
-        img: selectedEmployees.img,
+    ? selectedEmployees.map((u) => ({
+        id: u.id,
+        name: u.name,
+        img: u.img,
         amount: "",
         description: "",
-      },
-    ];
+      }))
+    : [
+        {
+          id: selectedEmployees.id,
+          name: selectedEmployees.name,
+          img: selectedEmployees.img,
+          amount: "",
+          description: "",
+        },
+      ];
 
-    const {
-      register,
-      control,
-      handleSubmit,
-      setValue,
-      watch,
-      reset,
-      formState: { errors },
-    } = useForm({
-      defaultValues: {
-        templateName: "",
-        payType: "bulk",
-        users: users,
-      },
-    });
-    
+  const {
+    register,
+    control,
+    handleSubmit,
+    setValue,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      templateName: "",
+      payType: "bulk",
+      users: users,
+    },
+  });
 
   const { fields, remove, append } = useFieldArray({ control, name: "users" });
   const allUsers = watch("users");
@@ -95,7 +93,9 @@ function Create() {
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <div className="flex flex-col lg:flex-row w-full gap-4">
           <div className="bg-white p-6 rounded-3xl w-full">
-            <h2 className="text-xl font-semibold mb-6">{t("Create Transaction")}</h2>
+            <h2 className="text-xl font-semibold mb-6">
+              {t("Create Transaction")}
+            </h2>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center mb-12 gap-6">
               <div className="flex flex-col">

@@ -34,7 +34,7 @@
   "Paid Amount": "المبلغ المدفوع",
   "Salary": "الراتب",
   "Schedule Date & Time": "تاريخ ووقت الجدولة",
-  "D": "ي",  
+  "D": "ي",
   "M": "ش",
   "Y": "س",
   "Jan": "يناير",
@@ -69,6 +69,4 @@
   "ItemsPerPage.50": "٥٠",
   "ItemsPerPage.100": "١٠٠",
   "ItemsPerPage.All": "الكل"
-
-
 }

@@ -37,7 +37,8 @@ const Pagination = ({
               : "bg-white text-black hover:bg-[#E8EDE8]"
           }`}
           onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}>
+          disabled={currentPage === 1}
+        >
           <ChevronLeft size={16} />
         </button>
 
@@ -49,7 +50,8 @@ const Pagination = ({
               currentPage === page
                 ? "bg-[#54F439] text-black"
                 : "bg-white text-black hover:bg-[#E8EDE8]"
-            }`}>
+            }`}
+          >
             {page}
           </button>
         ))}
@@ -62,7 +64,8 @@ const Pagination = ({
               : "bg-[#54F439] text-black hover:bg-[#52ff34]"
           }`}
           onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}>
+          disabled={currentPage === totalPages}
+        >
           <ChevronRight size={16} />
         </button>
       </div>

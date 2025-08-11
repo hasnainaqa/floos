@@ -28,10 +28,7 @@ function App() {
             path="/payroll/createtransaction"
             element={<CreateTransaction />}
           />
-          <Route
-            path="/payroll/users"
-            element={<PayrollUsers />}
-          />
+          <Route path="/payroll/users" element={<PayrollUsers />} />
           <Route path="/transactions" element={<Transactions />} />
         </Routes>
       </div>

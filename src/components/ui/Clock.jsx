@@ -13,7 +13,7 @@ const Clock = ({ selectedDate }) => {
         let h = parsed.getHours();
         let m = parsed.getMinutes();
 
-        setHour(h % 12 || 12); 
+        setHour(h % 12 || 12);
         setMinute(m);
         setAmPm(h >= 12 ? "PM" : "AM");
       }
@@ -40,7 +40,8 @@ const Clock = ({ selectedDate }) => {
           onClick={() => setMode("hour")}
           className={`cursor-pointer ${
             mode === "hour" ? "text-[#020500]" : "opacity-60"
-          }`}>
+          }`}
+        >
           {hour.toString().padStart(2, "0")}
         </span>
         :
@@ -48,7 +49,8 @@ const Clock = ({ selectedDate }) => {
           onClick={() => setMode("minute")}
           className={`cursor-pointer ${
             mode === "minute" ? "text-[#020500]" : "opacity-60"
-          }`}>
+          }`}
+        >
           {minute.toString().padStart(2, "0")}
         </span>
         <div className="flex flex-col ml-4 text-base font-medium">
@@ -56,14 +58,16 @@ const Clock = ({ selectedDate }) => {
             className={`${
               ampm === "AM" ? "text-[#FFFFFF] font-bold" : "opacity-60"
             }`}
-            onClick={() => setAmPm("AM")}>
+            onClick={() => setAmPm("AM")}
+          >
             AM
           </button>
           <button
             className={`${
               ampm === "PM" ? "text-[#FFFFFF] font-bold" : "opacity-60"
             }`}
-            onClick={() => setAmPm("PM")}>
+            onClick={() => setAmPm("PM")}
+          >
             PM
           </button>
         </div>
@@ -95,7 +99,8 @@ const Clock = ({ selectedDate }) => {
                 left: `calc(50% + ${x}px)`,
                 top: `calc(50% + ${y}px)`,
                 transform: "translate(-50%, -50%)",
-              }}>
+              }}
+            >
               {val.toString().padStart(2, "0")}
             </div>
           );

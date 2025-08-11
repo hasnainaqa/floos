@@ -8,12 +8,14 @@ const TransactionDetails = ({ popupData, onClose }) => {
     <>
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-black bg-opacity-40 z-40"></div>
+        className="fixed inset-0 bg-black bg-opacity-40 z-40"
+      ></div>
 
       <div className="fixed top-1/2 left-1/2 lg:w-[449px] md:w-[449px] w-[90%] -translate-x-1/2 -translate-y-1/2 text-[#020500] bg-white rounded-2xl z-50 p-[60px] pt-10 text-center font-inter">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-black text-xl font-bold">
+          className="absolute top-4 right-4 text-black text-xl font-bold"
+        >
           &times;
         </button>
 
@@ -32,42 +34,42 @@ const TransactionDetails = ({ popupData, onClose }) => {
             </span>
             <p className="">{popupData.name}</p>
           </div>
-          <hr className="mt-4 border-[#A6A6A6]"/>
+          <hr className="mt-4 border-[#A6A6A6]" />
           <div className="flex  mt-4">
-          <span className="flex justify-start text-[#A6A6A6] w-32 ">
-          {t("Designation")}
+            <span className="flex justify-start text-[#A6A6A6] w-32 ">
+              {t("Designation")}
             </span>
             <p className="">{popupData.designation}</p>
           </div>
-          <hr className="mt-4 border-[#A6A6A6]"/>
+          <hr className="mt-4 border-[#A6A6A6]" />
           <div className="flex  mt-4">
-          <span className="flex justify-start text-[#A6A6A6] w-32 ">
-          {t("Emai")}
+            <span className="flex justify-start text-[#A6A6A6] w-32 ">
+              {t("Emai")}
             </span>
             <p className="">{popupData.email}</p>
           </div>
-          <hr className="mt-4 border-[#A6A6A6]"/>
+          <hr className="mt-4 border-[#A6A6A6]" />
           <div className="flex  mt-4">
-          <span className="flex justify-start text-[#A6A6A6] w-32 ">
-          {t("Amount")}
+            <span className="flex justify-start text-[#A6A6A6] w-32 ">
+              {t("Amount")}
             </span>
             <p className="">{popupData.paidamount}</p>
           </div>
-          <hr className="mt-4 border-[#A6A6A6]"/>
+          <hr className="mt-4 border-[#A6A6A6]" />
           <div className="flex  mt-4">
-          <span className="flex justify-start text-[#A6A6A6] w-32 ">
-          {t("Date & Time")}
+            <span className="flex justify-start text-[#A6A6A6] w-32 ">
+              {t("Date & Time")}
             </span>
             <p className="">{popupData.DateTime}</p>
           </div>
-          <hr className="mt-4 border-[#A6A6A6]"/>
+          <hr className="mt-4 border-[#A6A6A6]" />
           <div className="flex  mt-4">
-          <span className="flex justify-start text-[#A6A6A6] w-32 ">
-          {t("Transaction ID")}
+            <span className="flex justify-start text-[#A6A6A6] w-32 ">
+              {t("Transaction ID")}
             </span>
             <p className="">{popupData.TransactionID}</p>
           </div>
-          <hr className="mt-4 border-[#A6A6A6]"/>
+          <hr className="mt-4 border-[#A6A6A6]" />
           <div></div>
         </div>
       </div>

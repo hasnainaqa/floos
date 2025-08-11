@@ -4,7 +4,7 @@ import "react-phone-input-2/lib/style.css";
 
 export default function PhoneInputComponent({ onChange }) {
   const [phone, setPhone] = useState("");
-  const [dialCode, setDialCode] = useState("90"); 
+  const [dialCode, setDialCode] = useState("90");
 
   useEffect(() => {
     const fullNumber = `+${dialCode}${phone}`;
@@ -50,7 +50,7 @@ export default function PhoneInputComponent({ onChange }) {
           dropdownStyle={{
             borderRadius: "12px",
             maxHeight: "300px",
-            width: "320px", 
+            width: "320px",
             zIndex: 9999,
             fontSize: "15px",
           }}

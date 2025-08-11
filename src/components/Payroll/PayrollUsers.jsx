@@ -21,7 +21,7 @@ function PayrollUsers({ limit }) {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
   if (limit) {
     displayedEmployees =
@@ -57,7 +57,8 @@ function PayrollUsers({ limit }) {
                     <th
                       className={`p-6 pt-0 capitalize font-normal whitespace-nowrap ${
                         i18n.language === "ar" ? "text-right" : "text-left"
-                      }`}>
+                      }`}
+                    >
                       {t("Name")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
@@ -87,7 +88,8 @@ function PayrollUsers({ limit }) {
                         cardEmployee?.id === employee.id
                           ? "bg-[#F1F4F1]"
                           : "hover:bg-[#F1F4F1]"
-                      }`}>
+                      }`}
+                    >
                       <td className="flex items-center space-x-3 py-3 px-6">
                         <img
                           src={employee.img}

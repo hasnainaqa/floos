@@ -27,7 +27,8 @@ export default function Navbar() {
     <div
       className={`w-full flex items-center justify-between mx-auto ${
         i18n.language === "ar" ? "flex-row-reverse" : ""
-      }`}>
+      }`}
+    >
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter">
         <div className="w-full flex items-center justify-between  mx-auto">
           <div className="relative flex ">
@@ -49,7 +50,8 @@ export default function Navbar() {
                   i18n.language === "en"
                     ? "bg-[#020500] text-white"
                     : "bg-transparent text-black hover:bg-gray-100"
-                }`}>
+                }`}
+              >
                 {t("EN")}
               </button>
               <button
@@ -58,7 +60,8 @@ export default function Navbar() {
                   i18n.language === "ar"
                     ? "bg-[#020500] text-white"
                     : "bg-transparent text-black hover:bg-gray-100"
-                }`}>
+                }`}
+              >
                 {t("AR")}
               </button>
             </div>
@@ -74,7 +77,8 @@ export default function Navbar() {
                     current === item.path
                       ? "bg-[#020500] text-white"
                       : "text-black hover:bg-gray-100"
-                  }`}>
+                  }`}
+                >
                   {t(item.label)}
                 </Link>
               ))}
@@ -82,7 +86,8 @@ export default function Navbar() {
           </div>
           <button
             className="md:hidden text-gray-700"
-            onClick={() => setIsOpen(!isOpen)}>
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -101,7 +106,8 @@ export default function Navbar() {
                   current === item.path
                     ? "bg-black text-white"
                     : "text-black hover:bg-gray-100"
-                }`}>
+                }`}
+              >
                 {t(item.label)}
               </Link>
             ))}

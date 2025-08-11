@@ -169,7 +169,7 @@ function EmployeesList({ limit }) {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
   if (limit) {
     displayedEmployees =
@@ -198,7 +198,8 @@ function EmployeesList({ limit }) {
               <h3 className="font-semibold text-lg">{t("Employees")}</h3>
               <button
                 onClick={() => setIsAddEmployeeOpen(true)}
-                className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base">
+                className="bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] text-base sm:text-base"
+              >
                 {t("Add Employee")}
               </button>
             </div>
@@ -210,7 +211,8 @@ function EmployeesList({ limit }) {
                     <th
                       className={`p-6 pt-0 capitalize font-normal whitespace-nowrap ${
                         i18n.language === "ar" ? "text-right" : "text-left"
-                      }`}>
+                      }`}
+                    >
                       {t("Name")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
@@ -240,7 +242,8 @@ function EmployeesList({ limit }) {
                         cardEmployee?.id === employee.id
                           ? "bg-[#F1F4F1]"
                           : "hover:bg-[#F1F4F1]"
-                      }`}>
+                      }`}
+                    >
                       <td className="flex items-center space-x-3 py-3 px-6">
                         <img
                           src={employee.img}

@@ -140,7 +140,7 @@ function TransactionPage() {
       ? employees
       : employees.slice(
           (currentPage - 1) * parseInt(itemsPerPage),
-          currentPage * parseInt(itemsPerPage)
+          currentPage * parseInt(itemsPerPage),
         );
 
   const handleItemsPerPageChange = (value) => {
@@ -176,7 +176,8 @@ function TransactionPage() {
                         key === "name" && i18n.language === "ar"
                           ? "text-right"
                           : "text-left"
-                      }`}>
+                      }`}
+                    >
                       {t(labels[key])}
                     </th>
                   );
@@ -189,7 +190,8 @@ function TransactionPage() {
                 <tr
                   key={i}
                   onClick={() => onClick(employee)}
-                  className="border-b last:border-b-0 hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal">
+                  className="border-b last:border-b-0 hover:bg-[#F1F4F1] cursor-pointer text-sm font-normal"
+                >
                   <td className="flex items-center space-x-3 py-3 px-6 ">
                     <img
                       src={employee.img}

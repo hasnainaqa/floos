@@ -22,7 +22,10 @@ const Dropdown = ({ options, value, onChange }) => {
   }, []);
 
   return (
-    <div ref={dropdownRef} className="relative inline-block text-left w-[200px]">
+    <div
+      ref={dropdownRef}
+      className="relative inline-block text-left w-[200px]"
+    >
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="bg-[#E8EDE8] text-[#A6A6A6] text-sm font-normal leading-[100%] rounded-lg px-6 py-4 flex justify-between items-center cursor-pointer select-none"

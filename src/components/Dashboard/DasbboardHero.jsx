@@ -1,10 +1,8 @@
 import DashboardChart from "./DashboardChart";
 import { useTranslation } from "react-i18next";
 
-
 const DasbboardHero = () => {
   const { t } = useTranslation();
-
 
   const heroCards = [
     { tital: "Total Employees", value: 2200 },
@@ -15,8 +13,6 @@ const DasbboardHero = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-6">
-
-      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:col-span-3 gap-4">
         {heroCards.map((card, i) => (
           <div key={i} className="bg-[#FFFFFF] p-6 rounded-3xl">

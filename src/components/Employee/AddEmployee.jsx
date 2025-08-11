@@ -39,12 +39,14 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
     <>
       <div
         className="fixed inset-0 bg-black bg-opacity-40 z-40"
-        onClick={() => setIsAddEmployeeOpen(false)}></div>
+        onClick={() => setIsAddEmployeeOpen(false)}
+      ></div>
 
       <div className="fixed top-1/2 left-1/2 lg:w-[508px] md:w-[508px] w-[90%] -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl z-50 p-[60px] text-center font-inter">
         <button
           onClick={() => setIsAddEmployeeOpen(false)}
-          className="absolute top-4 right-4 text-black text-xl font-bold">
+          className="absolute top-4 right-4 text-black text-xl font-bold"
+        >
           &times;
         </button>
 
@@ -54,7 +56,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             height="80"
             viewBox="0 0 86 80"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <circle cx="43" cy="43" r="30" fill="#54F439" />
             <path
               d="M43 47C47.4183 47 51 43.4183 51 39C51 34.5817 47.4183 31 43 31C38.5817 31 35 34.5817 35 39C35 43.4183 38.5817 47 43 47Z"
@@ -98,7 +101,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
               <label
                 htmlFor="name"
-                className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
+                className="absolute left-5 top-2 text-xs font-normal text-[#575757]"
+              >
                 {t("Name")}
               </label>
               <input
@@ -114,7 +118,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
             <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
               <label
                 htmlFor="Salary"
-                className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
+                className="absolute left-5 top-2 text-xs font-normal text-[#575757]"
+              >
                 {t("Salary")}
               </label>
               <input
@@ -133,7 +138,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
             <label
               htmlFor="designation"
-              className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
+              className="absolute left-5 top-2 text-xs font-normal text-[#575757]"
+            >
               {t("Designation")}
             </label>
             <input
@@ -150,7 +156,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
           <div className="relative h-14 rounded-full border border-[#E8EDE8] px-5 pt-2 mb-4">
             <label
               htmlFor="email"
-              className="absolute left-5 top-2 text-xs font-normal text-[#575757]">
+              className="absolute left-5 top-2 text-xs font-normal text-[#575757]"
+            >
               {t("Email")}
             </label>
             <input
@@ -168,7 +175,8 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
 
           <button
             type="submit"
-            className="mt-6 w-full bg-[#54F439] hover:bg-[#5fff43] text-[#020500] font-semibold py-3 rounded-full ">
+            className="mt-6 w-full bg-[#54F439] hover:bg-[#5fff43] text-[#020500] font-semibold py-3 rounded-full "
+          >
             {t("Add Employee")}
           </button>
         </form>

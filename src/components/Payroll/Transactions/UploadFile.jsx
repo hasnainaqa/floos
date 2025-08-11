@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { ReactComponent as FileArrowUp } from "../../assets/icons/FileArrowUp.svg"
+import { ReactComponent as FileArrowUp } from "../../assets/icons/FileArrowUp.svg";
 
 export default function UploadFile() {
   const fileInputRef = useRef(null);

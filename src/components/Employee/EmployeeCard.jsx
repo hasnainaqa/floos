@@ -6,9 +6,9 @@ import { useTranslation } from "react-i18next";
 const EmployeeCard = ({ employee }) => {
   const [selectedEmployees, setSelectedEmployees] = useState([]);
 
-  useEffect(()=>{
-    setSelectedEmployees(employee)
-  },[employee])
+  useEffect(() => {
+    setSelectedEmployees(employee);
+  }, [employee]);
   const { t } = useTranslation();
   if (!employee) return null;
 
@@ -43,9 +43,13 @@ const EmployeeCard = ({ employee }) => {
         </div>
       </div>
 
-      <Link to="/payroll/createtransaction" state={{ selectedEmployees }}
+      <Link
+        to="/payroll/createtransaction"
+        state={{ selectedEmployees }}
         className="bg-[#54F439] w-full text-center text-black py-3 mt-4
-        rounded-full hover:bg-[#52ff34] " ><button>{t("Pay Now")}</button>
+        rounded-full hover:bg-[#52ff34] "
+      >
+        <button>{t("Pay Now")}</button>
       </Link>
     </div>
   );
