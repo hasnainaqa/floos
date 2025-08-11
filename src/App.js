@@ -7,15 +7,21 @@ import Transactions from "./pages/Transactions";
 import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t("Floos");
+  }, [t]);
   return (
     <Router>
       <Navbar />
       <div
         className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
-        style={{ borderColor: "#EAECF0" }}
-      >
+        style={{ borderColor: "#EAECF0" }}>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />

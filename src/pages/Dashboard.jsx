@@ -1,13 +1,13 @@
 import React from "react";
-
-// import { Link } from "react-router-dom";
 import EmployeesList from "../components/Employee/EmployeesList";
 import DasbboardHero from "../components/Dashboard/DasbboardHero";
 
+import { useTranslation } from "react-i18next";
 export default function Dashboard() {
+  const { t } = useTranslation();
   return (
     <>
-      <title>Dashboard</title>
+      <title>{t("dashboard")}</title>
       <DasbboardHero />
       <EmployeesList limit={5} />
     </>
