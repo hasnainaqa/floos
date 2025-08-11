@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import AddEmployee from "./AddEmployee";
 
 function EmployeesList({ limit }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isAddEmployeeOpen, setIsAddEmployeeOpen] = useState(false);
 
   const employees = [
@@ -207,7 +207,10 @@ function EmployeesList({ limit }) {
               <table className="min-w-full text-left text-sm">
                 <thead>
                   <tr className="text-gray-500 border-b ">
-                    <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    <th
+                      className={`p-6 pt-0 capitalize font-normal whitespace-nowrap ${
+                        i18n.language === "ar" ? "text-right" : "text-left"
+                      }`}>
                       {t("Name")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
@@ -279,7 +282,9 @@ function EmployeesList({ limit }) {
           <EmployeeCard employee={cardEmployee} />
         </div>
       </div>
-      {isAddEmployeeOpen &&  <AddEmployee setIsAddEmployeeOpen= {setIsAddEmployeeOpen}/> }
+      {isAddEmployeeOpen && (
+        <AddEmployee setIsAddEmployeeOpen={setIsAddEmployeeOpen} />
+      )}
     </div>
   );
 }

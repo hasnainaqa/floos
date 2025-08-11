@@ -4,7 +4,7 @@ import Pagination from "../ui/Pagination";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 function PayrollUsers({ limit }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const employees = location.state?.addedUsers || [];
 
@@ -54,7 +54,10 @@ function PayrollUsers({ limit }) {
               <table className="min-w-full text-left text-sm">
                 <thead>
                   <tr className="text-gray-500 border-b ">
-                    <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                    <th
+                      className={`p-6 pt-0 capitalize font-normal whitespace-nowrap ${
+                        i18n.language === "ar" ? "text-right" : "text-left"
+                      }`}>
                       {t("Name")}
                     </th>
                     <th className="p-6 pt-0 capitalize font-normal whitespace-nowrap">

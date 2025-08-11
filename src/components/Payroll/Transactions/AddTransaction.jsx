@@ -6,7 +6,7 @@ import Pagination from "../../ui/Pagination";
 import { useTranslation } from "react-i18next";
 
 function AddTransaction() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const employees = [
     {
       id: 1,
@@ -254,27 +254,27 @@ function AddTransaction() {
                       handleCheckboxChange(employee); // For checkbox selection
                     }}
                     className="border-b border-[#D9D9D9] hover:bg-[#F1F4F1] text-[#020500] cursor-pointer text-sm font-normal w-[984px] h-[60px] max-w-full">
-                    <td className="flex items-center space-x-3 py-3 px-6 ">
+                    <td
+                      className="flex items-center space-x-3 rtl:space-x-reverse py-3 px-6"
+                      dir={i18n === "ar" ? "rtl" : "ltr"} // Or detect from your i18n
+                    >
                       <input
                         type="checkbox"
                         className="
-                      w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] 
-                      checked:bg-[#54F439]
-                      relative
-                      checked:after:content-['✔']
-                      checked:after:absolute
-                      checked:after:text-black
-                      checked:after:top-[0px]
-                      checked:after:left-[4px]
-                      checked:after:text-sm
-                      checked:after:font-bold
-                    "
+      w-6 h-6 appearance-none rounded-md border-[1px] border-[#54F439] bg-[#EEFEEB] 
+      checked:bg-[#54F439]
+      relative
+      checked:after:content-['✔']
+      checked:after:absolute
+      checked:after:text-black
+      checked:after:top-[0px]
+      checked:after:left-[4px]
+      checked:after:text-sm
+      checked:after:font-bold"
                         checked={selectedEmployees.some(
                           (e) => e.id === employee.id
                         )}
-                        onChange={(e) => {
-                          handleCheckboxChange(employee);
-                        }}
+                        onChange={() => handleCheckboxChange(employee)}
                       />
 
                       <img
@@ -284,6 +284,7 @@ function AddTransaction() {
                       />
                       <span>{employee.name}</span>
                     </td>
+
                     <td className="py-5 px-6 whitespace-nowrap">
                       {employee.designation}
                     </td>

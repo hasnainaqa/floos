@@ -5,10 +5,9 @@ import { useTranslation } from "react-i18next";
 import TransactionDetails from "./TransactionDetails";
 
 function TransactionPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [popupData, setPopupData] = useState("");
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
 
   function onClick(employee) {
     setPopupData(employee);
@@ -185,7 +184,11 @@ function TransactionPage() {
                   return (
                     <th
                       key={index}
-                      className="p-6 pt-0 capitalize font-normal whitespace-nowrap">
+                      className={`p-6 pt-0 capitalize font-normal whitespace-nowrap ${
+                        key === "name" && i18n.language === "ar"
+                          ? "text-right"
+                          : "text-left"
+                      }`}>
                       {t(labels[key])}
                     </th>
                   );
@@ -244,8 +247,11 @@ function TransactionPage() {
         />
       </div>
       {isPopupOpen && (
-  <TransactionDetails popupData={popupData} onClose={() => setIsPopupOpen(false)} />
-)}
+        <TransactionDetails
+          popupData={popupData}
+          onClose={() => setIsPopupOpen(false)}
+        />
+      )}
     </div>
   );
 }

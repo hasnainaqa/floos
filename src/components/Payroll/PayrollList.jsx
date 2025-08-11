@@ -5,7 +5,7 @@ import Pagination from "../ui/Pagination";
 import { useTranslation } from "react-i18next";
 
 function PayrollList() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const payments = [
     {
       id: 1,
@@ -541,10 +541,17 @@ function PayrollList() {
                        ${
                          cardPayment?.id === payment.id
                            ? "bg-[#F1F4F1]"
-                           : "hover:bg-[#F1F4F1]"}`}>
-                        <td className="flex items-center space-x-3 py-3 px-6 ">
-                          {payment.templateName}{" "}
+                           : "hover:bg-[#F1F4F1]"
+                       }`}>
+                        <td
+                          className={`flex items-center py-3 px-6 ${
+                            i18n.language === "ar"
+                              ? "flex-row-reverse space-x-reverse space-x-3"
+                              : "space-x-3"
+                          }`}>
+                          {payment.templateName}
                         </td>
+
                         <td className="py-5 px-6 whitespace-nowrap">
                           {payment.scheduledDate}
                         </td>
