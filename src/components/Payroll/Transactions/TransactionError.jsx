@@ -1,7 +1,8 @@
 import React from "react";
 import { ReactComponent as Clock } from "../../assets/icons/Clock.svg";
-import { ReactComponent as Qr } from "../../assets/icons/qr.svg";
 import { useTranslation } from "react-i18next";
+import { QRCodeSVG } from "qrcode.react";
+
 const TransactionError = () => {
   const { t } = useTranslation();
   const OrderDetails = {
@@ -14,7 +15,18 @@ const TransactionError = () => {
     TransactionID: "thuhang.nute@gmail.com",
     paidamount: "15.00SYP",
     phone: "98320 8298 000",
+    qrValue: "https://floos-gilt.vercel.app/"
   };
+  const paymentDetails = {
+    phoneNumber: "877678787878",
+    currencyCode: "963",
+    amount: 10,
+    description: "testing",
+    invoiceId: 765567567657657657,
+  };
+
+  const qrValue = JSON.stringify(paymentDetails);
+
   return (
     <div className="flex lg:flex-row flex-col gap-5">
       <div className="flex-1 justify-center bg-[#FFFFFF] rounded-[20px] px-20 py-[30px]">
@@ -32,7 +44,8 @@ const TransactionError = () => {
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("QR Code")}
           </h2>
-          <Qr />
+          <QRCodeSVG value={qrValue} size={182} bgColor="#FFFFFF" fgColor="#000000" />
+
         </div>
       </div>
       <div
@@ -51,13 +64,10 @@ const TransactionError = () => {
     `,
           backgroundBlendMode: "normal",
         }}>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-center items-center">
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("Order Details")}
           </h2>
-          <button className="flex items-center justify-center px-3 py-3 rounded-[32px] text-xs font-semibold bg-[#54F439] text-black hover:bg-[#89fb75]">
-            {t("Recreate Order")}
-          </button>
         </div>
         <div className="pt-2 font-normal text-sm">
           <div className="flex flex-col mt-4">

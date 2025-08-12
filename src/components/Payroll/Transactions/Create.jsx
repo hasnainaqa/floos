@@ -114,7 +114,7 @@ function Create() {
                   </p>
                 )}
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 flex-col md:flex-row">
                 {[
                   { label: "Bulk Pay", value: "bulk" },
                   { label: "Individual Pay", value: "individual" },
@@ -152,7 +152,7 @@ function Create() {
                       <Minus size={16} />
                     </button>
                   </div>
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-3 flex-col lg:flex-row ">
                     <div>
                       <input
                         type="number"
@@ -164,7 +164,7 @@ function Create() {
                             message: "Enter the amount before submitting",
                           },
                         })}
-                        className="bg-[#eef2ed] p-4 rounded-lg mb-4 outline-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="bg-[#eef2ed] p-4 rounded-lg mb-4 outline-none [&::-webkit-inner-spin-button]:appearance-none mx-auto"
                       />
 
                       {errors?.users?.[index]?.amount && (

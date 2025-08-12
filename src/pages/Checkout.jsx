@@ -4,7 +4,7 @@ import TransactionError from '../components/Payroll/Transactions/TransactionErro
 const TransactionFailed = () => {
   return (
     <>
-    <title>Transaction Failed</title>
+    <title>Checkout</title>
     <TransactionError/>
     </>
   )

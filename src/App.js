@@ -5,6 +5,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import CheckoutNavbar from "./components/CheckoutNavbar";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
 import Payroll from "./pages/Payroll";
@@ -12,7 +13,7 @@ import Transactions from "./pages/Transactions";
 import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
-import TransactionFailed from "./pages/TransactionFailed";
+import TransactionFailed from "./pages/Checkout";
 
 function MainLayout() {
   return (
@@ -29,9 +30,12 @@ function MainLayout() {
 
 function NoNavbarLayout() {
   return (
-    <div className="p-16 pt-14 bg-[#F1F4F1] min-h-screen font-inter border-b">
+    <>
+    <CheckoutNavbar/>
+    <div className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b">
       <Outlet />
     </div>
+    </>
   );
 }
 export default function App() {
@@ -42,22 +46,13 @@ export default function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/payroll" element={<Payroll />} />
-          <Route
-            path="/payroll/addtransaction"
-            element={<AddToTransaction />}
-          />
-          <Route
-            path="/payroll/createtransaction"
-            element={<CreateTransaction />}
-          />
+          <Route path="/payroll/addtransaction" element={<AddToTransaction />}/>
+          <Route path="/payroll/createtransaction" element={<CreateTransaction />}/>
           <Route path="/payroll/users" element={<PayrollUsers />} />
           <Route path="/transactions" element={<Transactions />} />
         </Route>
         <Route element={<NoNavbarLayout />}>
-          <Route
-            path="/payroll/transactionfailed"
-            element={<TransactionFailed />}
-          />
+          <Route path="/checkout" element={<TransactionFailed />}/>
         </Route>
       </Routes>
     </Router>
