@@ -16,7 +16,7 @@ const TransactionError = () => {
     phone: "98320 8298 000",
   };
   return (
-    <div className="flex lg:flex-row flex-col gap-5 items-center">
+    <div className="flex lg:flex-row flex-col gap-5">
       <div className="flex-1 justify-center bg-[#FFFFFF] rounded-[20px] px-20 py-[30px]">
         <div className="rounded-[20px] bg-[#F1F4F1] py-6 flex flex-col items-center ">
           <Clock />
