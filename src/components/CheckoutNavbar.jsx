@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ReactComponent as WalletIcon } from "../components/assets/icons/Wallet.svg";
 import { useTranslation } from "react-i18next";
@@ -15,21 +14,19 @@ export default function CheckoutNavbar() {
 
   return (
     <div
-      className={`w-full flex items-center justify-between mx-auto ${
-        i18n.language === "ar" ? "flex-row-reverse" : ""
-      }`}
+      className={`w-full flex items-center justify-between mx-auto `}
     >
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter">
+      <nav 
+        dir="ltr"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter">
         <div className="w-full flex items-center justify-between  mx-auto">
           <div className="relative flex ">
-            <Link to="/">
               <div className="flex items-center gap-2">
                 <WalletIcon />
                 <span className="text-[#54F439] font-semibold text-lg">
                   {t("Floos")}
                 </span>
               </div>
-            </Link>
           </div>
 
           <div className="flex items-center lg:gap-4">

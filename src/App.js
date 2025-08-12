@@ -28,7 +28,7 @@ function MainLayout() {
   );
 }
 
-function NoNavbarLayout() {
+function CheckoutNavbarLayout() {
   return (
     <>
     <CheckoutNavbar/>
@@ -51,7 +51,7 @@ export default function App() {
           <Route path="/payroll/users" element={<PayrollUsers />} />
           <Route path="/transactions" element={<Transactions />} />
         </Route>
-        <Route element={<NoNavbarLayout />}>
+        <Route element={<CheckoutNavbarLayout />}>
           <Route path="/checkout" element={<TransactionFailed />}/>
         </Route>
       </Routes>

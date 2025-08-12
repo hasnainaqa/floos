@@ -17,15 +17,6 @@ const TransactionError = () => {
     phone: "98320 8298 000",
     qrValue: "https://floos-gilt.vercel.app/"
   };
-  const paymentDetails = {
-    phoneNumber: "877678787878",
-    currencyCode: "963",
-    amount: 10,
-    description: "testing",
-    invoiceId: 765567567657657657,
-  };
-
-  const qrValue = JSON.stringify(paymentDetails);
 
   return (
     <div className="flex lg:flex-row flex-col gap-5">
@@ -44,8 +35,12 @@ const TransactionError = () => {
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("QR Code")}
           </h2>
-          <QRCodeSVG value={qrValue} size={182} bgColor="#FFFFFF" fgColor="#000000" />
-
+          <QRCodeSVG
+      value={OrderDetails.qrValue}
+      size={182}
+      level="H"
+      
+    />
         </div>
       </div>
       <div
