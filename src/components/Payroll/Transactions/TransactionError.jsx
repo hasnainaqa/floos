@@ -1,7 +1,8 @@
 import React from "react";
 import { ReactComponent as Clock } from "../../assets/icons/Clock.svg";
 import { useTranslation } from "react-i18next";
-import { QRCodeSVG } from "qrcode.react";
+
+import GenrateQr from "../../ui/GenrateQr";
 
 const TransactionError = () => {
   const { t } = useTranslation();
@@ -17,7 +18,6 @@ const TransactionError = () => {
     phone: "98320 8298 000",
     qrValue: "https://floos-gilt.vercel.app/"
   };
-
   return (
     <div className="flex lg:flex-row flex-col gap-5">
       <div className="flex-1 justify-center bg-[#FFFFFF] rounded-[20px] px-20 py-[30px]">
@@ -35,12 +35,7 @@ const TransactionError = () => {
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("QR Code")}
           </h2>
-          <QRCodeSVG
-      value={OrderDetails.qrValue}
-      size={182}
-      level="H"
-      
-    />
+    <GenrateQr qrValue = {OrderDetails.qrValue} />
         </div>
       </div>
       <div
