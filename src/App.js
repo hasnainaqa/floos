@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
@@ -8,23 +13,32 @@ import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
 import TransactionFailed from "./pages/TransactionFailed";
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
-function App() {
-  const { t } = useTranslation();
-
-  useEffect(() => {
-    document.title = t("Floos");
-  }, [t]);
+function MainLayout() {
   return (
-    <Router>
+    <>
       <Navbar />
       <div
         className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
-        style={{ borderColor: "#EAECF0" }}
-      >
-        <Routes>
+        style={{ borderColor: "#EAECF0" }}>
+        <Outlet />
+      </div>
+    </>
+  );
+}
+
+function NoNavbarLayout() {
+  return (
+    <div className="p-16 pt-14 bg-[#F1F4F1] min-h-screen font-inter border-b">
+      <Outlet />
+    </div>
+  );
+}
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/payroll" element={<Payroll />} />
@@ -36,16 +50,16 @@ function App() {
             path="/payroll/createtransaction"
             element={<CreateTransaction />}
           />
+          <Route path="/payroll/users" element={<PayrollUsers />} />
+          <Route path="/transactions" element={<Transactions />} />
+        </Route>
+        <Route element={<NoNavbarLayout />}>
           <Route
             path="/payroll/transactionfailed"
             element={<TransactionFailed />}
           />
-          <Route path="/payroll/users" element={<PayrollUsers />} />
-          <Route path="/transactions" element={<Transactions />} />
-        </Routes>
-      </div>
+        </Route>
+      </Routes>
     </Router>
   );
 }
-
-export default App;

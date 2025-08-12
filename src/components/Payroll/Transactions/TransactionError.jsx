@@ -16,7 +16,7 @@ const TransactionError = () => {
     phone: "98320 8298 000",
   };
   return (
-    <div className="flex lg:flex-row flex-col gap-5">
+    <div className="flex lg:flex-row flex-col gap-5 items-center">
       <div className="flex-1 justify-center bg-[#FFFFFF] rounded-[20px] px-20 py-[30px]">
         <div className="rounded-[20px] bg-[#F1F4F1] py-6 flex flex-col items-center ">
           <Clock />
@@ -29,22 +29,28 @@ const TransactionError = () => {
         </div>
 
         <div className=" py-6 flex flex-col items-center gap-2">
-          <h2 className="font-semibold text-lg text-[#020500]">{t("QR Code")}</h2>
+          <h2 className="font-semibold text-lg text-[#020500]">
+            {t("QR Code")}
+          </h2>
           <Qr />
         </div>
       </div>
       <div
-  className="lg:w-[40%] rounded-xl p-6 backdrop-blur-sm"
-  style={{
-    background: `
-      radial-gradient(circle at top left, #FCF7D6 20%, transparent 50%),
-      radial-gradient(circle at top right, #CCFCC4 25%, transparent 60%),
-      radial-gradient(circle at top center, #FFFFFF 100%, transparent 100%),
-      linear-gradient(to top, #FFFFFF 100%, transparent 100%)
+        className="lg:w-[40%] rounded-[20px] p-6 backdrop-blur-sm"
+        style={{
+          background: `
+          radial-gradient(circle at center left, #FCF7D6 20%, transparent 40%),
+          radial-gradient(circle at top left, #FCF7D6 10%, transparent 15%),
+          radial-gradient(circle at bottom left, #FFFFFF 20%, transparent 25%),
+          radial-gradient(circle at center right, #CCFCC4 25%, transparent 60%),
+          radial-gradient(circle at bottom right, #FFFFFF 90%, transparent 100%),
+          radial-gradient(circle at top center, #FFFFFF 30%, transparent 60%),
+          linear-gradient(to bottom, #FFFFFF 0%, transparent 60%)
+
+      
     `,
-    backgroundBlendMode: "normal",
-  }}
->
+          backgroundBlendMode: "normal",
+        }}>
         <div className="flex justify-between items-center">
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("Order Details")}
@@ -78,33 +84,35 @@ const TransactionError = () => {
             </span>
             <p className="text-[#020500] mt-2">{OrderDetails.DateTime}</p>
           </div>
-      </div>
+        </div>
 
-          <div className="mt-6 flex gap-3">
-            <div>
-              <img
-                src={OrderDetails.img}
-                alt={OrderDetails.name}
-                className="h-10 w-10 rounded-full"
-              />
-            </div>
-            <div>
-              <h2 className="font-semibold text-sm text-[#020500]">
-                {OrderDetails.name}
-              </h2>
-              <p className="font-normal text-xs text-[#575757]">
-                {OrderDetails.phone}
-              </p>
-            </div>
+        <div className="mt-6 flex gap-3">
+          <div>
+            <img
+              src={OrderDetails.img}
+              alt={OrderDetails.name}
+              className="h-10 w-10 rounded-full"
+            />
           </div>
-
-          <div className="flex justify-between mt-6">
-            <h2 className="font-semibold text-[16px] text-[#020500]">{t("Total")}</h2>
-            <h2 className="font-semibold text-[16px] text-[#020500]">
-              {OrderDetails.paidamount}
+          <div>
+            <h2 className="font-semibold text-sm text-[#020500]">
+              {OrderDetails.name}
             </h2>
+            <p className="font-normal text-xs text-[#575757]">
+              {OrderDetails.phone}
+            </p>
           </div>
         </div>
+
+        <div className="flex justify-between mt-6">
+          <h2 className="font-semibold text-[16px] text-[#020500]">
+            {t("Total")}
+          </h2>
+          <h2 className="font-semibold text-[16px] text-[#020500]">
+            {OrderDetails.paidamount}
+          </h2>
+        </div>
+      </div>
     </div>
   );
 };
