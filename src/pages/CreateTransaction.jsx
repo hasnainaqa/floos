@@ -6,8 +6,8 @@ const CreateTransaction = () => {
 
   return (
     <>
-      <title>{t("Create Transaction")}</title>;
-      <Create />;
+      <title>{t("Create Transaction")}</title>
+      <Create />
     </>
   );
 };

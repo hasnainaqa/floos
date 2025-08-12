@@ -7,6 +7,7 @@ import Transactions from "./pages/Transactions";
 import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
+import TransactionFailed from "./pages/TransactionFailed";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -34,6 +35,10 @@ function App() {
           <Route
             path="/payroll/createtransaction"
             element={<CreateTransaction />}
+          />
+          <Route
+            path="/payroll/transactionfailed"
+            element={<TransactionFailed />}
           />
           <Route path="/payroll/users" element={<PayrollUsers />} />
           <Route path="/transactions" element={<Transactions />} />

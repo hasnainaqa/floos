@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import { Plus, Minus } from "lucide-react";
 import Calendarr from "../../ui/Calendar";
@@ -217,12 +217,14 @@ function Create() {
           </div>
         </div>
         <div className="flex justify-end">
+          <Link to = "/payroll/transactionfailed">
           <button
             type="submit"
             className="flex items-center justify-center px-3 py-3 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
-          >
+            >
             {t("Create Transaction")}
           </button>
+            </Link>
         </div>
       </form>
     </div>
