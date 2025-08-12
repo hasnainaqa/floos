@@ -68,5 +68,14 @@
   "ItemsPerPage.30": "٣٠",
   "ItemsPerPage.50": "٥٠",
   "ItemsPerPage.100": "١٠٠",
-  "ItemsPerPage.All": "الكل"
+  "ItemsPerPage.All": "الكل",
+  "Payment Method": "طريقة الدفع",
+  "Invoice ID": "معرّف الفاتورة",
+  "Date": "التاريخ",
+  "Total": "المجموع",
+  "Payment not Received in Time": "لم يتم استلام الدفع في الوقت المحدد",
+  "We couldn’t process your payment within the expected time.": "لم نتمكن من معالجة دفعتك في الوقت المتوقع.",
+  "QR Code": "رمز الاستجابة السريعة",
+  "Order Details": "تفاصيل الطلب",
+  "Recreate Order": "إعادة إنشاء الطلب"
 }

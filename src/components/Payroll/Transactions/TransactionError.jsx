@@ -21,20 +21,31 @@ const TransactionError = () => {
         <div className="rounded-[20px] bg-[#F1F4F1] py-6 flex flex-col items-center ">
           <Clock />
           <h2 className="font-semibold text-[16px] text-[#020500] mt-4">
-            Payment not Received in Time
+            {t("Payment not Received in Time")}
           </h2>
           <h2 className="font-normal text-sm text-[#575757] mt-2 px-2">
-            We couldn’t process your payment within the expected time.
+            {t("We couldn’t process your payment within the expected time.")}
           </h2>
         </div>
 
         <div className=" py-6 flex flex-col items-center gap-2">
-          <h2 className="font-semibold text-lg text-[#020500]">QR Code</h2>
+          <h2 className="font-semibold text-lg text-[#020500]">{t("QR Code")}</h2>
           <Qr />
         </div>
       </div>
-      <div className="w-[40%] bg-gradient-to-r from-[#FCF7D6] to-[#CCFCC4] backdrop-blur-sm rounded-xl p-6">
-      <div className="flex justify-between items-center">
+      <div
+  className="lg:w-[40%] rounded-xl p-6 backdrop-blur-sm"
+  style={{
+    background: `
+      radial-gradient(circle at top left, #FCF7D6 20%, transparent 50%),
+      radial-gradient(circle at top right, #CCFCC4 25%, transparent 60%),
+      radial-gradient(circle at top center, #FFFFFF 100%, transparent 100%),
+      linear-gradient(to top, #FFFFFF 100%, transparent 100%)
+    `,
+    backgroundBlendMode: "normal",
+  }}
+>
+        <div className="flex justify-between items-center">
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("Order Details")}
           </h2>
@@ -67,6 +78,7 @@ const TransactionError = () => {
             </span>
             <p className="text-[#020500] mt-2">{OrderDetails.DateTime}</p>
           </div>
+      </div>
 
           <div className="mt-6 flex gap-3">
             <div>
@@ -80,21 +92,19 @@ const TransactionError = () => {
               <h2 className="font-semibold text-sm text-[#020500]">
                 {OrderDetails.name}
               </h2>
-              <p className="font-normal text-xs text-[#575757]">{OrderDetails.phone}</p>
+              <p className="font-normal text-xs text-[#575757]">
+                {OrderDetails.phone}
+              </p>
             </div>
           </div>
 
           <div className="flex justify-between mt-6">
-          <h2 className="font-semibold text-[16px] text-[#020500]">
-              Total
-            </h2>
-          <h2 className="font-semibold text-[16px] text-[#020500]">
+            <h2 className="font-semibold text-[16px] text-[#020500]">{t("Total")}</h2>
+            <h2 className="font-semibold text-[16px] text-[#020500]">
               {OrderDetails.paidamount}
             </h2>
-
           </div>
         </div>
-      </div>
     </div>
   );
 };
