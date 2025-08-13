@@ -65,7 +65,6 @@ export default function Navbar() {
                 {t("AR")}
               </button>
             </div>
-
             <div className="hidden md:flex bg-white rounded-full shadow-sm gap-2 p-1">
               {navItems.map((item) => (
                 <Link

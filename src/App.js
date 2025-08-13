@@ -14,6 +14,9 @@ import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
 import TransactionFailed from "./pages/Checkout";
+import Login from "./pages/Login";
+import PayrollEntry from "./pages/PayrollEntry"; // ✅ new page
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function MainLayout() {
   return (
@@ -21,7 +24,8 @@ function MainLayout() {
       <Navbar />
       <div
         className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
-        style={{ borderColor: "#EAECF0" }}>
+        style={{ borderColor: "#EAECF0" }}
+      >
         <Outlet />
       </div>
     </>
@@ -31,28 +35,40 @@ function MainLayout() {
 function CheckoutNavbarLayout() {
   return (
     <>
-    <CheckoutNavbar/>
-    <div className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b">
-      <Outlet />
-    </div>
+      <CheckoutNavbar />
+      <div className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b">
+        <Outlet />
+      </div>
     </>
   );
 }
+
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route element={<MainLayout />}>
+        <Route path="/payroll-entry" element={<PayrollEntry />} />
+
+        <Route
+          element={
+            <ProtectedRoute>
+              <MainLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route path="/" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/payroll" element={<Payroll />} />
-          <Route path="/payroll/addtransaction" element={<AddToTransaction />}/>
-          <Route path="/payroll/createtransaction" element={<CreateTransaction />}/>
+          <Route path="/payroll/addtransaction" element={<AddToTransaction />} />
+          <Route path="/payroll/createtransaction" element={<CreateTransaction />} />
           <Route path="/payroll/users" element={<PayrollUsers />} />
           <Route path="/transactions" element={<Transactions />} />
         </Route>
+
+        {/* Public routes */}
         <Route element={<CheckoutNavbarLayout />}>
-          <Route path="/checkout" element={<TransactionFailed />}/>
+          <Route path="/checkout" element={<TransactionFailed />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </Router>

@@ -65,5 +65,7 @@
   "We couldn’t process your payment within the expected time.": "لم نتمكن من معالجة دفعتك في الوقت المتوقع.",
   "QR Code": "رمز الاستجابة السريعة",
   "Order Details": "تفاصيل الطلب",
-  "Recreate Order": "إعادة إنشاء الطلب"
+  "Recreate Order": "إعادة إنشاء الطلب",
+  "Floos Login": "تسجيل دخول فلوس",
+  "Login": "تسجيل الدخول"
 }

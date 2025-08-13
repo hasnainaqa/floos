@@ -3,6 +3,7 @@ import EmployeesList from "../components/Employee/EmployeesList";
 import DasbboardHero from "../components/Dashboard/DasbboardHero";
 
 import { useTranslation } from "react-i18next";
+import LogoutButton from "../components/LogoutButton";
 export default function Dashboard() {
   const { t } = useTranslation();
   return (
@@ -10,6 +11,8 @@ export default function Dashboard() {
       <title>{t("dashboard")}</title>
       <DasbboardHero />
       <EmployeesList limit={5} />
+
+<LogoutButton />
     </>
   );
 }

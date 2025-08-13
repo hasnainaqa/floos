@@ -65,5 +65,7 @@
   "We couldn’t process your payment within the expected time.": "We couldn’t process your payment within the expected time.",
   "QR Code": "QR Code",
   "Order Details": "Order Details",
-  "Recreate Order": "Recreate Order"
+  "Recreate Order": "Recreate Order",
+  "Floos Login": "Floos Login",
+  "Login": "Login"
 }
