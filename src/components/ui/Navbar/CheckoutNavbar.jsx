@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ReactComponent as WalletIcon } from "../components/assets/icons/Wallet.svg";
+import { ReactComponent as WalletIcon } from "../../../components/assets/icons/Wallet.svg";
 import { useTranslation } from "react-i18next";
 
 export default function CheckoutNavbar() {

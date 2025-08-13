@@ -4,8 +4,8 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import CheckoutNavbar from "./components/CheckoutNavbar";
+import Navbar from "./components/ui/Navbar/Navbar";
+import CheckoutNavbar from "./components/ui/Navbar/CheckoutNavbar";
 import Dashboard from "./pages/Dashboard";
 import Employees from "./pages/Employees";
 import Payroll from "./pages/Payroll";

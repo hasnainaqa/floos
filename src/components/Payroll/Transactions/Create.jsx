@@ -106,7 +106,7 @@ function Create() {
                   {...register("templateName", {
                     required: "Template Name is required",
                   })}
-                  className="bg-[#eef2ed] px-4 py-2 rounded-lg w-80 h-14 sm:w-[300px] outline-none"
+                  className="bg-[#eef2ed] px-4 py-2 rounded-lg  h-14 sm:w-[300px] w-52 outline-none"
                 />
                 {errors?.templateName && (
                   <p className="text-red-500 text-xs absolute">
@@ -152,7 +152,7 @@ function Create() {
                       <Minus size={16} />
                     </button>
                   </div>
-                  <div className="flex space-x-3 flex-col lg:flex-row ">
+                  <div className="flex space-x-3 flex-col lg:flex-row items-center ">
                     <div>
                       <input
                         type="number"
@@ -164,11 +164,11 @@ function Create() {
                             message: "Enter the amount before submitting",
                           },
                         })}
-                        className="bg-[#eef2ed] p-4 rounded-lg mb-4 outline-none [&::-webkit-inner-spin-button]:appearance-none mx-auto"
+                        className="bg-[#eef2ed] p-4 rounded-lg mb-4 outline-none [&::-webkit-inner-spin-button]:appearance-none mx-auto sm:w-auto w-52"
                       />
 
                       {errors?.users?.[index]?.amount && (
-                        <p className="text-red-500 text-xs absolute">
+                        <p className="text-red-500 text-xs lg:absolute ">
                           {errors.users[index].amount.message}
                         </p>
                       )}
@@ -177,7 +177,7 @@ function Create() {
                       type="text"
                       placeholder={t("Short Description")}
                       {...register(`users.${index}.description`)}
-                      className="bg-[#eef2ed] p-4 rounded-lg flex-1 mb-4 outline-none"
+                      className="bg-[#eef2ed] p-4 rounded-lg flex-1 mb-4 outline-none mx-auto sm:w-auto w-52"
                     />
                   </div>
                 </div>

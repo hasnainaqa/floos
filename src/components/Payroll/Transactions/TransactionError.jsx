@@ -20,10 +20,10 @@ const TransactionError = () => {
   };
   return (
     <div className="flex lg:flex-row flex-col gap-5">
-      <div className="flex-1 justify-center bg-[#FFFFFF] rounded-[20px] px-20 py-[30px]">
+      <div className="flex-1 justify-center bg-[#FFFFFF] rounded-[20px] px-2 sm:px-20 py-[30px]">
         <div className="rounded-[20px] bg-[#F1F4F1] py-6 flex flex-col items-center ">
           <Clock />
-          <h2 className="font-semibold text-[16px] text-[#020500] mt-4">
+          <h2 className="font-semibold text-[16px] text-[#020500] mt-4 px-2">
             {t("Payment not Received in Time")}
           </h2>
           <h2 className="font-normal text-sm text-[#575757] mt-2 px-2">

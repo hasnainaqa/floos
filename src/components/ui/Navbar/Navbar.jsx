@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ReactComponent as WalletIcon } from "../components/assets/icons/Wallet.svg";
+import { ReactComponent as WalletIcon } from "../../../components/assets/icons/Wallet.svg";
 import { useTranslation } from "react-i18next";
 
 export default function Navbar() {

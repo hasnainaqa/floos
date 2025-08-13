@@ -35,7 +35,7 @@ const Clock = ({ selectedDate }) => {
 
   return (
     <div>
-      <div className="flex justify-center items-center bg-[#54F439] text-[#FFFFFF8A] rounded-lg py-5 text-6xl font-light my-6 ">
+      <div className="flex justify-center items-center bg-[#54F439] text-[#FFFFFF8A] rounded-lg py-5 px-2 text-6xl font-light my-6 ">
         <span
           onClick={() => setMode("hour")}
           className={`cursor-pointer ${
@@ -73,7 +73,7 @@ const Clock = ({ selectedDate }) => {
         </div>
       </div>
 
-      <div className="relative w-64 h-64 mx-auto rounded-full bg-[#E8EDE8] flex items-center justify-center">
+      <div className="relative sm:w-64 sm:h-64 w-52 h-52 mx-auto rounded-full bg-[#E8EDE8] flex items-center justify-center">
         {(mode === "hour" ? hours : minutes).map((val, i) => {
           const angle = (i * 30 * Math.PI) / 180;
           const radius = 90;
