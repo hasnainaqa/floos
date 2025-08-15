@@ -18,7 +18,7 @@ export default function CheckoutNavbar() {
     >
       <nav 
         dir="ltr"
-      className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter">
+      className="fixed top-0 left-0 right-0 z-50 bg-[#F1F4F1] px-4 sm:px-8 lg:px-16 py-4 font-inter normalheight">
         <div className="w-full flex items-center justify-between  mx-auto">
           <div className="relative flex ">
               <div className="flex items-center gap-2">

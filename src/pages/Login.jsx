@@ -41,6 +41,8 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center h-[75vh] bg-gray-100">
+      <title>Floos Login</title>
+
       <form
         onSubmit={handleLogin}
         className="bg-white p-8 shadow-md w-full max-w-sm rounded-2xl"
@@ -68,13 +70,15 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-3 mb-6 border rounded text-sm text-[#020500] outline-none placeholder:text-[#020500]"
         />
+<div className="normalheight">
 
         <button
           type="submit"
           className="w-full transition bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] mt-7"
-        >
+          >
           {t("Login")}
         </button>
+          </div>
       </form>
     </div>
   );

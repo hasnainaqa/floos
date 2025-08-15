@@ -13,6 +13,7 @@ import Transactions from "./pages/Transactions";
 import AddToTransaction from "./pages/AddToTransaction";
 import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
+import MakePayment from "./pages/MakePayment";
 import TransactionFailed from "./pages/Checkout";
 import Login from "./pages/Login";
 import PayrollAccountEntry from "./pages/PayrollAccountEntry"; 
@@ -43,6 +44,15 @@ function CheckoutNavbarLayout() {
     </>
   );
 }
+function NoNav() {
+  return (
+    <>
+      <div className="p-16 min-h-screen font-inter">
+        <Outlet />
+      </div>
+    </>
+  );
+}
 
 export default function App() {
   return (
@@ -64,6 +74,9 @@ export default function App() {
         <Route element={<CheckoutNavbarLayout />}>
           <Route path="/checkout" element={<TransactionFailed />} />
           <Route path="/login" element={<Login />} />
+        </Route>
+        <Route element={<NoNav />}>
+        <Route path="/makepayment" element={<MakePayment />} />
         </Route>
       </Routes>
     </Router>

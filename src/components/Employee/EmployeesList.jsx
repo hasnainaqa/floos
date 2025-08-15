@@ -194,7 +194,7 @@ function EmployeesList({ limit }) {
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="w-full lg:w-[75%]">
           <div className=" bg-white rounded-3xl">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6 normalheight">
               <h3 className="font-semibold text-lg">{t("Employees")}</h3>
               <button
                 onClick={() => setIsAddEmployeeOpen(true)}

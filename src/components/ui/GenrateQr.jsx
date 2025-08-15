@@ -2,10 +2,10 @@ import QRCodeStyling from "qr-code-styling";
 import { useEffect, useRef } from "react";
 
 
-export default function GenerateQr({qrValue}) {
+export default function GenerateQr({ qrValue, width = 182, height = 182 }) {
   const qrCode = new QRCodeStyling({
-    width: 182,
-    height: 182,
+    width,
+    height,
     data: qrValue,
   
     qrOptions: {

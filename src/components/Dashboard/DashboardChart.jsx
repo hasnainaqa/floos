@@ -84,7 +84,7 @@ const DashboardChart = () => {
             <button
               key={v}
               onClick={() => setActiveView(v)}
-              className={`w-6 h-6 flex items-center justify-center rounded-md transition text-[#020500] ${
+              className={`w-6 h-6 flex items-center justify-center rounded-md transition text-[#020500] normalheight ${
                 activeView === v ? "bg-[#54F439] " : "hover:bg-gray-200"
               }`}
             >

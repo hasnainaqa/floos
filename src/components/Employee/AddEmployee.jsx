@@ -172,13 +172,15 @@ const AddEmployee = ({ setIsAddEmployeeOpen }) => {
           </div>
 
           <PhoneInputComponent onChange={handlePhoneChange} />
+<div className="normalheight">
 
           <button
             type="submit"
-            className="mt-6 w-full bg-[#54F439] hover:bg-[#5fff43] text-[#020500] font-semibold py-3 rounded-full "
-          >
+            className="mt-6 w-full bg-[#54F439] hover:bg-[#5fff43] text-[#020500] font-semibold py-3 rounded-full  "
+            >
             {t("Add Employee")}
           </button>
+            </div>
         </form>
       </div>
     </>

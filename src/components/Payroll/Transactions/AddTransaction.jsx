@@ -190,7 +190,7 @@ function AddTransaction() {
         <div className="bg-white rounded-3xl">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
             <h3 className="font-semibold text-lg">{t("Select Employees")}</h3>
-            <div className="flex gap-2">
+            <div className="flex gap-2 normalheight">
               <UploadFile />
               <Link
                 to="/payroll/createtransaction"

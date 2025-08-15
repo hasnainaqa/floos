@@ -492,7 +492,7 @@ function PayrollList() {
     <div className="flex flex-col lg:flex-row w-full max-w-[100%] mx-auto gap-4">
       <div className="w-full lg:w-[75%]">
         <div className=" bg-white rounded-3xl font-inter">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 p-6 normalheight">
             <h3 className="font-semibold text-lg">{t("Payroll Template")}</h3>
             <Link to="/payroll/addtransaction">
               <button className="bg-[#54F439] text-black px-3 py-3 rounded-full hover:bg-[#52ff34] text-sm sm:text-base">

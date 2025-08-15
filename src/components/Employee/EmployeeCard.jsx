@@ -47,7 +47,7 @@ const EmployeeCard = ({ employee }) => {
         to="/payroll/createtransaction"
         state={{ selectedEmployees }}
         className="bg-[#54F439] w-full text-center text-black py-3 mt-4
-        rounded-full hover:bg-[#52ff34] "
+        rounded-full hover:bg-[#52ff34] normalheight"
       >
         <button>{t("Pay Now")}</button>
       </Link>

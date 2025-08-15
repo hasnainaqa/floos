@@ -184,7 +184,7 @@ function Create() {
               </div>
             ))}
 
-            <div className="flex justify-end mt-6 gap-2">
+            <div className="flex justify-end mt-6 gap-2 normalheight">
               <button
                 type="button"
                 onClick={() =>
@@ -216,7 +216,7 @@ function Create() {
             </div>
           </div>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-end normalheight">
           <button
             type="submit"
             className="flex items-center justify-center px-3 py-3 rounded-[32px] text-sm font-semibold bg-[#54F439] text-black hover:bg-[#89fb75] mt-6"
