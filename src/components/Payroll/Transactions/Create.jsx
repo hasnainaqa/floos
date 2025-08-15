@@ -86,6 +86,7 @@ function Create() {
         }
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allUsers[0]?.amount, allUsers[0]?.description, currentPayType]);
 
   return (
@@ -102,7 +103,6 @@ function Create() {
                 <input
                   type="text"
                   placeholder={t("Template Name")}
-                  // {...register("templateName", { required: true })}
                   {...register("templateName", {
                     required: "Template Name is required",
                   })}
