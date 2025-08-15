@@ -25,7 +25,7 @@ function MainLayout() {
     <>
       <Navbar />
       <div
-        className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
+        className="sm:p-16 sm:pt-24 p-8 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
         style={{ borderColor: "#EAECF0" }}
       >
         <Outlet />
@@ -47,7 +47,7 @@ function CheckoutNavbarLayout() {
 function NoNav() {
   return (
     <>
-      <div className="p-16 min-h-screen font-inter">
+      <div className="md:p-16 sm:p-6 py-7 px-2 min-h-screen font-inter">
         <Outlet />
       </div>
     </>

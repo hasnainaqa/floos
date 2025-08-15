@@ -1,7 +1,7 @@
 import React from "react";
 import GenerateQr from "./ui/GenrateQr";
 
-export const Authorization = () => {
+export const PaymentAuthentication = () => {
   const order = {
     orderNumber: "132832-2323-223",
     email: "tim.jennings@example.com",
@@ -27,7 +27,7 @@ export const Authorization = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-[45px] p-4 sm:p-9 justify-between">
+    <div className="flex flex-col-reverse lg:flex-row gap-[45px] p-4 sm:p-9 justify-between">
       {/* Left Section */}
       <div className="flex items-center flex-col w-full lg:w-1/2 justify-start">
         <div>
@@ -50,9 +50,21 @@ export const Authorization = () => {
       </div>
 
       {/* Right Section */}
-      <div className="relative flex bg-[#CAD9CA] rounded-[24px] sm:rounded-[48px] p-6 sm:p-12 justify-center w-full lg:w-[503px]">
-        <div className="absolute top-10 right-14 w-40 sm:w-60 h-40 sm:h-60 bg-[#54F439] rounded-full blur-[60px] opacity-70"></div>
+      <div className="relative flex bg-[#CAD9CA] rounded-[24px] sm:rounded-[48px] p-6  sm:p-12 justify-center w-full lg:w-[503px]">
+        {/* <div className="absolute top-10 right-14 w-40 sm:w-60 h-40 sm:h-60 bg-[#54F439] rounded-full blur-[60px] opacity-70"></div> */}
         <div className="flex flex-col justify-top items-center w-full">
+        <div
+        className="flex flex-col justify-top items-center w-full backdrop-blur-sm py-6"
+        style={{
+          background: `
+          radial-gradient(circle at center, #54F439 0%, transparent 50%),
+          linear-gradient(to bottom, #CAD9CA 100%, transparent 100%),
+          linear-gradient(to bottom, #CAD9CA 100%, transparent 100%)
+
+      
+    `,
+          backgroundBlendMode: "normal",
+        }}>
           <h className="font-medium text-lg sm:text-xl md:text-2xl text-[#575757] text-center">
             Order Number:
             <br /> {order.orderNumber}
@@ -63,7 +75,8 @@ export const Authorization = () => {
           <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mt-4">
             {order.totalAmount} SYP
           </h1>
-          <div className="w-full mt-8 sm:mt-12">
+          </div>
+          <div className="w-full mt-8 sm:mt-6">
             {order.items.map((item, index) => (
               <div className="mt-8 sm:mt-12" key={index}>
                 <div className="flex flex-wrap justify-between text-[#000000] items-center">

@@ -33,6 +33,7 @@ export default function GenerateQr({ qrValue, width = 182, height = 182 }) {
 
   useEffect(() => {
     qrCode.append(ref.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   } ,[]);
 
   return <div ref={ref}></div>;
