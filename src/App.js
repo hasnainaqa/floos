@@ -38,7 +38,7 @@ function CheckoutNavbarLayout() {
   return (
     <>
       <CheckoutNavbar />
-      <div className="p-16 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b">
+      <div className="sm:p-16 sm:pt-24 p-8 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b">
         <Outlet />
       </div>
     </>

@@ -6,7 +6,6 @@ export const PaymentAuthentication = () => {
     orderNumber: "132832-2323-223",
     email: "tim.jennings@example.com",
     currency: "SYP",
-    totalAmount: 7000,
     items: [
       {
         name: "Item 1",
@@ -25,6 +24,11 @@ export const PaymentAuthentication = () => {
     tax: 0.0,
     grandTotal: 7000,
   };
+  let totalAmount=0;
+  for (let i = 0; i < order.items.length; i++) {
+    totalAmount = order.items[i].price+totalAmount;
+    
+  }
 
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-[45px] p-4 sm:p-9 justify-between">
@@ -51,15 +55,12 @@ export const PaymentAuthentication = () => {
 
       {/* Right Section */}
       <div className="relative flex bg-[#CAD9CA] rounded-[24px] sm:rounded-[48px] p-6  sm:p-12 justify-center w-full lg:w-[503px]">
-        {/* <div className="absolute top-10 right-14 w-40 sm:w-60 h-40 sm:h-60 bg-[#54F439] rounded-full blur-[60px] opacity-70"></div> */}
         <div className="flex flex-col justify-top items-center w-full">
         <div
-        className="flex flex-col justify-top items-center w-full backdrop-blur-sm py-6"
+        className="flex flex-col justify-top items-center w-full backdrop-blur-sm pt-6 pb-12"
         style={{
           background: `
-          radial-gradient(circle at center, #54F439 0%, transparent 50%),
-          linear-gradient(to bottom, #CAD9CA 100%, transparent 100%),
-          linear-gradient(to bottom, #CAD9CA 100%, transparent 100%)
+          radial-gradient(circle at center, #54F439 0%, transparent 55%)
 
       
     `,
@@ -73,10 +74,10 @@ export const PaymentAuthentication = () => {
             {order.email}
           </p>
           <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mt-4">
-            {order.totalAmount} SYP
+            {totalAmount} SYP
           </h1>
           </div>
-          <div className="w-full mt-8 sm:mt-6">
+          <div className="w-full mt-2 sm:mt-0">
             {order.items.map((item, index) => (
               <div className="mt-8 sm:mt-12" key={index}>
                 <div className="flex flex-wrap justify-between text-[#000000] items-center">
@@ -112,7 +113,7 @@ export const PaymentAuthentication = () => {
                 Total
               </h2>
               <h3 className="font-medium text-lg sm:text-xl md:text-2xl">
-                {order.totalAmount} SYP
+                {totalAmount} SYP
               </h3>
             </div>
           </div>
