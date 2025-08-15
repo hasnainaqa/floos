@@ -22,37 +22,27 @@ import ErrorPage from "./pages/404";
 
 function MainLayout() {
   return (
-    <>
-      <Navbar />
-      <div
-        className="sm:p-16 sm:pt-24 p-8 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b"
-        style={{ borderColor: "#EAECF0" }}
-      >
-        <Outlet />
+    <><Navbar/>
+      <div className="sm:p-16 sm:pt-24 p-8 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b" style={{ borderColor: "#EAECF0" }}>
+        <Outlet/>
       </div>
     </>
-  );
-}
+  );}
 
 function CheckoutNavbarLayout() {
   return (
-    <>
-      <CheckoutNavbar />
+    <><CheckoutNavbar />
       <div className="sm:p-16 sm:pt-24 p-8 pt-24 bg-[#F1F4F1] min-h-screen font-inter border-b">
         <Outlet />
       </div>
     </>
-  );
-}
+  );}
 function NoNav() {
   return (
-    <>
       <div className="md:p-16 sm:p-6 py-7 px-2 min-h-screen font-inter">
         <Outlet />
       </div>
-    </>
-  );
-}
+  );}
 
 export default function App() {
   return (

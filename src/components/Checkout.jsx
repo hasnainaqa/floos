@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as Clock } from "../../assets/icons/Clock.svg";
+import { ReactComponent as Clock } from "./assets/icons/Clock.svg";
 import { useTranslation } from "react-i18next";
 
-import GenrateQr from "../../ui/GenrateQr";
+import GenrateQr from "./ui/GenrateQr";
 
-const TransactionError = () => {
+const CheckOut = () => {
   const { t } = useTranslation();
   const OrderDetails = {
     name: "Zara",
@@ -16,7 +16,7 @@ const TransactionError = () => {
     TransactionID: "thuhang.nute@gmail.com",
     paidamount: "15.00SYP",
     phone: "98320 8298 000",
-    qrValue: "https://floos-gilt.vercel.app/"
+    qrValue: "https://floos-gilt.vercel.app/",
   };
   return (
     <div className="flex lg:flex-row flex-col gap-5">
@@ -35,7 +35,7 @@ const TransactionError = () => {
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("QR Code")}
           </h2>
-    <GenrateQr qrValue = {OrderDetails.qrValue} />
+          <GenrateQr qrValue={OrderDetails.qrValue} />
         </div>
       </div>
       <div
@@ -117,4 +117,4 @@ const TransactionError = () => {
   );
 };
 
-export default TransactionError;
+export default CheckOut;

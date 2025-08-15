@@ -1,13 +1,13 @@
-import React from 'react'
-import TransactionError from '../components/Payroll/Transactions/TransactionError'
+import React from "react";
+import CheckOut from "../components/Checkout";
 
 const TransactionFailed = () => {
   return (
     <>
-    <title>Checkout</title>
-    <TransactionError/>
+      <title>Checkout</title>
+      <CheckOut />
     </>
-  )
-}
+  );
+};
 
-export default TransactionFailed
+export default TransactionFailed;
