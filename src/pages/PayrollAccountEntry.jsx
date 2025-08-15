@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { loginUser, logoutUser } from "../utils/auth";
 
-export default function PayrollEntry() {
+export default function PayrollAccountEntry() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 

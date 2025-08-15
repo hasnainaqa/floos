@@ -15,8 +15,9 @@ import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
 import TransactionFailed from "./pages/Checkout";
 import Login from "./pages/Login";
-import PayrollEntry from "./pages/PayrollEntry"; // ✅ new page
+import PayrollAccountEntry from "./pages/PayrollAccountEntry"; 
 import ProtectedRoute from "./components/ProtectedRoute";
+import ErrorPage from "./pages/404";
 
 function MainLayout() {
   return (
@@ -47,15 +48,10 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/payroll-entry" element={<PayrollEntry />} />
+      <Route path="/payroll-entry" element={<PayrollAccountEntry />} />
+      <Route path="/*" element={<ErrorPage />} />
 
-        <Route
-          element={
-            <ProtectedRoute>
-              <MainLayout />
-            </ProtectedRoute>
-          }
-        >
+        <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />
           <Route path="/payroll" element={<Payroll />} />
@@ -65,7 +61,6 @@ export default function App() {
           <Route path="/transactions" element={<Transactions />} />
         </Route>
 
-        {/* Public routes */}
         <Route element={<CheckoutNavbarLayout />}>
           <Route path="/checkout" element={<TransactionFailed />} />
           <Route path="/login" element={<Login />} />

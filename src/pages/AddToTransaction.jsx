@@ -6,7 +6,7 @@ const AddToTransaction = () => {
   return (
     <>
       <title>{t("Add To Transaction")}</title>
-      <AddTransaction />;
+      <AddTransaction />
     </>
   );
 };
