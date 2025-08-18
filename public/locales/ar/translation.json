@@ -67,5 +67,24 @@
   "Order Details": "تفاصيل الطلب",
   "Recreate Order": "إعادة إنشاء الطلب",
   "Floos Login": "تسجيل دخول فلوس",
-  "Login": "تسجيل الدخول"
+  "Login": "تسجيل الدخول",
+  "Let’s Make Payment": "لنقم بالدفع",
+  "Cancel": "إلغاء",
+  "Discounts & Offers": "الخصومات والعروض",
+  "Size": "المقاس",
+  "Color": "اللون",
+  "Tax": "الضريبة",
+  "Order Number": "رقم الطلب",
+  "To start your subscription, input your card details to make payment. You will be redirected to your banks authorization page.": "لبدء اشتراكك، أدخل تفاصيل بطاقتك لإتمام الدفع. سيتم إعادة توجيهك إلى صفحة المصادقة الخاصة ببنكك.",
+  "Bill Payment": "دفع الفاتورة",
+  "Payment Pending": "الدفع قيد الانتظار",
+  "Scan QR": "امسح رمز الاستجابة السريعة",
+  "OR": "أو",
+  "Manually paste this bill number": "قم بلصق رقم الفاتورة هذا يدويًا",
+  "Open your Floos App": "افتح تطبيق فلوس",
+  "Scan this QR on your Floos App and proceed with the payment or simply open the Floos app with the button and proceed with paying.": "امسح هذا الرمز في تطبيق فلوس الخاص بك وأكمل عملية الدفع أو ببساطة افتح تطبيق فلوس عبر الزر وأكمل عملية الدفع.",
+  "You have 20 minutes to proceed with this payment before this bill is cancelled.": "لديك 20 دقيقة لإتمام عملية الدفع قبل إلغاء هذه الفاتورة."
+
+
+
 }

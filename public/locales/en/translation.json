@@ -67,5 +67,22 @@
   "Order Details": "Order Details",
   "Recreate Order": "Recreate Order",
   "Floos Login": "Floos Login",
-  "Login": "Login"
+  "Login": "Login",
+  "Lets Make Payment": "Let’s Make Payment",
+  "Cancel": "Cancel",
+  "Discounts & Offers": "Discounts & Offers",
+  "Size": "Size",
+  "Color": "Color",
+  "Tax": "Tax",
+  "Order Number": "Order Number",
+  "Subscription Payment Info": "To start your subscription, input your card details to make payment. You will be redirected to your bank's authorization page.",
+  "Bill Payment": "Bill Payment",
+  "Payment Pending": "Payment Pending",
+  "Scan QR": "Scan QR",
+  "OR": "OR",
+  "Manually paste this bill number": "Manually paste this bill number",
+  "Open your Floos App": "Open your Floos App",
+  "Scan this QR on your Floos App and proceed with the payment or simply open the Floos app with the button and proceed with paying.": "Scan this QR on your Floos App and proceed with the payment or simply open the Floos app with the button and proceed with paying.",
+  "You have 20 minutes to proceed with this payment before this bill is cancelled.": "You have 20 minutes to proceed with this payment before this bill is cancelled."
+
 }

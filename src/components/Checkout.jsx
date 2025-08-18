@@ -48,12 +48,9 @@ const CheckOut = () => {
           radial-gradient(circle at center right, #CCFCC4 25%, transparent 60%),
           radial-gradient(circle at bottom right, #FFFFFF 90%, transparent 100%),
           radial-gradient(circle at top center, #FFFFFF 30%, transparent 60%),
-          linear-gradient(to bottom, #FFFFFF 0%, transparent 60%)
-
-      
-    `,
+          linear-gradient(to bottom, #FFFFFF 0%, transparent 60%)`,
           backgroundBlendMode: "normal",
-        }}>
+          }}>
         <div className="flex justify-center items-center">
           <h2 className="font-semibold text-lg text-[#020500]">
             {t("Order Details")}
