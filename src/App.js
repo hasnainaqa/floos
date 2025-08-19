@@ -81,7 +81,7 @@ export default function App() {
         </Route>
 
         <Route element={<CheckoutNavbarLayout />}>
-          <Route path="/checkout" element={<TransactionFailed />} />
+          <Route path="/checkout/:invoiceId" element={<TransactionFailed />} />
           <Route path="/login" element={<Login />} />
           <Route path="/makepayment" element={<MakePayment />} />
           <Route path="/billpayment" element={<BillPayment />} />
