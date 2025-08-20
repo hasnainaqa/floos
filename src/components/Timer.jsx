@@ -18,9 +18,12 @@ const Timer = () => {
   const seconds = timeLeft % 60;
 
   return (
-    <h2 className="font-medium text-xs sm:text-xl md:text-2xl text-[#575757] text-center">
-      Pending - Expires in {minutes}:{seconds.toString().padStart(2, "0")}
-    </h2>
+    <div className=" text-[#575757] text-center gap-2">
+      <h2 className="font-medium text-xs sm:text-xl md:text-2xl ">Pending - Expires in</h2>
+      <span className="font-medium text-sm sm:text-2xl md:text-3xl">
+       {minutes}:{seconds.toString().padStart(2, "0")}
+      </span>
+    </div>
   );
 };
 

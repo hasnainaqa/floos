@@ -15,7 +15,7 @@ import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
 import MakePayment from "./pages/MakePayment";
 import BillPayment from "./pages/BillPayment";
-import CheckoutPage from "./pages/Checkout";
+import CheckoutPage from "./pages/CheckoutPage";
 import Login from "./pages/Login";
 import PayrollAccountEntry from "./pages/PayrollAccountEntry";
 import ProtectedRoute from "./components/ProtectedRoute";

@@ -32,7 +32,7 @@ export const CheckOut = ({ order, status, loading, error }) => {
       </h2>
 
       <div className="flex items-center justify-center flex-col w-full lg:w-1/2 border border-[#F9FAFA] shadow shadow-[#F9FAFA] p-4 rounded-3xl mx-auto">
-        <GenerateQr qrValue={qrvalue} width={220} height={220} />
+        <GenerateQr qrValue={qrvalue} width={260} height={260} />
         <h2 className="my-6 font-bold text-lg sm:text-xl text-[#020500] text-center">
           {t("Scan to Pay")}
         </h2>
