@@ -15,7 +15,7 @@ import CreateTransaction from "./pages/CreateTransaction";
 import PayrollUsers from "./components/Payroll/PayrollUsers";
 import MakePayment from "./pages/MakePayment";
 import BillPayment from "./pages/BillPayment";
-import TransactionFailed from "./pages/Checkout";
+import CheckoutPage from "./pages/Checkout";
 import Login from "./pages/Login";
 import PayrollAccountEntry from "./pages/PayrollAccountEntry";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -81,7 +81,7 @@ export default function App() {
         </Route>
 
         <Route element={<CheckoutNavbarLayout />}>
-          <Route path="/checkout/:invoiceId" element={<TransactionFailed />} />
+          <Route path="/checkout/:invoiceId" element={<CheckoutPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/makepayment" element={<MakePayment />} />
           <Route path="/billpayment" element={<BillPayment />} />
