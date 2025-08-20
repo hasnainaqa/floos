@@ -5,26 +5,29 @@ import { useTranslation } from "react-i18next";
 import { BadgeIcon } from "lucide-react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import moment from "moment";
 
 export const CheckOut = () => {
   const { t } = useTranslation();
   const { invoiceId } = useParams(); 
   const [order, setOrder] = useState(null);
+  const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3NzFhOGY5LTg5YWEtNDMyYi1iNDgzLTFhMGY1ZmIwNDgyZiIsImlhdCI6MTc1NTEwMjc4NiwiZXhwIjoxNzU1NzA3NTg2fQ.7iUWyH7-4tR3PboyNmUEhbx8i5yNDP66xmJfxcjdE2I";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
 
     axios
-      .get(`http://213.232.203.198:3000/invoices/${invoiceId}`, {
+      .get(`http://213.232.203.198:3000/invoices/public/${invoiceId}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          token: `${token}`,
         },
       })
       .then((res) => {
-        setOrder(res.data.data?.[0] || null); // ✅ pick first invoice
+        setOrder(res.data || null); // ✅ pick first invoice
+        setStatus(res.data.status || null); // ✅ pick first invoice
         setLoading(false);
       })
       .catch((err) => {
@@ -36,9 +39,15 @@ export const CheckOut = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="text-red-500">{JSON.stringify(error)}</p>;
   if (!order) return <p>No order found</p>;
+  if (status === "Paid") return <p>No order found</p>;
 
   const totalAmount = order.amount || 0;
-  const user = order.transaction?.fromUserDeposit?.user || {};
+  const user = order.merchant || {};
+  const qrvalue = JSON.stringify({
+    email: user.email,
+    phone: user.phone
+  });
+  
 
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-[45px] p-4 sm:p-9 justify-between font-inter">
@@ -50,7 +59,7 @@ export const CheckOut = () => {
 
         <div className="flex items-center justify-center flex-col lg:w-1/2 border border-[#F9FAFA] shadow shadow-[#F9FAFA] p-4 rounded-3xl mx-auto">
           <GenerateQr
-            qrValue={`https://example.com/pay/${order.id}`}
+            qrValue={qrvalue}
             width={265}
             height={265}
           />
@@ -62,7 +71,7 @@ export const CheckOut = () => {
             <input
               type="text"
               placeholder="Or Enter bill number"
-              value={order.id}
+              // value={order.id}
               readOnly
               className="p-2 w-full bg-transparent outline-none placeholder:text-black "
             />
@@ -101,7 +110,7 @@ export const CheckOut = () => {
               </div>
 
               <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mt-4">
-                {totalAmount} SYP
+                {order.amount} SYP
               </h1>
               <div className="flex flex-col mt-4 text-xl gap-4 p-6 ">
                 <span className="flex justify-start text-[#020500] ">
@@ -134,7 +143,7 @@ export const CheckOut = () => {
               </div>
               <div className="flex flex-row items-center justify-between mt-4">
                 <span className="flex justify-start text-[#575757]">Date</span>
-                <p className="text-[#020500]">{order.createdAt}</p>
+                <p className="text-[#020500]">{moment(order.createdAt).format('LL')}</p>
               </div>
             </div>
 
@@ -142,7 +151,7 @@ export const CheckOut = () => {
             <div className="mt-6 flex gap-3">
               <div>
                 <img
-                  src={`https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`}
+                  src={user.img || `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`}
                   alt={`${user.firstName} ${user.lastName}`}
                   className="h-10 w-10 rounded-full"
                 />
