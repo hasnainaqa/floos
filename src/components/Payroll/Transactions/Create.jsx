@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useForm, useFieldArray } from "react-hook-form";
 import { Plus, Minus } from "lucide-react";
@@ -12,8 +12,7 @@ function Create() {
   const selectedEmployees = location.state?.selectedEmployees || [];
   const selectedDate = location.state?.date || [];
 
-  const [transactionData, setTransactionData] = useState(null);
-
+  // const [transactionData, setTransactionData] = useState(null);
   const users = Array.isArray(selectedEmployees)
     ? selectedEmployees.map((u) => ({
         id: u.id,
@@ -62,7 +61,7 @@ function Create() {
           }))
         : data.users;
 
-    setTransactionData({ ...data, users: updatedUsers });
+    // setTransactionData({ ...data, users: updatedUsers });
     alert(
       `Transaction Created:\nTemplate: ${data.templateName}\n
       Users:\n${updatedUsers
@@ -223,6 +222,7 @@ function Create() {
             >
             {t("Create Transaction")}
           </button>
+          
         </div>
       </form>
     </div>
