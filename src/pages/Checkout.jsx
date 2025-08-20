@@ -15,7 +15,7 @@ const CheckoutPage = () => {
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
 
     axios
-      .get(`http://213.232.203.198:3000/invoices/public/${invoiceId}`, {
+      .get(`/invoices/public/${invoiceId}`, {
         headers: { token },
       })
       .then((res) => {
