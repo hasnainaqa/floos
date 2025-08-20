@@ -6,6 +6,7 @@ import { BadgeIcon } from "lucide-react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
+import Timer from "./Timer";
 
 export const CheckOut = () => {
   const { t } = useTranslation();
@@ -44,8 +45,11 @@ export const CheckOut = () => {
   const totalAmount = order.amount || 0;
   const user = order.merchant || {};
   const qrvalue = JSON.stringify({
-    email: user.email,
-    phone: user.phone
+    phone: user.phone,
+    // currency:order.currency,
+    amount: totalAmount,
+    description: order.description,
+    invoiceId: order.id,
   });
   
 
@@ -104,9 +108,8 @@ export const CheckOut = () => {
             >
               <div className="flex items-center gap-4">
                 <span className="h-3 w-3 bg-[#2EED0D] rounded-full"></span>
-                <h2 className="font-medium text-xs sm:text-xl md:text-2xl text-[#575757] text-center">
-                  {order.status} - Expires in 19:59
-                </h2>
+                <Timer />
+
               </div>
 
               <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mt-4">
