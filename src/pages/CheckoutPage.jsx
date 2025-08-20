@@ -9,13 +9,14 @@ const CheckoutPage = () => {
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const BASE_URL = "http://213.232.203.198:3000"; // e.g., http://213.232.203.198:3000
 
   useEffect(() => {
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
 
     axios
-      .get(`/invoices/public/${invoiceId}`, {
+      .get(`${BASE_URL}/invoices/public/${invoiceId}`, {
         headers: { token },
       })
       .then((res) => {
