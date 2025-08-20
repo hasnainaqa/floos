@@ -3,6 +3,7 @@
   command = "npm install --legacy-peer-deps && npm run build"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "http://213.232.203.198:3000/:splat"
   status = 200
+  force = true
