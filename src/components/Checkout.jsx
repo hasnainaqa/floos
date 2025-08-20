@@ -10,7 +10,7 @@ import Timer from "./Timer";
 
 export const CheckOut = () => {
   const { t } = useTranslation();
-  const { invoiceId } = useParams(); 
+  const { invoiceId } = useParams();
   const [order, setOrder] = useState(null);
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ export const CheckOut = () => {
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
 
     axios
-      .get(`http://213.232.203.198:3000/invoices/public/${invoiceId}`, {
+      .get(`/invoices/public/${invoiceId}`, {
         headers: {
           token: `${token}`,
         },
@@ -51,7 +51,6 @@ export const CheckOut = () => {
     description: order.description,
     invoiceId: order.id,
   });
-  
 
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-[45px] p-4 sm:p-9 justify-between font-inter">
@@ -62,11 +61,7 @@ export const CheckOut = () => {
         </h2>
 
         <div className="flex items-center justify-center flex-col lg:w-1/2 border border-[#F9FAFA] shadow shadow-[#F9FAFA] p-4 rounded-3xl mx-auto">
-          <GenerateQr
-            qrValue={qrvalue}
-            width={265}
-            height={265}
-          />
+          <GenerateQr qrValue={qrvalue} width={265} height={265} />
           <h2 className=" my-6 font-bold text-xl text-[#020500]">
             {t("Scan to Pay")}
           </h2>
@@ -104,12 +99,10 @@ export const CheckOut = () => {
               className="flex flex-col justify-top items-center w-full backdrop-blur-sm pt-12"
               style={{
                 background: `radial-gradient(circle at center, #B4FFBC 10%, transparent 70%)`,
-              }}
-            >
+              }}>
               <div className="flex items-center gap-4">
                 <span className="h-3 w-3 bg-[#2EED0D] rounded-full"></span>
                 <Timer />
-
               </div>
 
               <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mt-4">
@@ -146,7 +139,9 @@ export const CheckOut = () => {
               </div>
               <div className="flex flex-row items-center justify-between mt-4">
                 <span className="flex justify-start text-[#575757]">Date</span>
-                <p className="text-[#020500]">{moment(order.createdAt).format('LL')}</p>
+                <p className="text-[#020500]">
+                  {moment(order.createdAt).format("LL")}
+                </p>
               </div>
             </div>
 
@@ -154,7 +149,10 @@ export const CheckOut = () => {
             <div className="mt-6 flex gap-3">
               <div>
                 <img
-                  src={user.img || `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`}
+                  src={
+                    user.img ||
+                    `https://ui-avatars.com/api/?name=${user.firstName}+${user.lastName}`
+                  }
                   alt={`${user.firstName} ${user.lastName}`}
                   className="h-10 w-10 rounded-full"
                 />
