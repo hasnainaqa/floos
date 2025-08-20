@@ -9,16 +9,13 @@ const CheckoutPage = () => {
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000"      // local backend
-    : "/api"; 
+
   useEffect(() => {
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
 
     axios
-      .get(`${BASE_URL}/invoices/public/${invoiceId}`, {
+      .get(`/api/invoices/public/${invoiceId}`, {
         headers: { token },
       })
       .then((res) => {
@@ -30,7 +27,7 @@ const CheckoutPage = () => {
         setError(err.response?.data || "Error fetching invoice");
         setLoading(false);
       });
-  }, [invoiceId, BASE_URL ]);
+  }, [invoiceId]);
 
   return (
     <div className="rounded-[48px] sm:p-6 bg-white">
