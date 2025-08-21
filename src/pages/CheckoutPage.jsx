@@ -13,9 +13,11 @@ const CheckoutPage = () => {
   useEffect(() => {
     const token =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
+      console.log("Base URL", process.env.REACT_APP_BASE_URL);
 
     axios
-      .get(`/api/invoices/public/${invoiceId}`, {
+      .get(`${process.env.REACT_APP_BASE_URL}/invoices/public/${invoiceId}`, {
+        
         headers: { token },
       })
       .then((res) => {
