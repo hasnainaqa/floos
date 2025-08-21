@@ -1,84 +1,73 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser,  isUserLoggedIn } from "../utils/auth";
-import { useTranslation } from "react-i18next";
+import { loginUser, isUserLoggedIn } from "../utils/auth";
+import { login } from "../api/auth";
+import PhoneInputComponent from "../components/ui/PhoneInputComponent";
+import { encryptRSA } from "../utils/encryption";
 
 const Login = () => {
-  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-
-  const [loading, setLoading] = useState(true); // For loader
-  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     if (isUserLoggedIn()) {
       navigate("/");
     } else {
-      setLoading(false); 
+      setLoading(false);
     }
   }, [navigate]);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    // setLoading(true);
+    setError("");
 
-    if (email === "admin@floos" && password === "admin") {
-      loginUser()
-      navigate("/");
-    } else {
-      setError("Invalid email or password");
+    try {
+      const res = await login(phone, password);
+      const token = res.data?.access_token;
+      if (token) {
+        loginUser(token);
+        navigate("/");
+      } else {
+        setError("Invalid response from server");
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-[75vh] bg-gray-100">
-        <p className="text-lg font-medium">{t("Checking session...")}</p>
-      </div>
-    );
-  }
-
   return (
     <div className="flex items-center justify-center h-[75vh] bg-gray-100">
-      <title>Floos Login</title>
-
       <form
         onSubmit={handleLogin}
-        className="bg-white p-8 shadow-md w-full max-w-sm rounded-2xl"
-      >
-        <h2
-          className={`px-7 py-3 text-base rounded-full bg-[#020500] text-white flex justify-center mb-8 
-            ${i18n.dir() === "ltr" ? "sm:w-1/2" : "w-full"}`}
-        >
-          {t("Floos Login")}
+        className="bg-white p-8 shadow-md w-full max-w-sm rounded-2xl">
+        <h2 className="px-7 py-3 text-base rounded-full bg-[#020500] text-white flex justify-center mb-8">
+          Floos Login
         </h2>
 
         {error && <p className="text-red-500 mb-4">{error}</p>}
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 mb-4 border rounded text-sm text-[#020500] outline-none placeholder:text-[#020500]"
-        />
+        <PhoneInputComponent onChange={(val) => setPhone(val)} />
+
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 mb-6 border rounded text-sm text-[#020500] outline-none placeholder:text-[#020500]"
+          className="w-full p-3 py-4 my-4 rounded-3xl text-sm text-[#020500] bg-[#F1F4F1] outline-none placeholder:text-[#020500]"
         />
-<div className="normalheight">
 
         <button
           type="submit"
-          className="w-full transition bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] mt-7"
-          >
-          {t("Login")}
+          disabled={loading}
+          className="w-full transition bg-[#54F439] text-black px-6 py-3 rounded-full hover:bg-[#52ff34] mt-7 disabled:opacity-50">
+          {loading ? "Logging in..." : "Login"}
         </button>
-          </div>
       </form>
     </div>
   );

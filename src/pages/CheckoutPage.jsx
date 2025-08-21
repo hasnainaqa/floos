@@ -11,10 +11,7 @@ const CheckoutPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
-      console.log("Base URL", process.env.REACT_APP_BASE_URL);
-
+    const token = process.env.REACT_APP_CHECKOUT_TOKEN
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/invoices/public/${invoiceId}`, {
         

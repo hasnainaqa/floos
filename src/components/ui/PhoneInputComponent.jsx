@@ -55,7 +55,9 @@ export default function PhoneInputComponent({ onChange }) {
             fontSize: "15px",
           }}
         />
-        <span className=" text-base font-medium">+{dialCode}</span>
+        <span className="bg-[#F1F4F1] hover:bg-[#F1F4F1] text-base font-medium">
+          +{dialCode}
+        </span>
       </div>
 
       <input

@@ -16,9 +16,13 @@ body {
 }
 
 code {
-  font-family:
-    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 .normalheight * {
   line-height: normal !important;
+}
+
+.selected-flag:hover {
+  background-color: transparent !important;
 }
